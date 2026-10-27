@@ -66,7 +66,7 @@ export default function App() {
   return (
     <div className="min-h-svh">
       <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-archive transition-[opacity,visibility] duration-500 ${loading ? '' : 'invisible opacity-0'}`}>
-        <h2 className="fadeup text-[clamp(25px,3vw,40px)] text-[#231f20]">caricamento dell'archivio</h2>
+        <h2 className="fadeup px-6 text-center text-[clamp(25px,3vw,40px)] text-[#231f20]">caricamento dell'archivio</h2>
       </div>
 
       <Nav section={section} go={go} dark={dark} toggleDark={() => setDark((d) => !d)} />
@@ -116,15 +116,17 @@ function Nav({ section, go, dark, toggleDark }: { section: string; go: (r: Route
   }, [section])
 
   return (
-    <nav className="fixed inset-x-0 top-[calc(0.75rem+env(safe-area-inset-top))] z-50 mx-auto flex w-fit max-w-[calc(100%-1.5rem)] items-center gap-3 whitespace-nowrap rounded-[8px] border border-g100 bg-surface/90 backdrop-blur-[10px] px-4 py-3 sm:top-[calc(1rem+env(safe-area-inset-top))] sm:gap-4 sm:px-6 sm:py-3.5 shadow-none">
+    <nav className="fixed inset-x-0 top-[calc(0.75rem+env(safe-area-inset-top))] z-50 mx-auto flex w-fit max-w-[calc(100%-1.5rem)] items-center gap-2.5 whitespace-nowrap rounded-[8px] border border-g100 bg-surface/90 backdrop-blur-[10px] px-3.5 py-3 sm:top-[calc(1rem+env(safe-area-inset-top))] sm:gap-4 sm:px-6 sm:py-3.5 shadow-none">
       {items.map(([k, label]) => (
         <button
           key={k}
           ref={(el) => { refs.current[k] = el }}
           onClick={() => go({ page: k })}
-          className={`text-[15px] sm:text-[clamp(16px,1.2vw,18px)] transition-colors duration-300 ease-out-soft ${section === k || k === 'home' ? 'text-ink' : 'text-g300 hover:text-ink'}`}
+          aria-label={k === 'home' ? label : undefined}
+          className={`text-[12px] min-[400px]:text-[13px] sm:text-[clamp(16px,1.2vw,18px)] transition-colors duration-300 ease-out-soft ${section === k || k === 'home' ? 'text-ink' : 'text-g300 hover:text-ink'}`}
         >
-          {label}
+          {/* Il Mono è largo: sui telefoni più stretti il marchio si abbrevia */}
+          {k === 'home' ? (<><span className="min-[375px]:hidden">dte</span><span className="hidden min-[375px]:inline">{label}</span></>) : label}
         </button>
       ))}
       <span
@@ -158,7 +160,7 @@ function Home({ go }: { go: (r: Route) => void }) {
   }, [])
   return (
     <section className="px-6 pt-[calc(9rem+env(safe-area-inset-top))] md:px-10">
-      <h1 className="text-[clamp(64px,10vw,300px)] leading-[0.9] tracking-normal">
+      <h1 className="text-[min(64px,calc((100vw-3rem)/5))] leading-[0.9] tracking-normal sm:text-[clamp(64px,10vw,300px)]">
         designed<br />to end
       </h1>
       <div className="mt-16 grid gap-10 md:grid-cols-4">
@@ -270,7 +272,7 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
       >
         <div className="flex rounded-[6px] bg-g50 p-0.5">
           {(['mosaico', 'indice'] as const).map((v) => (
-            <button key={v} onClick={() => setView(v)} className={`rounded-[4px] px-2.5 py-2 text-[14px] transition-colors sm:px-3.5 ${view === v ? 'bg-archive text-[#231f20]' : 'text-g300 hover:text-ink'}`}>
+            <button key={v} onClick={() => setView(v)} className={`rounded-[4px] px-2 py-2 text-[12px] transition-colors min-[400px]:px-2.5 min-[400px]:text-[14px] sm:px-3.5 ${view === v ? 'bg-archive text-[#231f20]' : 'text-g300 hover:text-ink'}`}>
               {v}
             </button>
           ))}
@@ -279,7 +281,7 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
           <Search size={14} className="text-g200" />
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="cerca" className="w-full min-w-0 bg-transparent text-[16px] outline-none placeholder:text-g200 sm:w-44 sm:text-[14px]" />
         </label>
-        <button onClick={() => setPanel(true)} className="flex shrink-0 items-center gap-2 rounded-[6px] px-3 py-2 text-[14px] text-g300 hover:bg-g50 hover:text-ink sm:px-3.5">
+        <button onClick={() => setPanel(true)} className="flex shrink-0 items-center gap-2 rounded-[6px] px-2 py-2 text-[12px] text-g300 min-[400px]:px-3 min-[400px]:text-[14px] hover:bg-g50 hover:text-ink sm:px-3.5">
           filtri
           {active > 0 && <span className="flex h-4 min-w-4 items-center justify-center rounded-[3px] bg-archive px-1 text-[10px] text-[#231f20]">{active}</span>}
         </button>
@@ -347,12 +349,12 @@ function IndiceRows({ list, go }: { list: Format[]; go: (r: Route) => void }) {
         <button
           key={f.id}
           onClick={() => go({ page: 'formato', id: f.id })}
-          className="group grid w-full grid-cols-[72px_1fr_auto] items-center gap-6 border-b border-g50 py-3 text-left md:grid-cols-[88px_1fr_1fr_1fr_1fr_100px]"
+          className="group grid w-full grid-cols-[72px_minmax(0,1fr)_auto] items-center gap-4 border-b md:gap-6 border-g50 py-3 text-left md:grid-cols-[88px_1fr_1fr_1fr_1fr_100px]"
         >
           <div className="reveal flex aspect-[4/3] items-center justify-center bg-g50 transition-colors group-hover:bg-archive" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
             <span className="font-serif text-[9px] italic tracking-normal text-g200">logo</span>
           </div>
-          <div className="flex items-baseline gap-3">
+          <div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">
             <span className="text-[clamp(18px,1.6vw,24px)] transition-transform duration-300 ease-out-soft group-hover:translate-x-1.5">{f.name.toLowerCase()}</span>
             {f.caseStudy && <span className="font-serif text-[12px] italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">caso studio</span>}
           </div>
@@ -730,11 +732,11 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
             </a>
           ))}
         </nav>
-        <div className="md:col-span-3">
+        <div className="min-w-0 md:col-span-3">
           {sections.map(({ t, body }) => (
             <section key={t} id={t} className="grid scroll-mt-28 gap-6 border-t border-g100 py-10 md:grid-cols-3">
               <h2 className="text-[clamp(25px,3vw,40px)] leading-none">{t}</h2>
-              <div className="space-y-5 font-serif text-[15px] leading-[1.65] tracking-normal text-g300 md:col-span-2">{body}</div>
+              <div className="min-w-0 space-y-5 font-serif text-[15px] leading-[1.65] tracking-normal text-g300 [overflow-wrap:anywhere] md:col-span-2">{body}</div>
             </section>
           ))}
           <button onClick={() => go({ page: 'archivio' })} className="mt-6 rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-archive hover:text-[#231f20]">
