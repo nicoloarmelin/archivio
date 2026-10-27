@@ -16,8 +16,11 @@ type Filters = { ambito: string; ricorrenza: string; dimensione: string; variabi
 const EMPTY: Filters = { ambito: '', ricorrenza: '', dimensione: '', variabilita: '', caseStudy: false }
 
 const Meta = ({ children, className = '' }: { children: ReactNode; className?: string }) => (
-  <div className={`text-[11px] tracking-[0.03em] text-g200 ${className}`}>{children}</div>
+  <div className={`font-sans text-[11px] uppercase tracking-[0.03em] text-g200 ${className}`}>{children}</div>
 )
+
+// Testi in serif in tondo con l'iniziale maiuscola; i nomi propri scritti in minuscolo restano tali
+const cap = (s: string) => (!s || /^documenta/.test(s) ? s : s[0].toUpperCase() + s.slice(1))
 
 const Tile = ({ text, className = '', onClick, delay = 0 }: { text: string; className?: string; onClick?: () => void; delay?: number }) => (
   <button
@@ -25,7 +28,7 @@ const Tile = ({ text, className = '', onClick, delay = 0 }: { text: string; clas
     className={`reveal group relative flex items-center justify-center bg-g50 ${className}`}
     style={{ animationDelay: `${delay}s` }}
   >
-    <span className="px-3 text-center font-serif text-[12px] italic tracking-normal text-g200 transition-colors group-hover:text-ink">{text}</span>
+    <span className="px-3 text-center font-serif text-[12px] italic tracking-normal text-g200 transition-colors group-hover:text-ink">{cap(text)}</span>
     <span className="pointer-events-none absolute inset-0 opacity-0 ring-2 ring-archive transition-opacity group-hover:opacity-100" />
   </button>
 )
@@ -165,12 +168,12 @@ function Home({ go }: { go: (r: Route) => void }) {
       </h1>
       <div className="mt-16 grid gap-10 md:grid-cols-4">
         <p className="font-serif text-[clamp(25px,3vw,40px)] leading-[1.15] md:col-span-2">
-          un archivio delle identità visive dei formati di eventi e delle loro edizioni.{' '}
-          <span className="text-g200">cosa resta e cosa cambia, attraverso immagini e analisi.</span>
+          Un archivio delle identità visive dei formati di eventi e delle loro edizioni.{' '}
+          <span className="text-g200">Cosa resta e cosa cambia, attraverso immagini e analisi.</span>
         </p>
         <div className="flex flex-col items-start gap-3 md:col-start-4 md:items-end">
           <button onClick={() => go({ page: 'archivio' })} className="rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper transition-colors hover:bg-archive hover:text-[#231f20]">
-            entra nell'archivio
+            Entra nell'archivio
           </button>
           <button onClick={() => go({ page: 'ricerca' })} className="rounded-[6px] bg-g50 px-[22px] py-[14px] text-[14px] transition-colors hover:bg-g100">
             la ricerca
@@ -186,7 +189,7 @@ function Home({ go }: { go: (r: Route) => void }) {
                 <Tile text={f.name} delay={0.4 + (i % 14) * 0.04} className="aspect-[4/3] w-full" onClick={() => go({ page: 'formato', id: f.id })} />
                 <div className="mt-1.5 flex justify-between gap-2 text-[12px] text-g200">
                   <span className="truncate">{f.name.toLowerCase()}</span>
-                  {f.caseStudy && <span className="shrink-0 font-serif italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">caso studio</span>}
+                  {f.caseStudy && <span className="shrink-0 font-serif italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">Caso studio</span>}
                 </div>
               </div>
             ))}
@@ -325,7 +328,7 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
           <div className="flex gap-2 pt-6">
             <button onClick={() => setFilters(EMPTY)} className="flex-1 rounded-[6px] bg-g50 py-[14px] text-[14px] hover:bg-g100">azzera</button>
             <button onClick={() => setPanel(false)} className="flex-1 rounded-[6px] bg-ink py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-archive hover:text-[#231f20]">
-              mostra {list.length} formati
+              Mostra {list.length} formati
             </button>
           </div>
         </aside>
@@ -352,11 +355,11 @@ function IndiceRows({ list, go }: { list: Format[]; go: (r: Route) => void }) {
           className="group grid w-full grid-cols-[72px_minmax(0,1fr)_auto] items-center gap-4 border-b md:gap-6 border-g50 py-3 text-left md:grid-cols-[88px_1fr_1fr_1fr_1fr_100px]"
         >
           <div className="reveal flex aspect-[4/3] items-center justify-center bg-g50 transition-colors group-hover:bg-archive" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
-            <span className="font-serif text-[9px] italic tracking-normal text-g200">logo</span>
+            <span className="font-serif text-[9px] italic tracking-normal text-g200">Logo</span>
           </div>
           <div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">
             <span className="text-[clamp(18px,1.6vw,24px)] transition-transform duration-300 ease-out-soft group-hover:translate-x-1.5">{f.name.toLowerCase()}</span>
-            {f.caseStudy && <span className="font-serif text-[12px] italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">caso studio</span>}
+            {f.caseStudy && <span className="font-serif text-[12px] italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">Caso studio</span>}
           </div>
           <span className="hidden text-g300 md:block">{f.ambito.toLowerCase()}</span>
           <span className="hidden text-g300 md:block">{f.ricorrenza.toLowerCase()}</span>
@@ -377,7 +380,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
   const info: [string, string][] = [
     ['ambito', f.ambito], ['titolare', f.titolare], ['produttore', f.produttore], ['ricorrenza', f.ricorrenzaNota || f.ricorrenza],
     ['prima edizione', f.primaEdizione ? String(f.primaEdizione) : '—'], ['edizioni svolte', f.edizioniSvolte ? String(f.edizioniSvolte) : '—'], ['arco temporale', f.arco || '—'], ['dimensione', f.dimensione], ['sede', f.sede], ['durata', f.durata],
-    ['segni permanenti', f.segniPermanenti], ['variabilità', f.variabilita + (f.periodoVariabilita ? ` (${f.periodoVariabilita})` : '')], ['edizioni confrontate', f.edizioniConfrontate || '—'],
+    ['segni permanenti', f.segniPermanenti], ['variabilità', f.variabilita + (f.periodoVariabilita ? ` (${f.periodoVariabilita.replace(/^([A-Z])(?=[a-zà-ù])/, (m) => m.toLowerCase())})` : '')], ['edizioni confrontate', f.edizioniConfrontate || '—'],
   ]
   // Galleria solo per i formati senza caso studio (i casi studio usano timeline dei loghi e approfondimenti)
   const gallery = f.editions
@@ -403,7 +406,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
         {info.map(([k, v]) => (
           <div key={k} className="border-b border-g50 py-3">
             <Meta>{k}</Meta>
-            <dd className="mt-1 font-serif leading-snug">{v.toLowerCase()}</dd>
+            <dd className="mt-1 font-serif leading-snug">{cap(v)}</dd>
           </div>
         ))}
       </dl>
@@ -450,7 +453,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
                     className={`reveal flex h-[88px] w-[88px] items-center justify-center rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'bg-archive text-[#231f20]' : 'bg-g50 text-g200'}`}
                     style={{ animationDelay: `${i * 0.06}s` }}
                   >
-                    logo
+                    Logo
                   </span>
                   <span className="tabular-nums">{e.year}</span>
                   {e.city && <span className="-mt-2 max-w-[88px] text-center md:max-w-[120px] text-[12px] leading-tight text-g200">{e.city.toLowerCase()}</span>}
@@ -470,7 +473,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
                   {e.label.toLowerCase()}
                 </span>
                 <span className="flex items-center gap-2 font-serif text-[13px] italic tracking-normal text-g200 group-hover:text-ink">
-                  scheda dell'edizione <ArrowUpRight size={16} />
+                  Scheda dell'edizione <ArrowUpRight size={16} />
                 </span>
               </button>
             ))}
@@ -505,7 +508,7 @@ function Serie({ t }: { t: TesiFormato }) {
               cells={r.map((c, j) => (
                 <>
                   <span className="tabular-nums">{c.toLowerCase()}</span>
-                  {j === 0 && t.casi[c] && <span className="ml-2 font-serif text-[12px] italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">caso studio</span>}
+                  {j === 0 && t.casi[c] && <span className="ml-2 font-serif text-[12px] italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">Caso studio</span>}
                 </>
               ))}
               className={`border-b border-g50 py-2.5 ${t.casi[r[0]] ? 'text-ink' : 'text-g300'}`}
@@ -580,9 +583,9 @@ function Edizione({ f, e, go, open }: { f: Format; e: Edition; go: (r: Route) =>
 
       <section className="mt-32 border-t border-g100">
         {[
-          { label: `← ${f.name.toLowerCase()}`, hint: 'torna alla scheda del formato', on: () => go({ page: 'formato', id: f.id }) },
-          ...others.map((o) => ({ label: o.label.toLowerCase(), hint: 'altra edizione approfondita', on: () => go({ page: 'edizione', id: f.id, ed: o.id }) })),
-          { label: 'archivio', hint: 'scegli un altro formato', on: () => go({ page: 'archivio' }) },
+          { label: `← ${f.name.toLowerCase()}`, hint: 'Torna alla scheda del formato', on: () => go({ page: 'formato', id: f.id }) },
+          ...others.map((o) => ({ label: o.label.toLowerCase(), hint: 'Altra edizione approfondita', on: () => go({ page: 'edizione', id: f.id, ed: o.id }) })),
+          { label: 'archivio', hint: 'Scegli un altro formato', on: () => go({ page: 'archivio' }) },
         ].map((r) => (
           <button key={r.label} onClick={r.on} className="group flex w-full items-center justify-between border-b border-g100 py-5 text-left">
             <span className="text-[clamp(28px,3.4vw,56px)] leading-none tracking-normal transition-transform duration-300 ease-out-soft group-hover:translate-x-3">{r.label}</span>
@@ -659,17 +662,33 @@ function Ciclo({ c }: { c: Caso }) {
 function Ricerca({ go }: { go: (r: Route) => void }) {
   const r = ricerca
   const glossario: [string, string][] = [
-    ['formato', 'il contenitore ricorrente: nome, regole, titolare e, spesso, alcuni segni che attraversano le occorrenze.'],
-    ['edizione', "l'occorrenza a termine del formato, con una data di inizio e una di fine e un apparato visivo proprio."],
-    ['titolare', "il soggetto permanente che conserva il formato: concede il nome, stabilisce i vincoli e continua a operare dopo le singole edizioni."],
-    ['produttore', "chi realizza l'edizione, spesso un comitato o una struttura che si scioglie a manifestazione conclusa. lo studio grafico non lo sostituisce."],
-    ['segni permanenti', "gli elementi grafici che il formato trattiene da un'edizione all'altra; nome, sede o trofeo non bastano da soli."],
-    ['grado di variabilità', "il margine entro cui l'apparato di un'edizione può differire da quello della precedente. il grado esercitato si osserva confrontando gli artefatti; il grado concesso solo quando un documento del titolare lo attesta."],
-    ['ciclo di vita', 'le tre fasi di un\'identità di evento: presentazione e promozione, evento, fase post fino alla dismissione dei segni e alla loro eventuale persistenza.'],
+    ['formato', 'Il contenitore ricorrente: nome, regole, titolare e, spesso, alcuni segni che attraversano le occorrenze.'],
+    ['edizione', "L'occorrenza a termine del formato, con una data di inizio e una di fine e un apparato visivo proprio."],
+    ['titolare', "Il soggetto permanente che conserva il formato: concede il nome, stabilisce i vincoli e continua a operare dopo le singole edizioni."],
+    ['produttore', "Chi realizza l'edizione, spesso un comitato o una struttura che si scioglie a manifestazione conclusa. Lo studio grafico non lo sostituisce."],
+    ['segni permanenti', "Gli elementi grafici che il formato trattiene da un'edizione all'altra; nome, sede o trofeo non bastano da soli."],
+    ['grado di variabilità', "Il margine entro cui l'apparato di un'edizione può differire da quello della precedente. Il grado esercitato si osserva confrontando gli artefatti; il grado concesso solo quando un documento del titolare lo attesta."],
+    ['ciclo di vita', 'Le tre fasi di un\'identità di evento: presentazione e promozione, evento, fase post fino alla dismissione dei segni e alla loro eventuale persistenza.'],
   ]
   const sections: { t: string; body: ReactNode }[] = [
     { t: 'la tesi', body: r.abstract.map((p, i) => <p key={i} className={i === 0 ? 'text-ink' : ''}>{p}</p>) },
-    { t: 'domanda di ricerca', body: r.domanda.slice(0, 4).map((p, i) => <p key={i} className={i === 1 ? 'text-ink' : ''}>{p}</p>) },
+    {
+      t: 'domanda di ricerca',
+      body: r.domanda.slice(0, 4).map((p, i) => {
+        // La domanda evidenziata come nella tesi: Mono corsivo su fondo lilla, staccata dal testo che la introduce
+        const q = i === 1 ? p.match(/^(.*?ricerca:)\s*(.+?\?)\s*(.*)$/s) : null
+        if (!q) return <p key={i}>{p}</p>
+        return (
+          <div key={i} className="space-y-5 text-ink">
+            <p>{q[1]}</p>
+            <p className="font-sans text-[clamp(17px,1.4vw,20px)] italic leading-[1.7] tracking-normal">
+              <mark className="bg-archive px-1.5 py-0.5 text-[#231f20] [-webkit-box-decoration-break:clone] [box-decoration-break:clone]">{cap(q[2])}</mark>
+            </p>
+            {q[3] && <p>{q[3]}</p>}
+          </div>
+        )
+      }),
+    },
     { t: 'metodo', body: r.metodo.map((p, i) => <p key={i}>{p}</p>) },
     {
       t: 'glossario',
@@ -677,7 +696,7 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
         <dl className="border-t border-g100">
           {glossario.map(([k, v]) => (
             <div key={k} className="grid gap-2 border-b border-g50 py-3 md:grid-cols-[180px_1fr]">
-              <dt className="font-sans tracking-normal text-ink">{k}</dt>
+              <dt className="font-sans uppercase tracking-normal text-ink">{k}</dt>
               <dd>{v}</dd>
             </div>
           ))}
@@ -688,7 +707,7 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
       t: 'gradi di variabilità',
       body: r.gradi.map(([k, p]) => (
         <div key={k} className="border-t border-g100 pt-3">
-          <div className="font-sans text-[clamp(20px,1.8vw,26px)] tracking-normal text-ink">{k}</div>
+          <div className="font-sans text-[clamp(20px,1.8vw,26px)] uppercase tracking-normal text-ink">{k}</div>
           <p className="mt-2">{p}</p>
         </div>
       )),
@@ -709,7 +728,7 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
         <dl className="border-t border-g100">
           {[['tesi', r.crediti.titolo], ['autore', r.crediti.studente], ['relatore', r.crediti.relatore], ['istituzione', r.crediti.istituzione], ['anno accademico', r.crediti.anno]].map(([k, v]) => (
             <div key={k} className="grid gap-2 border-b border-g50 py-3 md:grid-cols-[180px_1fr]">
-              <dt className="font-sans tracking-normal text-ink">{k}</dt>
+              <dt className="font-sans uppercase tracking-normal text-ink">{k}</dt>
               <dd>{v}</dd>
             </div>
           ))}
@@ -740,7 +759,7 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
             </section>
           ))}
           <button onClick={() => go({ page: 'archivio' })} className="mt-6 rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-archive hover:text-[#231f20]">
-            vai all'archivio
+            Vai all'archivio
           </button>
         </div>
       </div>
@@ -758,7 +777,7 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
   return (
     <div className="fadeup fixed inset-0 z-[70] grid grid-rows-[minmax(0,1fr)_auto] gap-4 bg-paper p-3 pt-[calc(0.75rem+env(safe-area-inset-top))] pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:grid-cols-[1fr_320px] md:grid-rows-1 md:gap-6 md:p-10">
       <div className="reveal flex items-center justify-center bg-g50">
-        <span className="font-serif text-[14px] italic tracking-normal text-g200">immagine ingrandita</span>
+        <span className="font-serif text-[14px] italic tracking-normal text-g200">Immagine ingrandita</span>
       </div>
       <aside className="flex max-h-[45svh] flex-col md:max-h-none">
         <button onClick={close} className="order-first ml-auto rounded-[6px] bg-g50 px-3.5 py-2 text-[14px] hover:bg-g100">chiudi</button>
