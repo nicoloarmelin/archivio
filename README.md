@@ -25,7 +25,7 @@ Fonti principali: [foglio dell’archivio](https://docs.google.com/spreadsheets/
 
 ## Stile
 
-Il sito riprende il sistema grafico della tesi (impaginata in InDesign, formato 14 × 28 cm): fondo bianco, inchiostro `#231F20`, titoli ed etichette in Mono maiuscolo, testo in serif giustificato con rientro di prima riga, filetti sottili al posto dei pannelli. Il lilla `#CBB8E1` del capitolo 06, *L’archivio*, segna il bordo delle schede; il grigio `#DEDDDE` evidenzia la domanda di ricerca. L’introduzione riprende il frontespizio, l’indice la pagina INDICE, la serie delle edizioni la tavola “Tutte le edizioni” e il ciclo di vita le colonne PRE / EVENTO / POST. Arancio `#F14E22` e verde `#BDE8D1`, gli altri colori dei capitoli, sono già definiti come variabili.
+L’impaginazione resta quella del sito; colori, caratteri e filetti riprendono la tesi (impaginata in InDesign, formato 14 × 28 cm): fondo bianco, inchiostro `#231F20`, Mono maiuscolo per titoli ed etichette, serif per i testi, bordi sottili e angoli vivi al posto del vetro. Il lilla `#CBB8E1` del capitolo 06, *L’archivio*, segna il bordo delle schede; il grigio `#DEDDDE` evidenzia la domanda di ricerca. Arancio `#F14E22` e verde `#BDE8D1`, gli altri colori dei capitoli, sono definiti come variabili.
 
 La tesi usa ABC Gaisyr e ABC Gaisyr Mono (Dinamo). Per cambiare carattere basta aggiornare `--font-text` e `--font-mono` nell’ultimo blocco di `style.css`, con i rispettivi `@font-face`.
 
