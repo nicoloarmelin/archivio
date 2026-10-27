@@ -1,25 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Libre+Baskerville:ital@0;1&display=swap');
+/* Riserve per i caratteri che la versione trial di Office Times non contiene (accenti, parentesi, barra) */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital@0;1&family=Tinos:ital@0;1&display=swap');
 @import 'tailwindcss';
 
-/* Modalità giorno / notte: i colori sono variabili, .dark su <html> li inverte */
+/* Tipografia della tesi: Office Times Mono per titoli ed etichette, Office Times per i testi */
+@font-face { font-family: 'Office Times'; src: url('./fonts/BLOfficeTimesTRIAL-Book.woff2') format('woff2'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Office Times'; src: url('./fonts/BLOfficeTimesTRIAL-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Office Times'; src: url('./fonts/BLOfficeTimesTRIAL-Semibold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Office Times'; src: url('./fonts/BLOfficeTimesTRIAL-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Office Times Mono'; src: url('./fonts/BLOfficeTimesTRIAL-BookMono.woff2') format('woff2'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Office Times Mono'; src: url('./fonts/BLOfficeTimesTRIAL-RegularMono.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Office Times Mono'; src: url('./fonts/BLOfficeTimesTRIAL-MediumMono.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Office Times Mono'; src: url('./fonts/BLOfficeTimesTRIAL-BoldMono.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+
+/* Modalità giorno / notte: i colori sono variabili, .dark su <html> li inverte.
+   Carta bianca e inchiostro #231F20 della tesi; i grigi partono dall'evidenziatura #DEDDDE.
+   Lilla, arancio e verde sono i colori dei capitoli (06 L'archivio, 01–02, 03–05). */
 :root {
-  --paper: #f2f2f2;
-  --ink: #0d0d0d;
+  --paper: #ffffff;
+  --ink: #231f20;
   --surface: #ffffff;
-  --g50: #dedede;
-  --g100: #b3b3b3;
-  --g200: #8c8c8c;
-  --g300: #666666;
+  --g50: #deddde;
+  --g100: #bcbabb;
+  --g200: #8a8788;
+  --g300: #5e5a5b;
+  --archive: #cbb8e1;
+  --identity: #f14e22;
+  --ephemeral: #bde8d1;
   color-scheme: light;
 }
 .dark {
-  --paper: #0d0d0d;
-  --ink: #f2f2f2;
-  --surface: #1a1a1a;
-  --g50: #222222;
-  --g100: #3d3d3d;
-  --g200: #7a7a7a;
-  --g300: #a6a6a6;
+  --paper: #231f20;
+  --ink: #ffffff;
+  --surface: #231f20;
+  --g50: #3a3536;
+  --g100: #575253;
+  --g200: #8f8a8b;
+  --g300: #bdb8b9;
   color-scheme: dark;
 }
 
@@ -31,11 +47,15 @@
   --color-g100: var(--g100);
   --color-g200: var(--g200);
   --color-g300: var(--g300);
+  --color-archive: var(--archive);
+  --color-identity: var(--identity);
+  --color-ephemeral: var(--ephemeral);
 }
 
+/* font-sans è la voce Mono (interfaccia e titoli), font-serif quella dei testi */
 @theme {
-  --font-sans: 'Inter Tight', system-ui, sans-serif;
-  --font-serif: 'Libre Baskerville', Georgia, serif;
+  --font-sans: 'Office Times Mono', 'Courier Prime', ui-monospace, monospace;
+  --font-serif: 'Office Times', 'Tinos', 'Times New Roman', serif;
   --ease-out-soft: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -45,12 +65,18 @@ body {
   color: var(--ink);
   transition: background-color 0.4s, color 0.4s;
   font-family: var(--font-sans);
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 1.1;
+  text-transform: uppercase;
   text-wrap: pretty;
   -webkit-font-smoothing: antialiased;
 }
+/* Come nella tesi: Mono in maiuscolo, testo serif in tondo */
+button, select { text-transform: inherit; }
+.font-serif, input, textarea { text-transform: none; }
+input::placeholder { text-transform: uppercase; }
+::selection { background: var(--archive); color: #231f20; }
 
 @keyframes reveal {
   from { clip-path: inset(50% 50% 50% 50%); transform: scale(0.7); opacity: 0; }

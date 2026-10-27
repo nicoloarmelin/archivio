@@ -197,7 +197,7 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
                   }}
                 >
                   <span className="px-4 text-center font-serif text-[13px] italic tracking-normal text-g200 transition-colors group-hover:text-ink">{f.name}</span>
-                  {f.caseStudy && <span className="absolute left-2 top-2 rounded-full bg-ink px-2 py-0.5 text-[10px] text-paper">caso studio</span>}
+                  {f.caseStudy && <span className="absolute left-2 top-2 rounded-none bg-archive px-2 py-0.5 text-[10px] text-[#231f20]">caso studio</span>}
                   <span className="pointer-events-none absolute inset-0 ring-1 ring-ink opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
                 <div className={`mt-2 flex justify-between text-[12px] transition-opacity ${on ? 'opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100' : 'opacity-0'}`}>
@@ -211,11 +211,11 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
         </div>
       </div>
 
-      <div className="absolute bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-3 z-10 flex items-center gap-1 md:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] md:right-6 rounded-[15px] bg-surface/85 p-1.5 backdrop-blur-[10px]">
-        <button onClick={() => zoomBtn(1 / 1.25)} className="rounded-[10px] p-2 text-g300 hover:bg-g50 hover:text-ink" aria-label="Riduci"><Minus size={14} /></button>
+      <div className="absolute bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-3 z-10 flex items-center gap-1 md:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] md:right-6 rounded-none bg-surface border border-ink p-1.5">
+        <button onClick={() => zoomBtn(1 / 1.25)} className="rounded-none p-2 text-g300 hover:bg-g50 hover:text-ink" aria-label="Riduci"><Minus size={14} /></button>
         <span className="w-10 text-center text-[12px] tabular-nums text-g300">{Math.round(k.z * 100)}%</span>
-        <button onClick={() => zoomBtn(1.25)} className="rounded-[10px] p-2 text-g300 hover:bg-g50 hover:text-ink" aria-label="Ingrandisci"><Plus size={14} /></button>
-        <button onClick={() => center()} className="rounded-[10px] p-2 text-g300 hover:bg-g50 hover:text-ink" aria-label="Centra"><Maximize size={14} /></button>
+        <button onClick={() => zoomBtn(1.25)} className="rounded-none p-2 text-g300 hover:bg-g50 hover:text-ink" aria-label="Ingrandisci"><Plus size={14} /></button>
+        <button onClick={() => center()} className="rounded-none p-2 text-g300 hover:bg-g50 hover:text-ink" aria-label="Centra"><Maximize size={14} /></button>
       </div>
     </div>
   )
