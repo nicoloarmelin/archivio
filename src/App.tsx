@@ -26,7 +26,7 @@ const Tile = ({ text, className = '', onClick, delay = 0 }: { text: string; clas
     style={{ animationDelay: `${delay}s` }}
   >
     <span className="px-3 text-center font-serif text-[12px] italic tracking-normal text-g200 transition-colors group-hover:text-ink">{text}</span>
-    <span className="pointer-events-none absolute inset-0 opacity-0 ring-1 ring-ink transition-opacity group-hover:opacity-100" />
+    <span className="pointer-events-none absolute inset-0 opacity-0 ring-2 ring-archive transition-opacity group-hover:opacity-100" />
   </button>
 )
 
@@ -65,8 +65,8 @@ export default function App() {
 
   return (
     <div className="min-h-svh">
-      <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-paper transition-[opacity,visibility] duration-500 ${loading ? '' : 'invisible opacity-0'}`}>
-        <h2 className="fadeup text-[clamp(25px,3vw,40px)] text-g300">caricamento dell'archivio</h2>
+      <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-archive transition-[opacity,visibility] duration-500 ${loading ? '' : 'invisible opacity-0'}`}>
+        <h2 className="fadeup text-[clamp(25px,3vw,40px)] text-[#231f20]">caricamento dell'archivio</h2>
       </div>
 
       <Nav section={section} go={go} dark={dark} toggleDark={() => setDark((d) => !d)} />
@@ -116,7 +116,7 @@ function Nav({ section, go, dark, toggleDark }: { section: string; go: (r: Route
   }, [section])
 
   return (
-    <nav className="fixed inset-x-0 top-[calc(0.75rem+env(safe-area-inset-top))] z-50 mx-auto flex w-fit max-w-[calc(100%-1.5rem)] items-center gap-3 whitespace-nowrap rounded-none bg-surface border border-ink px-4 py-3 sm:top-[calc(1rem+env(safe-area-inset-top))] sm:gap-4 sm:px-6 sm:py-3.5 shadow-none">
+    <nav className="fixed inset-x-0 top-[calc(0.75rem+env(safe-area-inset-top))] z-50 mx-auto flex w-fit max-w-[calc(100%-1.5rem)] items-center gap-3 whitespace-nowrap rounded-[8px] border border-g100 bg-surface/90 backdrop-blur-[10px] px-4 py-3 sm:top-[calc(1rem+env(safe-area-inset-top))] sm:gap-4 sm:px-6 sm:py-3.5 shadow-none">
       {items.map(([k, label]) => (
         <button
           key={k}
@@ -128,13 +128,13 @@ function Nav({ section, go, dark, toggleDark }: { section: string; go: (r: Route
         </button>
       ))}
       <span
-        className="absolute bottom-2.5 h-[2px] bg-ink transition-all duration-300 ease-out-soft"
+        className="absolute bottom-2.5 h-[3px] bg-archive transition-all duration-300 ease-out-soft"
         style={{ left: bar.left, width: bar.width, opacity: bar.on ? 1 : 0 }}
       />
       <span className="h-4 w-px bg-g100" />
       <button
         onClick={toggleDark}
-        className="-mx-1.5 rounded-none p-1.5 text-g300 transition-colors hover:bg-g50 hover:text-ink"
+        className="-mx-1.5 rounded-[4px] p-1.5 text-g300 transition-colors hover:bg-g50 hover:text-ink"
         aria-label={dark ? 'modalità giorno' : 'modalità notte'}
         title={dark ? 'modalità giorno' : 'modalità notte'}
       >
@@ -167,10 +167,10 @@ function Home({ go }: { go: (r: Route) => void }) {
           <span className="text-g200">cosa resta e cosa cambia, attraverso immagini e analisi.</span>
         </p>
         <div className="flex flex-col items-start gap-3 md:col-start-4 md:items-end">
-          <button onClick={() => go({ page: 'archivio' })} className="rounded-none bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper transition-colors hover:bg-g300">
+          <button onClick={() => go({ page: 'archivio' })} className="rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper transition-colors hover:bg-archive hover:text-[#231f20]">
             entra nell'archivio
           </button>
-          <button onClick={() => go({ page: 'ricerca' })} className="rounded-none bg-g50 px-[22px] py-[14px] text-[14px] transition-colors hover:bg-g100">
+          <button onClick={() => go({ page: 'ricerca' })} className="rounded-[6px] bg-g50 px-[22px] py-[14px] text-[14px] transition-colors hover:bg-g100">
             la ricerca
           </button>
         </div>
@@ -184,7 +184,7 @@ function Home({ go }: { go: (r: Route) => void }) {
                 <Tile text={f.name} delay={0.4 + (i % 14) * 0.04} className="aspect-[4/3] w-full" onClick={() => go({ page: 'formato', id: f.id })} />
                 <div className="mt-1.5 flex justify-between gap-2 text-[12px] text-g200">
                   <span className="truncate">{f.name.toLowerCase()}</span>
-                  {f.caseStudy && <span className="shrink-0 font-serif italic tracking-normal">caso studio</span>}
+                  {f.caseStudy && <span className="shrink-0 font-serif italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">caso studio</span>}
                 </div>
               </div>
             ))}
@@ -246,7 +246,7 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
           <button
             key={o}
             onClick={() => set(k, filters[k] === o ? '' : o)}
-            className={`rounded-none px-3.5 py-2 text-[14px] transition-colors ${filters[k] === o ? 'bg-ink text-paper' : 'bg-g50 hover:bg-g100'}`}
+            className={`rounded-[6px] px-3.5 py-2 text-[14px] transition-colors ${filters[k] === o ? 'bg-archive text-[#231f20]' : 'bg-g50 hover:bg-g100'}`}
           >
             {o.toLowerCase()}
           </button>
@@ -266,11 +266,11 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
       )}
       {/* Barra di controllo fluttuante */}
       <div
-        className="fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-40 flex items-center gap-1 rounded-none bg-surface border border-ink p-1.5 sm:inset-x-auto sm:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] sm:left-1/2 sm:w-fit sm:-translate-x-1/2"
+        className="fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-40 flex items-center gap-1 rounded-[8px] border border-g100 bg-surface/90 backdrop-blur-[10px] p-1.5 sm:inset-x-auto sm:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] sm:left-1/2 sm:w-fit sm:-translate-x-1/2"
       >
-        <div className="flex rounded-none bg-g50 p-0.5">
+        <div className="flex rounded-[6px] bg-g50 p-0.5">
           {(['mosaico', 'indice'] as const).map((v) => (
-            <button key={v} onClick={() => setView(v)} className={`rounded-none px-2.5 py-2 text-[14px] transition-colors sm:px-3.5 ${view === v ? 'bg-ink text-paper' : 'text-g300 hover:text-ink'}`}>
+            <button key={v} onClick={() => setView(v)} className={`rounded-[4px] px-2.5 py-2 text-[14px] transition-colors sm:px-3.5 ${view === v ? 'bg-archive text-[#231f20]' : 'text-g300 hover:text-ink'}`}>
               {v}
             </button>
           ))}
@@ -279,9 +279,9 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
           <Search size={14} className="text-g200" />
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="cerca" className="w-full min-w-0 bg-transparent text-[16px] outline-none placeholder:text-g200 sm:w-44 sm:text-[14px]" />
         </label>
-        <button onClick={() => setPanel(true)} className="flex shrink-0 items-center gap-2 rounded-none px-3 py-2 text-[14px] text-g300 hover:bg-g50 hover:text-ink sm:px-3.5">
+        <button onClick={() => setPanel(true)} className="flex shrink-0 items-center gap-2 rounded-[6px] px-3 py-2 text-[14px] text-g300 hover:bg-g50 hover:text-ink sm:px-3.5">
           filtri
-          {active > 0 && <span className="flex h-4 min-w-4 items-center justify-center rounded-none bg-archive px-1 text-[10px] text-[#231f20]">{active}</span>}
+          {active > 0 && <span className="flex h-4 min-w-4 items-center justify-center rounded-[3px] bg-archive px-1 text-[10px] text-[#231f20]">{active}</span>}
         </button>
         <span className="hidden pr-3 pl-1 text-[13px] tabular-nums text-g200 sm:block">{list.length}/{formats.length}</span>
       </div>
@@ -300,13 +300,13 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
       {/* Scheda filtri in overlay */}
       <div className={`fixed inset-0 z-[60] transition-[visibility] ${panel ? '' : 'invisible'}`}>
         <div className={`absolute inset-0 bg-paper/60 transition-opacity duration-300 ${panel ? 'opacity-100' : 'opacity-0'}`} onClick={() => setPanel(false)} />
-        <aside className={`absolute inset-x-2 bottom-2 flex max-h-[calc(85svh-env(safe-area-inset-top))] flex-col rounded-none border border-ink bg-surface p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] transition-transform duration-500 ease-out-soft sm:inset-x-auto sm:bottom-[calc(1rem+env(safe-area-inset-bottom))] sm:right-4 sm:top-[calc(1rem+env(safe-area-inset-top))] sm:max-h-none sm:w-[calc(100%-2rem)] sm:max-w-[420px] sm:p-6 ${panel ? 'translate-y-0 sm:translate-x-0' : 'translate-y-[110%] sm:translate-y-0 sm:translate-x-[110%]'}`}>
+        <aside className={`absolute inset-x-2 bottom-2 flex max-h-[calc(85svh-env(safe-area-inset-top))] flex-col rounded-[12px] border border-g100 bg-surface p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] transition-transform duration-500 ease-out-soft sm:inset-x-auto sm:bottom-[calc(1rem+env(safe-area-inset-bottom))] sm:right-4 sm:top-[calc(1rem+env(safe-area-inset-top))] sm:max-h-none sm:w-[calc(100%-2rem)] sm:max-w-[420px] sm:p-6 ${panel ? 'translate-y-0 sm:translate-x-0' : 'translate-y-[110%] sm:translate-y-0 sm:translate-x-[110%]'}`}>
           <div className="flex items-start justify-between">
             <div>
               <h2 className="text-[clamp(25px,3vw,40px)] leading-none">filtri</h2>
               <Meta className="mt-2">condivisi tra mosaico e indice</Meta>
             </div>
-            <button onClick={() => setPanel(false)} className="rounded-none bg-g50 p-2 hover:bg-g100" aria-label="Chiudi"><X size={16} /></button>
+            <button onClick={() => setPanel(false)} className="rounded-[6px] bg-g50 p-2 hover:bg-g100" aria-label="Chiudi"><X size={16} /></button>
           </div>
           <div className="mt-8 flex-1 space-y-8 overflow-y-auto overscroll-contain sm:mt-10">
             <Chips k="ambito" label="ambito" opts={ambiti} />
@@ -315,14 +315,14 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
             <Chips k="variabilita" label="grado di variabilità" opts={['bassa', 'media', 'alta', 'n.d.']} />
             <div>
               <Meta>approfondimento</Meta>
-              <button onClick={() => set('caseStudy', !filters.caseStudy)} className={`mt-3 rounded-none px-3.5 py-2 text-[14px] transition-colors ${filters.caseStudy ? 'bg-ink text-paper' : 'bg-g50 hover:bg-g100'}`}>
+              <button onClick={() => set('caseStudy', !filters.caseStudy)} className={`mt-3 rounded-[6px] px-3.5 py-2 text-[14px] transition-colors ${filters.caseStudy ? 'bg-archive text-[#231f20]' : 'bg-g50 hover:bg-g100'}`}>
                 solo con caso studio
               </button>
             </div>
           </div>
           <div className="flex gap-2 pt-6">
-            <button onClick={() => setFilters(EMPTY)} className="flex-1 rounded-none bg-g50 py-[14px] text-[14px] hover:bg-g100">azzera</button>
-            <button onClick={() => setPanel(false)} className="flex-1 rounded-none bg-ink py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-g300">
+            <button onClick={() => setFilters(EMPTY)} className="flex-1 rounded-[6px] bg-g50 py-[14px] text-[14px] hover:bg-g100">azzera</button>
+            <button onClick={() => setPanel(false)} className="flex-1 rounded-[6px] bg-ink py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-archive hover:text-[#231f20]">
               mostra {list.length} formati
             </button>
           </div>
@@ -349,12 +349,12 @@ function IndiceRows({ list, go }: { list: Format[]; go: (r: Route) => void }) {
           onClick={() => go({ page: 'formato', id: f.id })}
           className="group grid w-full grid-cols-[72px_1fr_auto] items-center gap-6 border-b border-g50 py-3 text-left md:grid-cols-[88px_1fr_1fr_1fr_1fr_100px]"
         >
-          <div className="reveal flex aspect-[4/3] items-center justify-center bg-g50 transition-colors group-hover:bg-g100" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
+          <div className="reveal flex aspect-[4/3] items-center justify-center bg-g50 transition-colors group-hover:bg-archive" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
             <span className="font-serif text-[9px] italic tracking-normal text-g200">logo</span>
           </div>
           <div className="flex items-baseline gap-3">
             <span className="text-[clamp(18px,1.6vw,24px)] transition-transform duration-300 ease-out-soft group-hover:translate-x-1.5">{f.name.toLowerCase()}</span>
-            {f.caseStudy && <span className="font-serif text-[12px] italic tracking-normal text-g200">caso studio</span>}
+            {f.caseStudy && <span className="font-serif text-[12px] italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">caso studio</span>}
           </div>
           <span className="hidden text-g300 md:block">{f.ambito.toLowerCase()}</span>
           <span className="hidden text-g300 md:block">{f.ricorrenza.toLowerCase()}</span>
@@ -434,7 +434,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
 
       {f.caseStudy ? (
         <section className="mt-32">
-          <SectionHead title="tutte le edizioni" sub="loghi di tutte le edizioni in ordine cronologico. le edizioni in nero aprono una scheda approfondita." />
+          <SectionHead title="tutte le edizioni" sub="loghi di tutte le edizioni in ordine cronologico. le edizioni in lilla aprono una scheda approfondita." />
           <div className="relative">
             <div className="absolute inset-x-0 top-[44px] h-px bg-g100 md:top-[60px]" />
             <div className="relative flex gap-8 overflow-x-auto pb-6">
@@ -445,7 +445,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
                   className="group flex shrink-0 flex-col items-center gap-3"
                 >
                   <span
-                    className={`reveal flex h-[88px] w-[88px] items-center justify-center rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'bg-ink text-paper' : 'bg-g50 text-g200'}`}
+                    className={`reveal flex h-[88px] w-[88px] items-center justify-center rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'bg-archive text-[#231f20]' : 'bg-g50 text-g200'}`}
                     style={{ animationDelay: `${i * 0.06}s` }}
                   >
                     logo
@@ -503,7 +503,7 @@ function Serie({ t }: { t: TesiFormato }) {
               cells={r.map((c, j) => (
                 <>
                   <span className="tabular-nums">{c.toLowerCase()}</span>
-                  {j === 0 && t.casi[c] && <span className="ml-2 font-serif text-[12px] italic tracking-normal text-g200">caso studio</span>}
+                  {j === 0 && t.casi[c] && <span className="ml-2 font-serif text-[12px] italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">caso studio</span>}
                 </>
               ))}
               className={`border-b border-g50 py-2.5 ${t.casi[r[0]] ? 'text-ink' : 'text-g300'}`}
@@ -512,7 +512,7 @@ function Serie({ t }: { t: TesiFormato }) {
         </div>
       </div>
       {t.tabella.rows.length > 12 && (
-        <button onClick={() => setAll(!all)} className="mt-6 rounded-none bg-g50 px-3.5 py-2 text-[14px] hover:bg-g100">
+        <button onClick={() => setAll(!all)} className="mt-6 rounded-[6px] bg-g50 px-3.5 py-2 text-[14px] hover:bg-g100">
           {all ? 'mostra meno' : `mostra tutte le ${t.tabella.rows.length} edizioni`}
         </button>
       )}
@@ -620,7 +620,7 @@ function Ciclo({ c }: { c: Caso }) {
         <div className="absolute inset-x-0 top-0 h-px bg-ink" />
         {phases.map((p, i) => (
           <div key={p.k} className="relative">
-            <span className="absolute -top-[45.5px] left-0 hidden h-[11px] w-[11px] rounded-full bg-ink md:block" />
+            <span className="absolute -top-[45.5px] left-0 hidden h-[11px] w-[11px] rounded-full bg-archive ring-1 ring-ink md:block" />
             <div className="text-[clamp(25px,3vw,40px)] leading-none">{p.k}</div>
             <Meta className="mt-2">{p.v}</Meta>
             {p.date.length > 0 && (
@@ -737,7 +737,7 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
               <div className="space-y-5 font-serif text-[15px] leading-[1.65] tracking-normal text-g300 md:col-span-2">{body}</div>
             </section>
           ))}
-          <button onClick={() => go({ page: 'archivio' })} className="mt-6 rounded-none bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-g300">
+          <button onClick={() => go({ page: 'archivio' })} className="mt-6 rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-archive hover:text-[#231f20]">
             vai all'archivio
           </button>
         </div>
@@ -759,7 +759,7 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
         <span className="font-serif text-[14px] italic tracking-normal text-g200">immagine ingrandita</span>
       </div>
       <aside className="flex max-h-[45svh] flex-col md:max-h-none">
-        <button onClick={close} className="order-first ml-auto rounded-none bg-g50 px-3.5 py-2 text-[14px] hover:bg-g100">chiudi</button>
+        <button onClick={close} className="order-first ml-auto rounded-[6px] bg-g50 px-3.5 py-2 text-[14px] hover:bg-g100">chiudi</button>
         <div className="mt-3 space-y-4 overflow-y-auto md:mt-auto">
           {[['formato', img.formato], ['edizione', img.edizione], ['tipo di applicazione', img.tipo], ['didascalia', img.didascalia]].map(([k, v]) => (
             <div key={k} className="border-t border-g100 pt-2">
