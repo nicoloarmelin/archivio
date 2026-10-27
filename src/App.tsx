@@ -39,14 +39,16 @@ export default function App() {
   const [cam, setCam] = useState<{ x: number; y: number; z: number } | null>(null)
   const [lightbox, setLightbox] = useState<Image | null>(null)
   const [loading, setLoading] = useState(true)
+  // La memoria del browser può mancare (navigazione privata, pagine incorporate): il tema resta comunque
   const [dark, setDark] = useState(() => {
-    const saved = localStorage.getItem('dte-tema')
+    let saved: string | null = null
+    try { saved = localStorage.getItem('dte-tema') } catch {}
     return saved ? saved === 'notte' : window.matchMedia('(prefers-color-scheme: dark)').matches
   })
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
-    localStorage.setItem('dte-tema', dark ? 'notte' : 'giorno')
+    try { localStorage.setItem('dte-tema', dark ? 'notte' : 'giorno') } catch {}
   }, [dark])
 
   useEffect(() => {
