@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Minus, Plus, Maximize } from 'lucide-react'
 import type { Format } from '../data/archive'
 
@@ -8,11 +8,11 @@ const TH = 165
 const GAP = 40
 const STEP = TW + GAP
 const STEP_Y = TH + GAP + 24
-const MIN_Z = 0.35
+const MIN_Z = 0.25
 const MAX_Z = 2.5
 const FRICTION = 0.92
 
-// Ordine deterministico: ogni formato ha una posizione unica e stabile sulla mappa
+// Ordine deterministico: ogni formato ha una posizione stabile nel blocco che si ripete
 const shuffle = <T,>(arr: T[]) => {
   const a = [...arr]
   let seed = 7
@@ -48,20 +48,13 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
   // Puntatori attivi: con due dita si fa pinch-zoom
   const pts = useRef(new Map<number, { x: number; y: number }>())
   const pinch = useRef<{ d: number } | null>(null)
+  // Comparsa a cascata solo al primo ingresso; le celle che entrano dopo, scorrendo, appaiono già al loro posto
+  const born = useRef(performance.now())
+  const firstSeen = useRef(new Map<string, number>())
 
-  const clamp = (k: Cam): Cam => {
-    const el = ref.current
-    if (!el) return k
-    const vw = el.clientWidth, vh = el.clientHeight
-    const pad = 200
-    const minX = Math.min(vw - W * k.z - pad, (vw - W * k.z) / 2)
-    const maxX = Math.max(pad, (vw - W * k.z) / 2)
-    const minY = Math.min(vh - H * k.z - pad, (vh - H * k.z) / 2)
-    const maxY = Math.max(pad, (vh - H * k.z) / 2)
-    return { z: k.z, x: Math.min(maxX, Math.max(minX, k.x)), y: Math.min(maxY, Math.max(minY, k.y)) }
-  }
+  // Mosaico infinito: nessun limite di posizione, il blocco dei formati si ripete in ogni direzione
   const apply = (k: Cam) => {
-    c.current = clamp(k)
+    c.current = k
     force((n) => n + 1)
   }
 
@@ -164,6 +157,40 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
   }
 
   const k = c.current
+  // Solo le celle visibili (più un margine) vengono disegnate, anche con lo zoom al minimo
+  const vw = ref.current?.clientWidth ?? 0
+  const vh = ref.current?.clientHeight ?? 0
+  const i0 = Math.floor(-k.x / k.z / STEP) - 1
+  const i1 = Math.ceil((vw - k.x) / k.z / STEP) + 1
+  const j0 = Math.floor(-k.y / k.z / STEP_Y) - 1
+  const j1 = Math.ceil((vh - k.y) / k.z / STEP_Y) + 1
+
+  const tiles = useMemo(() => {
+    if (!vw) return []
+    const now = performance.now()
+    const cells = []
+    for (let row = j0; row <= j1; row++) {
+      const r = ((row % rows) + rows) % rows
+      const shift = ((row % 2) + 2) % 2 ? STEP / 2 : 0
+      for (let col = i0; col <= i1; col++) {
+        const f = placed[r * COLS + (((col % COLS) + COLS) % COLS)]
+        if (!f) continue
+        const key = `${col}:${row}`
+        let delay = firstSeen.current.get(key)
+        if (delay === undefined) {
+          // Distanza dal centro dello schermo al primo ingresso, in celle
+          const cx = (col * STEP + shift + TW / 2) * k.z + k.x - vw / 2
+          const cy = (row * STEP_Y + TH / 2) * k.z + k.y - vh / 2
+          delay = now - born.current < 400 ? 0.15 + Math.hypot(cx / (STEP * k.z), cy / (STEP_Y * k.z)) * 0.06 : -1
+          firstSeen.current.set(key, delay)
+        }
+        cells.push({ f, key, col, row, left: col * STEP + shift, delay })
+      }
+    }
+    return cells
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [i0, i1, j0, j1, placed, rows])
+
   return (
     <div className="absolute inset-0 overflow-hidden">
       <div
@@ -174,25 +201,25 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
         onPointerUp={onUp}
         onPointerCancel={onUp}
       >
-        <div className="absolute left-0 top-0 origin-top-left will-change-transform" style={{ width: W, height: H, transform: `translate3d(${k.x}px, ${k.y}px, 0) scale(${k.z})` }}>
-          {placed.map((f, i) => {
-            const row = Math.floor(i / COLS)
-            const col = i % COLS
+        <div className="absolute left-0 top-0 origin-top-left will-change-transform" style={{ transform: `translate3d(${k.x}px, ${k.y}px, 0) scale(${k.z})` }}>
+          {tiles.map(({ f, key, col, row, left, delay }) => {
             const on = matches.has(f.id)
-            const dist = Math.hypot(col - COLS / 2, row - rows / 2)
+            // Il blocco di partenza resta nell'ordine di tabulazione; le sue ripetizioni no
+            const origin = col >= 0 && col < COLS && row >= 0 && row < rows
             return (
               <button
-                key={f.id}
+                key={key}
                 onClick={() => lastMoved.current < 5 && on && onOpen(f.id)}
                 className={`group absolute text-left ${on ? '' : 'pointer-events-none'}`}
-                style={{ width: TW, left: col * STEP + (row % 2 ? STEP / 2 : 0), top: row * STEP_Y }}
-                tabIndex={on ? 0 : -1}
+                style={{ width: TW, left, top: row * STEP_Y }}
+                tabIndex={on && origin ? 0 : -1}
+                aria-hidden={origin ? undefined : true}
               >
                 <div
                   className="reveal relative flex items-center justify-center bg-g50 transition-[clip-path,opacity,transform] duration-300 ease-out-soft"
                   style={{
                     height: TH,
-                    animationDelay: `${0.15 + dist * 0.06}s`,
+                    ...(delay >= 0 ? { animationDelay: `${delay}s` } : { animationName: 'none' }),
                     ...(on ? {} : { clipPath: 'inset(50% 50% 50% 50%)', opacity: 0, transform: 'scale(0.7)', animationName: 'none' }),
                   }}
                 >
