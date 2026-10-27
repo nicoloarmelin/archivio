@@ -23,6 +23,12 @@ La serie cronologica comprende le edizioni documentate nella tesi. Non è una ra
 
 Fonti principali: [foglio dell’archivio](https://docs.google.com/spreadsheets/d/1A3mwoeWq-KmiQAyivqjS9WiB3FeHu0FnJkLfcdnkEMM/edit?gid=663382339#gid=663382339), [tesi](https://docs.google.com/document/d/1SdYwlBDB2oN5A1bbvQHCXox-TIBezsS2lDL15tfRCQE/edit?tab=t.0), cartelle di marchi e applicazioni fornite dall’autore. Ogni documento conserva il collegamento alla propria fonte. I diritti delle immagini e dei marchi restano ai rispettivi autori e titolari.
 
+## Stile
+
+Il sito riprende il sistema grafico della tesi (impaginata in InDesign, formato 14 × 28 cm): fondo bianco, inchiostro `#231F20`, titoli ed etichette in Mono maiuscolo, testo in serif giustificato con rientro di prima riga, filetti sottili al posto dei pannelli. Il lilla `#CBB8E1` del capitolo 06, *L’archivio*, segna il bordo delle schede; il grigio `#DEDDDE` evidenzia la domanda di ricerca. L’introduzione riprende il frontespizio, l’indice la pagina INDICE, la serie delle edizioni la tavola “Tutte le edizioni” e il ciclo di vita le colonne PRE / EVENTO / POST. Arancio `#F14E22` e verde `#BDE8D1`, gli altri colori dei capitoli, sono già definiti come variabili.
+
+La tesi usa ABC Gaisyr e ABC Gaisyr Mono (Dinamo). Per cambiare carattere basta aggiornare `--font-text` e `--font-mono` nell’ultimo blocco di `style.css`, con i rispettivi `@font-face`.
+
 ## Tipografia
 
 Office Times di Boulevard LAB: Mono per titoli, menù e controlli; Regular per i testi. I due WOFF2 forniti dall’autore sono inclusi per il sito con licenza web o autorizzazione confermata. Instrument Serif (SIL Open Font License, `assets/fonts/OFL.txt`) rimane come ripiego.
