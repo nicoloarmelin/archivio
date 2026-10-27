@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode }
 import { ArrowLeft, ArrowUpRight, Moon, Search, Sun, X } from 'lucide-react'
 import Mosaico from './components/Mosaico'
 import Cursor from './components/Cursor'
+import Caricamento from './components/Caricamento'
 import { formats, ambiti, ricorrenze, dimensioni, ricerca, type Format, type Edition, type TesiFormato, type Caso } from './data/archive'
 
 type Route =
@@ -54,11 +55,6 @@ export default function App() {
     try { localStorage.setItem('dte-tema', dark ? 'notte' : 'giorno') } catch {}
   }, [dark])
 
-  useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 1100)
-    return () => clearTimeout(t)
-  }, [])
-
   const go = (r: Route) => {
     setRoute(r)
     window.scrollTo(0, 0)
@@ -68,9 +64,7 @@ export default function App() {
 
   return (
     <div className="min-h-svh">
-      <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-archive transition-[opacity,visibility] duration-500 ${loading ? '' : 'invisible opacity-0'}`}>
-        <h2 className="fadeup px-6 text-center text-[clamp(25px,3vw,40px)] text-[#231f20]">caricamento dell'archivio</h2>
-      </div>
+      {loading && <Caricamento formats={formats} onEnd={() => setLoading(false)} />}
 
       <Nav section={section} go={go} dark={dark} toggleDark={() => setDark((d) => !d)} />
 
