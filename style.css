@@ -583,3 +583,41 @@ body.search-open.has-filters #illustrated-index { top: 218px; }
 
 /* Image metadata stays in the enlarged viewer, leaving the galleries visual. */
 #reader .document-figure figcaption { display: none; }
+
+/* Thesis skin: the printed book's colour, type and rules over the existing layout.
+   Only surfaces change — paper white, ink #231F20, Mono capitals, serif reading text,
+   square hairline edges instead of frosted pills, lilac from chapter 06, L’archivio. */
+:root {
+  --paper: #ffffff; --ink: #231f20; --muted: #7a7778; --line: #231f2033;
+  --archive: #cbb8e1; --identity: #f14e22; --ephemeral: #bde8d1; --highlight: #deddde; --tint: #f3f3f3;
+  --font-mono: 'BL Office Times Mono', 'Courier New', monospace; --font-text: 'BL Office Times', 'Instrument Serif', Georgia, serif;
+  --mono: var(--font-mono); --serif: var(--font-mono); --reading: var(--font-text);
+  --glass: #ffffff; --glass-edge: var(--ink); --control: #ffffff; --control-hover: var(--highlight); --reflection: none;
+  background: var(--paper); color: var(--ink);
+}
+::selection { color: var(--ink); background: var(--archive); }
+button:not(.tile), .navigation-dock, .tools, #search-panel, .footer-right, .footer-caption, .view-switch, .map-tagline, .case-link, .detail-tabs, .missing-mark, .sheet-content select, #year { border-radius: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+@media(hover:hover) { button:not(.tile):not(:disabled):hover { background: var(--highlight); } }
+.primary { background: var(--ink) !important; color: var(--paper); border-color: var(--ink) !important; }
+.primary:not(:disabled):hover { background: #000 !important; }
+#filter-badge { border-radius: 0; background: var(--archive); color: var(--ink); }
+#active-filters button { background: var(--archive); }
+dialog::backdrop { background: #231f2014; backdrop-filter: none; -webkit-backdrop-filter: none; }
+#search-panel, .footer-caption { background: var(--paper); }
+.map-tagline { border-color: transparent; background: var(--highlight); }
+#filters, #reader, #image-viewer { background: var(--paper); border: 1px solid var(--ink); border-radius: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+#reader { border-left: 10px solid var(--archive); }
+#image-viewer.is-dark { --paper: #231f20; --ink: #ffffff; --muted: #b9b6b7; --line: #ffffff33; --glass-edge: #ffffff; --highlight: #3a3536; background: #231f20; }
+@media(max-width:700px) {
+  .footer-caption { background: var(--paper); }
+  #reader { border-left-width: 6px; }
+}
+
+/* Thesis typography on the same elements. */
+.eyebrow, .reader-metadata, .thesis-time, .opening-record, .document-meta, #image-context, #image-credit, .row-title > span, .row-facts, .tile-meta, .format-facts dt { letter-spacing: .02em; }
+.reading-column p, .lifecycle p, .section-heading p, .lead { hyphens: auto; -webkit-hyphens: auto; }
+@media(min-width:701px) { .reading-column p, .lead { text-align: justify; } }
+.tools button, .footer-right button, .view-switch button { border-color: transparent; }
+.reading-column .research-question { background: var(--highlight); box-decoration-break: clone; -webkit-box-decoration-break: clone; display: inline; padding: 0 6px; text-align: left; }
+.reading-column .research-question + p { margin-top: 36px; }
+.format-facts div { border-top: 1px solid var(--line); padding-top: 10px; }
