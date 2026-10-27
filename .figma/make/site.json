@@ -1,0 +1,12 @@
+{
+  "title": "Designed to End",
+  "description": "This digital archive application allows users to efficiently store, organize, and access images and documents, enhancing research and information retrieval.",
+  "language": "ita",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Libre+Baskerville:ital@0;1&display=swap');
+@import 'tailwindcss';
+
+/* Modalità giorno / notte: i colori sono variabili, .dark su <html> li inverte */
+:root {
+  --paper: #f2f2f2;
+  --ink: #0d0d0d;
+  --surface: #ffffff;
+  --g50: #dedede;
+  --g100: #b3b3b3;
+  --g200: #8c8c8c;
+  --g300: #666666;
+  color-scheme: light;
+}
+.dark {
+  --paper: #0d0d0d;
+  --ink: #f2f2f2;
+  --surface: #1a1a1a;
+  --g50: #222222;
+  --g100: #3d3d3d;
+  --g200: #7a7a7a;
+  --g300: #a6a6a6;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-surface: var(--surface);
+  --color-g50: var(--g50);
+  --color-g100: var(--g100);
+  --color-g200: var(--g200);
+  --color-g300: var(--g300);
+}
+
+@theme {
+  --font-sans: 'Inter Tight', system-ui, sans-serif;
+  --font-serif: 'Libre Baskerville', Georgia, serif;
+  --ease-out-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { background: var(--paper); transition: background-color 0.4s; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  transition: background-color 0.4s, color 0.4s;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-wrap: pretty;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes reveal {
+  from { clip-path: inset(50% 50% 50% 50%); transform: scale(0.7); opacity: 0; }
+  to { clip-path: inset(0 0 0 0); transform: scale(1); opacity: 1; }
+}
+.reveal { animation: reveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes fadeup {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+.fadeup { animation: fadeup 0.6s cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+/* solo opacità: un transform sul <main> romperebbe gli elementi position: fixed */
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+.fadein { animation: fadein 0.5s cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+/* Home: file di formati che scorrono in loop, pausa al passaggio del mouse */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 5px)); } }
+.marquee-row { animation: marquee linear infinite; }
+.marquee-row:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .marquee-row { animation: none; } }
+
+/* Cursore: pallino in negativo (bianco + difference = nero sulla carta, inverte ciò che copre) */
+.has-cursor, .has-cursor * { cursor: none !important; }
+.cursor-dot {
+  position: fixed; left: 0; top: 0; z-index: 9999; pointer-events: none;
+  width: 12px; height: 12px; border-radius: 9999px; background: #fff;
+  mix-blend-mode: difference;
+  transition: width .3s cubic-bezier(.22,1,.36,1), height .3s cubic-bezier(.22,1,.36,1), opacity .2s;
+}
+.cursor-dot[data-hot="1"] { width: 56px; height: 56px; }
+.cursor-dot[data-text="1"] { width: 3px; height: 24px; border-radius: 2px; }
+.cursor-dot[data-down="1"] { width: 8px; height: 8px; }
+.cursor-dot[data-hot="1"][data-down="1"] { width: 44px; height: 44px; }

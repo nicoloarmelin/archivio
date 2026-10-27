@@ -1,0 +1,2848 @@
+{
+ "formati": {
+  "giochi-olimpici": {
+   "scheda": [
+    [
+     "Titolare formato",
+     "Comitato Olimpico Internazionale"
+    ],
+    [
+     "Produttore dell’edizione",
+     "Comitato organizzatore costituito ad hoc"
+    ],
+    [
+     "Anno di fondazione",
+     "1894, prima edizione 1896"
+    ],
+    [
+     "Ricorrenza",
+     "Quadriennale"
+    ],
+    [
+     "Edizioni svolte",
+     "30 (estive)"
+    ],
+    [
+     "Arco temporale",
+     "1896 - 2024"
+    ],
+    [
+     "Durata dell’edizione",
+     "15-18 giorni"
+    ],
+    [
+     "Sede",
+     "Itinerante, assegnata per elezione"
+    ],
+    [
+     "Ambito",
+     "Sportivo"
+    ],
+    [
+     "Dimensione",
+     "globale"
+    ],
+    [
+     "Grado di variabilità",
+     "medio"
+    ],
+    [
+     "Segni permanenti",
+     "marchio a cinque cerchi"
+    ]
+   ],
+   "intro": "I Giochi Olimpici sono una manifestazione sportiva internazionale che si tiene ogni quattro anni in una città designata per elezione. Il Comitato Olimpico Internazionale detiene il nome, il simbolo e il regolamento, e affida l'organizzazione a un comitato costituito nel paese ospitante che si scioglie a manifestazione conclusa. Ogni edizione riceve un emblema proprio, approvato dal Comitato, e un sistema visivo completo che comprende tipografia, pittogrammi, mascotte, segnaletica e vestizione degli impianti.",
+   "edizioniTesto": [
+    "Trenta edizioni svolte tra il 1896 e il 2024. I Giochi del 1916, del 1940 e del 1944 furono annullati per le due guerre mondiali e conservano il proprio numero d'ordine pur non essendosi tenuti, ragione per cui l'edizione di Parigi 2024 è la trentatreesima Olimpiade.",
+    "Il formato non è nato con la fisionomia che ha oggi. Fino al 1928 i Giochi durano mesi e in tre casi si svolgono dentro un'Esposizione Universale, che ne detta i tempi e fornisce l'apparato visivo. La durata si comprime a Los Angeles nel 1932 e da allora resta stabile fra i quindici e i diciotto giorni, e solo da quel momento il sistema visivo affronta il problema di saturare uno spazio in due settimane.",
+    "Il primo mutamento riguarda ciò che viene commissionato. Fino al 1960 il comitato chiede un manifesto a un illustratore o a un cartellonista; l'identità dell'edizione coincide con quell'immagine e con i materiali che ne derivano. Da Tokyo 1964 l'incarico riguarda un sistema: una direzione coordina segni, colori e applicazioni, e il manifesto diventa uno dei suoi elementi. Cambia la dimensione del progetto prima ancora del suo stile.",
+    "Il secondo cade nel 1984, quando l'apparato smette di essere un insieme di stampati e diventa una vestizione dello spazio costruito. Il look di Los Angeles occupa gli impianti con strutture, colonne e teli di colore, e da quel momento ogni edizione riceve un programma ambientale che prima non esisteva.",
+    "Il terzo cade intorno al 1996, e riguarda chi produce il sistema. Il progetto passa dagli studi d'autore alle società di consulenza di marca, e l'edizione continua a ricevere un apparato nuovo mentre cambia il tipo di soggetto che lo disegna.",
+    "Fra un'edizione e l'altra non passa quasi nulla sul piano delle forme. La tavolozza di Città del Messico non ha rapporti con quella di Monaco, la griglia di Aicher non lascia traccia nel sistema di Montréal, il segno frammentato di Londra 2012 non prepara in alcun modo il motivo a scacchi di Tokyo. Ogni comitato riparte, e la riprogettazione è integrale per struttura della committenza prima che per scelta stilistica.",
+    "Tra le edizioni ricorre soprattutto un elenco di artefatti, che nel tempo si allunga. Il manifesto è presente dal 1912; i pittogrammi entrano stabilmente con Tokyo 1964; la mascotte compare con Waldi a Monaco nel 1972 e diventa un obbligo di fatto. La vestizione ambientale si aggiunge nel 1984 e la grafica per gli schermi negli anni Duemila. Questa ripetizione contribuisce a rendere leggibile la serie.",
+    "Il formato trasmette quindi un programma, senza imporre un linguaggio visivo. Ogni comitato riceve la lista degli artefatti da progettare, ma nessuna indicazione sulla loro forma. Per il pubblico la continuità si regge sui cinque cerchi e sul ritorno delle stesse categorie di oggetti: pittogrammi, manifesti, mascotte e vestizioni degli impianti. Riconoscere un'edizione olimpica significa anche riconoscere queste categorie, sebbene gli artefatti di un'edizione non somiglino a quelli della precedente."
+   ],
+   "tabella": {
+    "header": [
+     "anno",
+     "luogo",
+     "durata",
+     "epoca mediale"
+    ],
+    "rows": [
+     [
+      "1896",
+      "Atene, Grecia",
+      "9 giorni",
+      "Stampa"
+     ],
+     [
+      "1900",
+      "Parigi, Francia",
+      "~5 mesi",
+      "Stampa"
+     ],
+     [
+      "1904",
+      "Saint Louis, USA",
+      "~4 mesi",
+      "Stampa"
+     ],
+     [
+      "1908",
+      "Londra, Regno Unito",
+      "~6 mesi",
+      "Stampa"
+     ],
+     [
+      "1912",
+      "Stoccolma, Svezia",
+      "~3 mesi",
+      "Stampa"
+     ],
+     [
+      "1920",
+      "Anversa, Belgio",
+      "~5 mesi",
+      "Stampa"
+     ],
+     [
+      "1924",
+      "Parigi, Francia",
+      "~2 mesi",
+      "Stampa"
+     ],
+     [
+      "1928",
+      "Amsterdam, Paesi Bassi",
+      "~3 mesi",
+      "Stampa"
+     ],
+     [
+      "1932",
+      "Los Angeles, USA",
+      "16 giorni",
+      "Stampa"
+     ],
+     [
+      "1936",
+      "Berlino, Germania",
+      "16 giorni",
+      "Stampa"
+     ],
+     [
+      "1948",
+      "Londra, Regno Unito",
+      "15 giorni",
+      "Stampa"
+     ],
+     [
+      "1952",
+      "Helsinki, Finlandia",
+      "15 giorni",
+      "Stampa"
+     ],
+     [
+      "1956",
+      "Melbourne, Australia",
+      "15 giorni",
+      "Televisiva"
+     ],
+     [
+      "1960",
+      "Roma, Italia",
+      "18 giorni",
+      "Televisiva"
+     ],
+     [
+      "1964",
+      "Tokyo, Giappone",
+      "15 giorni",
+      "Televisiva"
+     ],
+     [
+      "1968",
+      "Città del Messico, Messico",
+      "15 giorni",
+      "Televisiva"
+     ],
+     [
+      "1972",
+      "Monaco di Baviera, Germania",
+      "16 giorni",
+      "Televisiva"
+     ],
+     [
+      "1976",
+      "Montréal, Canada",
+      "16 giorni",
+      "Televisiva"
+     ],
+     [
+      "1980",
+      "Mosca, URSS",
+      "16 giorni",
+      "Televisiva"
+     ],
+     [
+      "1984",
+      "Los Angeles, USA",
+      "16 giorni",
+      "Televisiva"
+     ],
+     [
+      "1988",
+      "Seul, Corea del Sud",
+      "16 giorni",
+      "Televisiva"
+     ],
+     [
+      "1992",
+      "Barcellona, Spagna",
+      "16 giorni",
+      "Televisiva"
+     ],
+     [
+      "1996",
+      "Atlanta, USA",
+      "17 giorni",
+      "Televisiva"
+     ],
+     [
+      "2000",
+      "Sydney, Australia",
+      "16 giorni",
+      "Digitale"
+     ],
+     [
+      "2004",
+      "Atene, Grecia",
+      "16 giorni",
+      "Digitale"
+     ],
+     [
+      "2008",
+      "Pechino, Cina",
+      "16 giorni",
+      "Digitale"
+     ],
+     [
+      "2012",
+      "Londra, Regno Unito",
+      "16 giorni",
+      "Digitale"
+     ],
+     [
+      "2016",
+      "Rio de Janeiro, Brasile",
+      "16 giorni",
+      "Digitale"
+     ],
+     [
+      "2021",
+      "Tokyo, Giappone",
+      "17 giorni",
+      "Digitale"
+     ],
+     [
+      "2024",
+      "Parigi, Francia",
+      "17 giorni",
+      "Digitale"
+     ]
+    ]
+   },
+   "casi": {
+    "1968": {
+     "title": "Città del Messico 1968",
+     "scheda": [
+      [
+       "Formato",
+       "Giochi Olimpici, grado di variabilità medio"
+      ],
+      [
+       "Sede e date",
+       "Città del Messico, 12-27 ottobre 1968"
+      ],
+      [
+       "Produttore dell’edizione",
+       "Comitato organizzatore dei Giochi della XIX Olimpiade"
+      ],
+      [
+       "Progetto visivo",
+       "Lance Wyman, con Peter Murdoch, alla guida di un gruppo internazionale"
+      ],
+      [
+       "Componenti principali",
+       "Logotipo, alfabeto, pittogrammi e motivi a linee concentriche; codici cromatici delle sedi; segnaletica; strutture temporanee"
+      ],
+      [
+       "Presentazione",
+       "Logotipo, gennaio 1967 (1 anno e 9 mesi prima dell’apertura)"
+      ],
+      [
+       "Che cosa resta",
+       "Tavole originali disperse tra archivi privati e collezioni; rientro in circolazione attraverso ristampe e mostre"
+      ]
+     ],
+     "descrizione": [
+      "I Giochi della XIX Olimpiade si tengono a Città del Messico dal 12 al 27 ottobre 1968, prima edizione ospitata da un paese latinoamericano e da una città ad alta quota. Il comitato organizzatore affida la direzione del programma grafico a un gruppo internazionale guidato da Lance Wyman, che sviluppa un sistema costruito su una regola unica: la ripetizione di linee concentriche attorno al contorno delle forme, applicata al logotipo, all'alfabeto, ai pittogrammi e ai motivi decorativi. Il repertorio deriva dall'arte in filo huichol e dalla geometria precolombiana, letti attraverso la ricerca ottica di quegli anni. Il sistema si estende alla città con codici cromatici per le sedi, segnaletica, strutture temporanee e oggetti d'uso."
+     ],
+     "date": [
+      [
+       "Assegnazione a Città del Messico, sessione di Baden-Baden",
+       "ottobre 1963."
+      ],
+      [
+       "Avvio della progettazione",
+       "fine novembre 1966."
+      ],
+      [
+       "Realizzazione del logotipo",
+       "dicembre 1966."
+      ],
+      [
+       "Presentazione pubblica del logotipo",
+       "gennaio 1967."
+      ],
+      [
+       "Apertura",
+       "12 ottobre 1968."
+      ],
+      [
+       "Chiusura",
+       "27 ottobre 1968."
+      ],
+      [
+       "Durata dell'evento",
+       "15 giorni."
+      ],
+      [
+       "Distanza tra logotipo e apertura",
+       "1 anno e 9 mesi."
+      ],
+      [
+       "Durata della progettazione",
+       "circa 23 mesi."
+      ]
+     ],
+     "ciclo": [
+      "La candidatura precede di tre anni l'avvio del progetto grafico e non produce alcun apparato visivo. Il concorso internazionale che porta all'incarico viene indetto dal comitato organizzatore già costituito, e Wyman arriva a Città del Messico alla fine di novembre 1966 con Peter Murdoch per un periodo di prova di due settimane, al termine del quale il logotipo viene scelto.",
+      "La fase di presentazione dura meno di due anni e si sovrappone alla progettazione. Il logotipo entra in circolazione per primo, perché serve a identificare il comitato prima che esista qualsiasi altra cosa, e da lì la regola delle linee concentriche viene estesa progressivamente all'alfabeto, ai pittogrammi delle discipline e ai motivi. Il sistema cresce mentre viene già usato, e alcune applicazioni raggiungono la forma definitiva a ridosso dell'apertura.",
+      "La fase dell'evento occupa quindici giorni e ha il proprio baricentro nella città più che negli impianti. I codici cromatici assegnati alle sedi funzionano come dispositivo di orientamento per un pubblico in larga parte non ispanofono, e la regola generativa permette al sistema di occupare superfici che nessun manuale aveva previsto, dai tombini ai chioschi agli abiti delle hostess. La saturazione è massima proprio dove il progetto era meno prescrittivo.",
+      "La fase post non è pianificata. Il comitato si scioglie senza che nessuno abbia deciso dove depositare le tavole originali, i materiali si disperdono tra archivi privati e collezioni, e per decenni il sistema resta noto attraverso fotografie e oggetti superstiti anziché attraverso i propri documenti di progetto. Il rientro in circolazione avviene molto più tardi, per iniziativa dell'autore e degli storici del design, e passa da ristampe e mostre invece che da un fondo istituzionale."
+     ]
+    },
+    "1972": {
+     "title": "Monaco 1972",
+     "scheda": [
+      [
+       "Formato",
+       "Giochi Olimpici, grado di variabilità medio"
+      ],
+      [
+       "Sede e date",
+       "Monaco di Baviera, 26 agosto - 11 settembre 1972"
+      ],
+      [
+       "Produttore dell’edizione",
+       "Comitato organizzatore dei Giochi della XX Olimpiade"
+      ],
+      [
+       "Progetto visivo",
+       "Otl Aicher, con un ufficio dedicato; emblema rielaborato dal Graphicteam Colonia di Coordt von Mannstein"
+      ],
+      [
+       "Componenti principali",
+       "Emblema a corona di raggi entro una spirale; griglia a 0, 45 e 90 gradi; pittogrammi; tipografia in Univers; tavolozza senza rosso e nero; segnaletica; manuale per i fornitori"
+      ],
+      [
+       "Presentazione",
+       "Emblema, 16 giugno 1968 (4 anni e 2 mesi prima dell’apertura)"
+      ],
+      [
+       "Che cosa resta",
+       "Documentazione ordinata e manuale consultabile, poi ristampato; pittogrammi assorbiti nella segnaletica pubblica"
+      ]
+     ],
+     "descrizione": [
+      "I Giochi della XX Olimpiade si tengono a Monaco di Baviera dal 26 agosto all'11 settembre 1972. Il comitato organizzatore affida a Otl Aicher la direzione dell'intero programma visivo, con un ufficio dedicato e il controllo sulle applicazioni. Il sistema si costruisce su una griglia con assi a zero, quarantacinque e novanta gradi, che genera i pittogrammi, regola le composizioni tipografiche in Univers e ordina la segnaletica. La tavolozza, dominata da azzurro, verde chiaro, argento e arancio, esclude il rosso e il nero. Le regole vengono raccolte in un manuale distribuito ai fornitori, che consente a esecutori diversi di produrre materiali coerenti senza l'intervento dell'autore."
+     ],
+     "date": [
+      [
+       "Presentazione della candidatura al Comitato",
+       "31 dicembre 1965."
+      ],
+      [
+       "Assegnazione dei Giochi a Monaco",
+       "26 aprile 1966."
+      ],
+      [
+       "Avvio della progettazione",
+       "settembre 1967."
+      ],
+      [
+       "Concorso aperto",
+       "novembre 1967."
+      ],
+      [
+       "Scelta definitiva",
+       "8 maggio 1968."
+      ],
+      [
+       "Presentazione pubblica dell'emblema",
+       "16 giugno 1968."
+      ],
+      [
+       "Apertura",
+       "26 agosto 1972."
+      ],
+      [
+       "Chiusura",
+       "11 settembre 1972."
+      ],
+      [
+       "Durata dell'evento",
+       "16 giorni."
+      ],
+      [
+       "Durata della progettazione",
+       "circa 5 anni."
+      ]
+     ],
+     "ciclo": [
+      "La fase di candidatura si svolge senza alcun sistema visivo. La proposta nasce nell'ottobre 1965, il dossier viene redatto in poche settimane e consegnato il 31 dicembre, e l'assegnazione arriva il 26 aprile 1966 dopo due presentazioni orali. Il lavoro grafico comincia soltanto dopo, quando il comitato organizzatore si insedia.",
+      "La fase di presentazione dura cinque anni ed è strutturata per strati, con un passaggio iniziale accidentato. Aicher presenta la propria corona di raggi nel settembre 1967 e il comitato la respinge; nel novembre successivo viene aperto un concorso esteso a tutti gli artisti tedeschi, che ad aprile 1968 raccoglie 2.332 proposte e le respinge in blocco; l'8 maggio il comitato torna sui disegni originali e sceglie la corona di raggi entro una spirale, rielaborata dal Graphicteam Colonia di Coordt von Mannstein che vi integra i cerchi olimpici e ne formalizza l'uso perché possa essere tutelata. Il progetto definitivo viene presentato il 16 giugno 1968. Da quel momento il resto del sistema entra per strati successivi, e il manuale viene redatto prima che la produzione industriale cominci.",
+      "La fase dell'evento occupa sedici giorni e coincide con l'esecuzione di un piano. Il parco olimpico, i mezzi di trasporto, le divise e la segnaletica applicano lo stesso reticolo e la stessa tavolozza, prodotti da fornitori diversi che non hanno mai parlato con l'autore. La coerenza che si osserva in quei giorni è l'esito del documento più che del controllo diretto.",
+      "La fase post produce l'esito opposto a quello messicano. La documentazione resta ordinata, il manuale sopravvive come oggetto consultabile e la letteratura sul sistema comincia a formarsi quasi subito. I pittogrammi si separano dall'evento e proseguono come repertorio di segnaletica pubblica, secondo la modalità di assorbimento infrastrutturale descritta nel Capitolo 5. La ristampa delle linee guida, molti anni dopo, rende il sistema nuovamente applicabile da chi non c'era."
+     ]
+    },
+    "2024": {
+     "title": "Parigi 2024",
+     "scheda": [
+      [
+       "Formato",
+       "Giochi Olimpici, grado di variabilità medio"
+      ],
+      [
+       "Sede e date",
+       "Parigi, 26 luglio - 11 agosto 2024"
+      ],
+      [
+       "Produttore dell’edizione",
+       "Comitato organizzatore Paris 2024"
+      ],
+      [
+       "Progetto visivo",
+       "Emblema: Royalties-Ecobranding, direzione di Sylvain Boyer; mascotte: Gilles Deléris (W&Cie); look e pittogrammi: comitato con l’agenzia W"
+      ],
+      [
+       "Componenti principali",
+       "Emblema con medaglia, fiamma e Marianne; mascotte Phryges; 62 pittogrammi a blasone; vestizione dal motivo del selciato; tavolozza blu, rosa e viola senza rosso"
+      ],
+      [
+       "Presentazione",
+       "Emblema, 21 ottobre 2019 (4 anni e 9 mesi prima); look e pittogrammi, 8 febbraio 2023"
+      ],
+      [
+       "Che cosa resta",
+       "Fase post in corso: rapporto finale atteso entro agosto 2026; destino dei materiali di progetto non reso pubblico"
+      ]
+     ],
+     "descrizione": [
+      "I Giochi della XXXIII Olimpiade si tengono a Parigi dal 26 luglio all'11 agosto 2024. L'emblema, presentato nell'ottobre 2019 e disegnato da Royalties-Ecobranding con la direzione di Sylvain Boyer, compone in un tondo dorato una medaglia, una fiamma e il volto di Marianne, e abbandona qualsiasi riferimento allo skyline cittadino. Le mascotte sono due Phryges, berretti frigi antropomorfi disegnati da Gilles Deléris di W&Cie, scelti come simbolo repubblicano al posto di un animale. Il look of the games e i sessantadue pittogrammi vengono sviluppati internamente dal comitato con l'agenzia parigina W: la vestizione muove dal motivo del selciato urbano e adotta una tavolozza dominata da blu, rosa e viola, con l'esclusione dichiarata del rosso. I pittogrammi abbandonano la figura umana, in uso dal 1964, e si costruiscono come blasoni simmetrici composti da un asse, una rappresentazione del suolo e una del gesto sportivo."
+     ],
+     "date": [
+      [
+       "Presentazione del marchio di candidatura",
+       "febbraio 2016."
+      ],
+      [
+       "Assegnazione dei Giochi a Parigi",
+       "13 settembre 2017."
+      ],
+      [
+       "Presentazione dell'emblema",
+       "21 ottobre 2019."
+      ],
+      [
+       "Presentazione delle mascotte",
+       "14 novembre 2022."
+      ],
+      [
+       "Presentazione del look e dei pittogrammi",
+       "8 febbraio 2023."
+      ],
+      [
+       "Apertura",
+       "26 luglio 2024."
+      ],
+      [
+       "Chiusura",
+       "11 agosto 2024."
+      ],
+      [
+       "Durata dell'evento",
+       "17 giorni."
+      ],
+      [
+       "Distanza tra emblema e apertura",
+       "4 anni e 9 mesi."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione contiene due sistemi successivi. Il primo accompagna la candidatura, con un marchio che interpreta la Torre Eiffel leggendola insieme come il numero 24, presentato nel 2016 e rivolto ai membri del Comitato Olimpico Internazionale che avrebbero votato. Ottenuta l'assegnazione nel settembre 2017, quel sistema esce di scena e il comitato organizzatore ne commissiona uno nuovo, che arriva due anni dopo e non conserva nulla del precedente.",
+      "Il secondo sistema dura quasi cinque anni e procede per rivelazioni distanziate. L'emblema arriva per primo, con il margine più ampio, perché serve ad avviare il programma di licenze e l'attivazione dei partner commerciali molto prima che il resto esista. Le mascotte entrano a un anno e otto mesi dall'apertura, la vestizione e i pittogrammi a diciassette mesi, e ciascun annuncio è costruito come evento a sé, con conferenza stampa e cerimonia. La fase promozionale produce quindi occasioni pubbliche invece di limitarsi ad accompagnarle, e alla vigilia dei Giochi il pubblico ha già visto entrare in scena ogni componente del sistema.",
+      "La fase dell'evento occupa diciassette giorni e applica un apparato interamente noto. La vestizione basata sul selciato copre impianti, arredi urbani e superfici di gara, con la pista di atletica in viola come applicazione più visibile, e il sistema arriva alla saturazione senza l'effetto sorpresa che caratterizzava le edizioni novecentesche, dove il look si rivelava all'apertura. La cerimonia inaugurale sulla Senna estende la vestizione a un tratto di città che non è un impianto sportivo, e sposta il baricentro dell'applicazione dallo stadio allo spazio urbano aperto.",
+      "La fase post è ancora in corso al momento della stesura. Il comitato organizzatore ha l'obbligo di distribuire il rapporto finale entro due anni dalla chiusura, quindi entro l'agosto 2026, e la sua liquidazione segue quella scadenza. Il destino dei materiali di progetto, delle tavole e del manuale non è stato reso pubblico, e la loro accessibilità dipenderà dalle decisioni prese prima dello scioglimento della struttura."
+     ]
+    }
+   }
+  },
+  "esposizioni-universali": {
+   "scheda": [
+    [
+     "Titolare formato",
+     "Bureau International des Expositions"
+    ],
+    [
+     "Produttore dell’edizione",
+     "Comitato organizzatore costituito ad hoc"
+    ],
+    [
+     "Anno di fondazione",
+     "Prima edizione Londra 1851; convenzione di Parigi 1928, in vigore dal 1931"
+    ],
+    [
+     "Ricorrenza",
+     "Quinquennale (dal 2000)"
+    ],
+    [
+     "Edizioni svolte",
+     "36"
+    ],
+    [
+     "Arco temporale",
+     "1851-2025"
+    ],
+    [
+     "Durata dell’edizione",
+     "176-217 giorni, con mediana di 185"
+    ],
+    [
+     "Sede",
+     "Itinerante, assegnata per voto degli stati membri"
+    ],
+    [
+     "Ambito",
+     "Industriale e commerciale"
+    ],
+    [
+     "Dimensione",
+     "globale"
+    ],
+    [
+     "Grado di variabilità",
+     "alto"
+    ],
+    [
+     "Segni permanenti",
+     "nessuno nell'emblema; denominazione e approvazione del Bureau"
+    ]
+   ],
+   "intro": "Le Esposizioni universali sono manifestazioni espositive internazionali dedicate alla produzione industriale, scientifica e culturale degli Stati partecipanti. La prima si tiene a Londra nel 1851 e il formato si regola soltanto nel Novecento, con la convenzione di Parigi del 1928 che istituisce il Bureau International des Expositions e ne fissa cadenza, durata massima e condizioni di partecipazione. Il Bureau assegna il diritto di ospitare un'edizione per voto dei paesi membri, e l'organizzazione è affidata a una società o a un comitato costituito nel paese ospitante, che si scioglie a manifestazione conclusa. Ogni edizione riceve un tema, un emblema, una mascotte e un sistema visivo che governa un sito espositivo per un massimo di sei mesi.",
+   "edizioniTesto": [
+    "Trentasei edizioni svolte tra il 1851 e il 2025, cui si aggiunge Riad 2030, già assegnata. Il Bureau considera World Expo le International Registered Exhibitions dal 2005, le World Exhibitions del 1992 e del 2000, le Esposizioni Generali di prima e seconda categoria dal 1935 al 1970, e le esposizioni anteriori alla propria fondazione che ritiene di importanza storica.",
+    "Il formato precede il proprio titolare di settantasette anni. Dal 1851 al 1928 ogni esposizione è organizzata dal paese ospitante secondo regole che stabilisce da sé, senza un ente che ne coordini il calendario, ne fissi la durata o ne definisca le condizioni di partecipazione. Le ventuno edizioni comprese in quel periodo formano una serie per imitazione: ciascuna guarda le precedenti e ne riprende l'impianto, mentre nessuno detiene il nome né autorizza chi possa usarlo.",
+    "Il Bureau nasce da questa mancanza. La convenzione di Parigi del 1928 viene firmata per rimediare all'assenza di trasparenza sulle regole nazionali e alla proliferazione di manifestazioni che si dichiaravano universali, e l'organizzazione comincia ad operare nel 1931. Da quel momento il formato acquista un calendario, una procedura di assegnazione, una durata massima e una classificazione per categorie, e le edizioni successive nascono dentro un perimetro che nessuna delle precedenti aveva conosciuto.",
+    "Il Bureau estende la propria classificazione anche alle esposizioni anteriori alla sua fondazione: la manifestazione londinese del 1851 compare oggi come Expo 1851 London. Riconosce così come proprie edizioni che non aveva regolato e attribuisce loro un nome estraneo all'uso dell'epoca. Negli altri casi del repertorio il livello permanente nasce con il formato e regola le edizioni successive. Qui arriva a serie già avviata, standardizza il futuro e riorganizza retrospettivamente il passato.",
+    "Il vuoto apparente tra il 1970 e il 1992 non interrompe la manifestazione. In quei ventidue anni si tengono nove Esposizioni specializzate, da Budapest 1971 a Brisbane 1988, quindi la ricorrenza prosegue sotto un'altra categoria dello stesso titolare, con regole diverse su superficie, durata e obblighi dei partecipanti.",
+    "Le durate restituiscono il tratto più stabile dell'intera serie. Escluse San Francisco 1915 e Barcellona 1888, che superano gli otto mesi, tutte le edizioni si collocano tra i 176 e i 217 giorni, con una mediana di 185. La regolarità precede di ottant'anni la norma che fissa il tetto a sei mesi: le esposizioni ottocentesche duravano già quanto durano oggi, e il regolamento ha codificato una consuetudine invece di imporre un limite. Le edizioni contemporanee, da Aichi in poi, si assestano tra i 182 e i 185 giorni, cioè usano il massimo consentito senza avvicinarsi ai valori più lunghi del passato.",
+    "Due edizioni escono da questo schema in modo diverso. Chicago 1933 e New York 1939 chiudono a fine stagione e riaprono l'anno successivo, la prima per centocinquantatré giorni ulteriori, la seconda per centosettanta. Il sistema visivo viene smontato, immagazzinato e rimesso in servizio dopo un inverno, con la data della prima stagione già stampata su ogni materiale: la denominazione ufficiale di Chicago, A Century of Progress, International Exposition, 1933-34, registra la doppia annata nel nome della manifestazione."
+   ],
+   "tabella": {
+    "header": [
+     "anno",
+     "luogo",
+     "durata",
+     "epoca mediale"
+    ],
+    "rows": [
+     [
+      "1851",
+      "Londra, Regno Unito",
+      "164 giorni",
+      "Stampa"
+     ],
+     [
+      "1855",
+      "Parigi, Francia",
+      "185 giorni",
+      "Stampa"
+     ],
+     [
+      "1862",
+      "Londra, Regno Unito",
+      "185 giorni 88",
+      "Stampa"
+     ],
+     [
+      "1867",
+      "Parigi, Francia",
+      "217 giorni",
+      "Stampa"
+     ],
+     [
+      "1873",
+      "Vienna, Austria",
+      "186 giorni",
+      "Stampa"
+     ],
+     [
+      "1876",
+      "Philadelphia, Stati Uniti",
+      "185 giorni",
+      "Stampa"
+     ],
+     [
+      "1878",
+      "Parigi, Francia",
+      "194 giorni",
+      "Stampa"
+     ],
+     [
+      "1880",
+      "Melbourne, Australia",
+      "212 giorni",
+      "Stampa"
+     ],
+     [
+      "1888",
+      "Barcellona, Spagna",
+      "247 giorni",
+      "Stampa"
+     ],
+     [
+      "1889",
+      "Parigi, Francia",
+      "179 giorni",
+      "Stampa"
+     ],
+     [
+      "1893",
+      "Chicago, Stati Uniti",
+      "183 giorni",
+      "Stampa"
+     ],
+     [
+      "1897",
+      "Bruxelles, Belgio",
+      "183 giorni",
+      "Stampa"
+     ],
+     [
+      "1900",
+      "Parigi, Francia",
+      "213 giorni",
+      "Stampa"
+     ],
+     [
+      "1904",
+      "St. Louis, Stati Uniti",
+      "216 giorni",
+      "Stampa"
+     ],
+     [
+      "1905",
+      "Liegi, Belgio",
+      "194 giorni",
+      "Stampa"
+     ],
+     [
+      "1906",
+      "Milano, Italia",
+      "198 giorni",
+      "Stampa"
+     ],
+     [
+      "1910",
+      "Bruxelles, Belgio",
+      "193 giorni",
+      "Stampa"
+     ],
+     [
+      "1913",
+      "Gand, Belgio",
+      "192 giorni",
+      "Stampa"
+     ],
+     [
+      "1915",
+      "San Francisco, Stati Uniti",
+      "288 giorni",
+      "Stampa"
+     ],
+     [
+      "1929",
+      "Barcellona, Spagna",
+      "242 giorni",
+      "Stampa"
+     ],
+     [
+      "1933",
+      "Chicago, Stati Uniti",
+      "170* + 153 giorni (2 stagioni di apertura, motivi economici)",
+      "Stampa"
+     ],
+     [
+      "1935",
+      "Bruxelles, Belgio",
+      "194 giorni",
+      "Stampa"
+     ],
+     [
+      "1937",
+      "Parigi, Francia",
+      "185 giorni",
+      "Stampa"
+     ],
+     [
+      "1939",
+      "New York, Stati Uniti",
+      "185* + 170 giorni (2 stagioni di apertura, motivi economici)",
+      "Stampa"
+     ],
+     [
+      "1949",
+      "Port-au-Prince, Haiti",
+      "183 giorni",
+      "Stampa"
+     ],
+     [
+      "1958",
+      "Bruxelles, Belgio",
+      "186 giorni",
+      "Televisiva"
+     ],
+     [
+      "1962",
+      "Seattle, Stati Uniti",
+      "184 giorni",
+      "Televisiva"
+     ],
+     [
+      "1967",
+      "Montréal, Canada",
+      "186 giorni",
+      "Televisiva"
+     ],
+     [
+      "1970",
+      "Osaka, Giappone",
+      "183 giorni",
+      "Televisiva"
+     ],
+     [
+      "1992",
+      "Siviglia, Spagna",
+      "176 giorni",
+      "Televisiva"
+     ],
+     [
+      "2000",
+      "Hannover, Germania",
+      "153 giorni",
+      "Digitale"
+     ],
+     [
+      "2005",
+      "Aichi, Giappone",
+      "185 giorni",
+      "Digitale"
+     ],
+     [
+      "2010",
+      "Shanghai, Cina",
+      "184 giorni",
+      "Digitale"
+     ],
+     [
+      "2015",
+      "Milano, Italia",
+      "184 giorni",
+      "Digitale"
+     ],
+     [
+      "2020",
+      "Dubai, Emirati Arabi",
+      "182 giorni",
+      "Digitale"
+     ],
+     [
+      "2025",
+      "Osaka, Giappone",
+      "184 giorni",
+      "Digitale"
+     ]
+    ]
+   },
+   "casi": {
+    "1967": {
+     "title": "Expo 67 Montréal",
+     "scheda": [
+      [
+       "Formato",
+       "Esposizioni universali, grado di variabilità alto"
+      ],
+      [
+       "Sede e date",
+       "Montréal, 28 aprile - 29 ottobre 1967"
+      ],
+      [
+       "Produttore dell’edizione",
+       "Società pubblica organizzatrice"
+      ],
+      [
+       "Progetto visivo",
+       "Marchio di Julien Hébert"
+      ],
+      [
+       "Componenti principali",
+       "Marchio a otto coppie di figure disposte in cerchio; logotipo in Optima e testi in Univers; bandiera blu; segnaletica, materiali a stampa, passaporti dei visitatori"
+      ],
+      [
+       "Presentazione",
+       "Marchio selezionato nel 1963 (circa 4 anni prima dell’apertura)"
+      ],
+      [
+       "Che cosa resta",
+       "Sito riaperto l’estate successiva con il marchio in servizio; materiali di progetto negli archivi federali canadesi"
+      ]
+     ],
+     "descrizione": [
+      "L'Esposizione universale del 1967 si tiene a Montréal dal 28 aprile al 29 ottobre, con il tema Terre des Hommes ripreso dal titolo di Saint-Exupéry e novanta padiglioni su tre siti tra il fiume e le isole. Il marchio è di Julien Hébert, designer industriale e docente a Montréal: la sua unità di base è un antico pittogramma dell'uomo, due figure unite a indicare l'amicizia, ripetute in otto coppie identiche disposte in cerchio per estendere quel legame a tutto il mondo. Il logotipo è composto in Optima, i testi in Univers, secondo l'impianto modernista che governa l'intero apparato. La bandiera dell'esposizione è unicamente blu, a rappresentare il pianeta."
+     ],
+     "date": [
+      [
+       "Candidatura",
+       "1958."
+      ],
+      [
+       "Assegnazione a Montréal",
+       "1962."
+      ],
+      [
+       "Selezione del marchio",
+       "1963."
+      ],
+      [
+       "Apertura",
+       "28 aprile 1967."
+      ],
+      [
+       "Chiusura",
+       "29 ottobre 1967."
+      ],
+      [
+       "Durata dell'evento",
+       "186 giorni."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione dura quattro anni e comincia con un processo di selezione tormentato. Nel 1963 il direttore della pianificazione invita cinque esperti di grafica a presentare un emblema, tra cui Hébert, mentre il primo commissario generale ha già scelto una proposta di un'agenzia di comunicazione; la riunione convocata per adottarla non raggiunge il numero legale e la decisione decade. Il marchio di Hébert viene adottato e la bandiera sventola sull'Île Sainte-Hélène per mesi.",
+      "A quel punto arriva l'opposizione. Il carattere modernista del segno viene contestato in Parlamento, e il vice commissario, per non entrare in conflitto con il Parlamento, incarica un gruppo di quattro esperti di riesaminare le proposte scartate e scegliere un nuovo marchio in sostituzione di quello di Hébert. L'emblema resta al proprio posto e attraversa l'esposizione, ma per un tratto della fase di presentazione l'identità dell'edizione è un progetto già in servizio e insieme già revocato.",
+      "La fase dell'evento occupa centottantasei giorni su un sito costruito ex novo, con il sistema applicato a segnaletica, padiglioni, materiali a stampa e passaporti dei visitatori. La lunga durata cambia il problema rispetto a un'edizione olimpica: il sistema deve reggere sei mesi di esposizione agli agenti atmosferici e a un pubblico che torna più volte.",
+      "La fase post non produce una dismissione. Il sito riapre l'estate successiva sotto il nome del tema e il marchio resta in servizio, mentre i materiali di progetto, prodotti da una società pubblica, confluiscono negli archivi federali canadesi."
+     ]
+    },
+    "2015": {
+     "title": "Expo Milano 2015",
+     "scheda": [
+      [
+       "Formato",
+       "Esposizioni universali, grado di variabilità alto"
+      ],
+      [
+       "Sede e date",
+       "Milano, sito di Rho, 1° maggio - 31 ottobre 2015"
+      ],
+      [
+       "Produttore dell’edizione",
+       "Società organizzatrice, liquidata a manifestazione conclusa"
+      ],
+      [
+       "Progetto visivo",
+       "Marchio di Andrea Puppa, scelto per concorso pubblico e votazione online"
+      ],
+      [
+       "Componenti principali",
+       "Marchio a parole sovrapposte; mascotte Foody; sistema di orientamento tra i padiglioni"
+      ],
+      [
+       "Presentazione",
+       "Marchio, 23 maggio 2011 (3 anni e 11 mesi prima); preceduto dal marchio di candidatura dell’Uomo vitruviano"
+      ],
+      [
+       "Che cosa resta",
+       "Marchio non ripreso da alcun soggetto; destino di tavole e manuale non reso pubblico"
+      ]
+     ],
+     "descrizione": [
+      "L'Esposizione universale del 2015 si tiene a Milano dal 1° maggio al 31 ottobre, con il tema Nutrire il Pianeta, Energia per la Vita, centoquarantasette paesi partecipanti e un sito di duecento ettari a Rho. Il marchio è una scritta composta da parole sovrapposte in colori diversi, progettata da Andrea Puppa, architetto milanese, e scelta per concorso pubblico. La mascotte è Foody, una figura composta da undici alimenti antropomorfi."
+     ],
+     "date": [
+      [
+       "Presentazione della candidatura al Bureau, con tema e marchio dell'Uomo vitruviano",
+       "30 ottobre 2006."
+      ],
+      [
+       "Presentazione ufficiale del progetto al Bureau",
+       "19 dicembre 2006."
+      ],
+      [
+       "Avvio della campagna promozionale della candidatura",
+       "19 luglio 2007."
+      ],
+      [
+       "Assegnazione a Milano, assemblea generale del Bureau a Parigi",
+       "31 marzo 2008."
+      ],
+      [
+       "Proclamazione del nuovo marchio, dopo concorso e votazione online",
+       "23 maggio 2011."
+      ],
+      [
+       "Presentazione pubblica della mascotte e apertura del concorso per il nome, Teatro Franco Parenti",
+       "15 dicembre 2013."
+      ],
+      [
+       "Chiusura del concorso per il nome, oltre ottomila proposte",
+       "7 gennaio 2014."
+      ],
+      [
+       "Annuncio del nome Foody, Castello Sforzesco",
+       "5 marzo 2014."
+      ],
+      [
+       "Apertura",
+       "1° maggio 2015."
+      ],
+      [
+       "Chiusura",
+       "31 ottobre 2015."
+      ],
+      [
+       "Durata dell'evento",
+       "184 giorni."
+      ],
+      [
+       "Durata del marchio di candidatura",
+       "4 anni e 7 mesi, di cui 3 anni e 2 mesi dopo l'assegnazione."
+      ],
+      [
+       "Distanza tra marchio dell'edizione e apertura",
+       "3 anni e 11 mesi."
+      ],
+      [
+       "Distanza tra mascotte e apertura",
+       "1 anno e 2 mesi."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione contiene due sistemi successivi, e la sostituzione avviene per decisione politica anziché per cambio di committente. Dopo l'assegnazione del 2008 la manifestazione si comunica con un marchio costruito sull'Uomo vitruviano, abbandonato nel 2011 a favore di un segno scelto attraverso un concorso aperto con oltre settecento proposte, una giuria presieduta da Giorgio Armani e una votazione online conclusa il 23 maggio. Il marchio arriva quindi al termine di un processo che coinvolge un pubblico non professionale, e viene poi consegnato a uno sviluppo tecnico perché regga le applicazioni di sistema.",
+      "Il secondo sistema dura quattro anni. L'anticipo è inferiore a quello di un'edizione olimpica pur trattandosi di una manifestazione più lunga, perché il programma di licenze di un'esposizione ha una scala diversa e non richiede lo stesso margine di attivazione.",
+      "La fase dell'evento occupa centottantaquattro giorni, il massimo consentito dal regolamento, su un sito temporaneo organizzato lungo due assi ortogonali. Il sistema governa l'orientamento tra padiglioni costruiti dai partecipanti secondo linguaggi propri, quindi lavora come struttura di raccordo tra apparati che non controlla, condizione che le edizioni olimpiche non conoscono.",
+      "La fase post coincide con la liquidazione della società organizzatrice. Il marchio esce di scena e nessun soggetto lo riprende, e la differenza rispetto a Montréal è iscritta nel segno: una scritta che contiene il nome della città e l'anno non può identificare nient'altro. Il destino delle tavole di costruzione, del manuale e della documentazione delle applicazioni dipende da decisioni prese durante la liquidazione e non è stato reso pubblico."
+     ]
+    }
+   }
+  },
+  "eurovision-song-contest": {
+   "scheda": [
+    [
+     "Titolare formato",
+     "European Broadcasting Union"
+    ],
+    [
+     "Produttore dell’edizione",
+     "Emittente del paese vincitore dell'edizione precedente (permanente momentaneo)"
+    ],
+    [
+     "Anno di fondazione",
+     "1956, prima edizione a Lugano"
+    ],
+    [
+     "Ricorrenza",
+     "Annuale"
+    ],
+    [
+     "Edizioni svolte",
+     "70"
+    ],
+    [
+     "Arco temporale",
+     "1956-2026"
+    ],
+    [
+     "Durata dell’edizione",
+     "Una settimana, con due semifinali e una finale (dal 2004)"
+    ],
+    [
+     "Sede",
+     "Itinerante, assegnata per esito della gara"
+    ],
+    [
+     "Ambito",
+     "Musicale / Spettacolo"
+    ],
+    [
+     "Dimensione",
+     "globale"
+    ],
+    [
+     "Grado di variabilità",
+     "basso (alto fino al 2003)"
+    ],
+    [
+     "Segni permanenti",
+     "logotipo del concorso con alloggiamento per la bandiera"
+    ]
+   ],
+   "intro": "L'Eurovision Song Contest è una gara canora televisiva tra emittenti nazionali associate all'European Broadcasting Union, trasmessa in diretta ogni anno dal 1956. L'edizione si svolge nel paese che ha vinto quella precedente, e la produzione è affidata alla sua emittente pubblica, che la realizza con le proprie strutture per una sola volta. Dal 2004 il titolare fornisce un logotipo generico, valido per tutte le edizioni, in cui la lettera centrale è sostituita da un cuore che ospita la bandiera del paese vincitore dell'anno prima. Ogni emittente ospitante sviluppa attorno a quel segno una theme art annuale, con uno slogan, una tavolozza, una tipografia complementare e una scenografia, che viene dismessa con l'edizione.",
+   "edizioniTesto": [
+    "Settanta edizioni svolte tra il 1956 e il 2026. L'edizione del 2020, assegnata a Rotterdam, è stata annullata per la pandemia e non compare nel conteggio.",
+    "Il formato ha cambiato grado di variabilità nel 2004, ed è l'unico caso del repertorio in cui questo accade. Fino al 2003 ogni edizione riceveva un proprio logotipo, e il formato stava al grado alto: l'unica ripetizione documentata riguarda le tre edizioni olandesi del 1970, 1976 e 1980, che condivisero un cerchio composto da quattro crome. Nel 2004, insieme all'introduzione delle semifinali, il titolare adotta un logotipo generico valido per tutte le edizioni e assume la titolarità della maggior parte dei diritti sul concorso, comprese le registrazioni. Da quel momento all'emittente ospitante resta la theme art, e il grado di variabilità scende al livello basso.",
+    "Il cambiamento è documentato e coincide con l'estensione dei diritti di proprietà intellettuale del titolare. Il livello permanente viene istituito quarantotto anni dopo la prima edizione.",
+    "Il segno permanente ha ricevuto due revisioni. La prima nel 2015, per la sessantesima edizione, curata da Cornelis Jacobs con l'agenzia Cityzen di Amsterdam, con allineamento più pulito, cuore ridisegnato e migliore leggibilità alle dimensioni ridotte. La seconda il 18 agosto 2025, per la settantesima, sviluppata dal titolare con lo studio londinese PALS, che aveva lavorato all'identità dell'edizione di Liverpool: entrambe le parole del nome passano per la prima volta a un unico carattere, disegnato per l'occasione.",
+    "La durata dell'edizione cambia due volte. Fino al 2003 il concorso è una serata sola. Nel 2004 si aggiunge una semifinale, nel 2008 le semifinali diventano due, e da allora la manifestazione occupa tre serate distribuite su una settimana. L'apparato visivo passa quindi da servire un programma televisivo a servire una settimana di eventi, con conferenze stampa, sfilate, aree per il pubblico e un villaggio ufficiale nella città ospitante."
+   ],
+   "tabella": {
+    "header": [
+     "anno",
+     "luogo",
+     "durata",
+     "epoca mediale"
+    ],
+    "rows": [
+     [
+      "1956",
+      "Lugano, Svizzera",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1957",
+      "Francoforte, Germania",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1958",
+      "Hilversum, Paesi Bassi",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1959",
+      "Cannes, Francia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1960",
+      "Londra, Regno Unito",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1961",
+      "Cannes, Francia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1962",
+      "Lussemburgo",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1963",
+      "Londra, Regno Unito",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1964",
+      "Copenaghen, Danimarca",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1965",
+      "Napoli, Italia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1966",
+      "Lussemburgo",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1967",
+      "Vienna, Austria",
+      "1 serata 95",
+      "Televisiva"
+     ],
+     [
+      "1968",
+      "Londra, Regno Unito",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1969",
+      "Madrid, Spagna",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1970",
+      "Amsterdam, Paesi Bassi",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1971",
+      "Dublino, Irlanda",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1972",
+      "Edimburgo, Regno Unito",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1973",
+      "Lussemburgo",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1974",
+      "Brighton, Regno Unito",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1975",
+      "Stoccolma, Svezia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1976",
+      "L’Aia, Paesi Bassi",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1977",
+      "Londra, Regno Unito",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1978",
+      "Parigi, Francia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1979",
+      "Gerusalemme, Israele",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1980",
+      "L’Aia, Paesi Bassi",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1981",
+      "Dublino, Irlanda",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1982",
+      "Harrogate, Regno Unito",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1983",
+      "Monaco di Baviera, Germania",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1984",
+      "Lussemburgo",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1985",
+      "Göteborg, Svezia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1986",
+      "Bergen, Norvegia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1987",
+      "Bruxelles, Belgio",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1988",
+      "Dublino, Irlanda",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1989",
+      "Losanna, Svizzera",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1990",
+      "Zagabria, Jugoslavia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1991",
+      "Roma, Italia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1992",
+      "Malmö, Svezia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1993",
+      "Millstreet, Irlanda",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1994",
+      "Dublino, Irlanda",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1995",
+      "Dublino, Irlanda",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1996",
+      "Oslo, Norvegia",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1997",
+      "Dublino, Irlanda",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1998",
+      "Birmingham, Regno Unito",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "1999",
+      "Gerusalemme, Israele",
+      "1 serata",
+      "Televisiva"
+     ],
+     [
+      "2000",
+      "Stoccolma, Svezia",
+      "1 serata",
+      "Digitale"
+     ],
+     [
+      "2001",
+      "Copenaghen, Danimarca",
+      "1 serata",
+      "Digitale"
+     ],
+     [
+      "2002",
+      "Tallinn, Estonia",
+      "1 serata",
+      "Digitale"
+     ],
+     [
+      "2003",
+      "Riga, Lettonia",
+      "1 serata",
+      "Digitale"
+     ],
+     [
+      "2004",
+      "Istanbul, Turchia",
+      "2 serate",
+      "Digitale"
+     ],
+     [
+      "2005",
+      "Kiev, Ucraina",
+      "2 serate",
+      "Digitale"
+     ],
+     [
+      "2006",
+      "Atene, Grecia",
+      "2 serate",
+      "Digitale"
+     ],
+     [
+      "2007",
+      "Helsinki, Finlandia",
+      "2 serate",
+      "Digitale"
+     ],
+     [
+      "2008",
+      "Belgrado, Serbia",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2009",
+      "Mosca, Russia",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2010",
+      "Oslo, Norvegia",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2011",
+      "Düsseldorf, Germania",
+      "3 serate (tv) - 1 settimana (città) 96",
+      "Digitale"
+     ],
+     [
+      "2012",
+      "Baku, Azerbaigian",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2013",
+      "Malmö, Svezia",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2014",
+      "Copenaghen, Danimarca",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2015",
+      "Vienna, Austria",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2016",
+      "Stoccolma, Svezia",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2017",
+      "Kiev, Ucraina",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2018",
+      "Lisbona, Portogallo",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2019",
+      "Tel Aviv, Israele",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2021",
+      "Rotterdam, Paesi Bassi",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2022",
+      "Torino, Italia",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2023",
+      "Liverpool, Regno Unito",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2024",
+      "Malmö, Svezia",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2025",
+      "Basilea, Svizzera",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ],
+     [
+      "2026",
+      "Vienna, Austria",
+      "3 serate (tv) - 1 settimana (città)",
+      "Digitale"
+     ]
+    ]
+   },
+   "casi": {
+    "2021": {
+     "title": "Eurovision Rotterdam 2021",
+     "scheda": [
+      [
+       "Formato",
+       "Eurovision Song Contest, grado di variabilità basso"
+      ],
+      [
+       "Sede e date",
+       "Rotterdam, 18, 20 e 22 maggio 2021"
+      ],
+      [
+       "Produttore dell’edizione",
+       "Emittenti pubbliche olandesi"
+      ],
+      [
+       "Progetto visivo",
+       "Theme art di CLEVER°FRANKE"
+      ],
+      [
+       "Componenti principali",
+       "Logotipo generico del titolare con la bandiera ospitante; theme art dai colori delle bandiere in ordine di esordio; slogan Open Up; scenografia, sovrimpressioni, sigle"
+      ],
+      [
+       "Presentazione",
+       "Theme art, 28 novembre 2019 (1 anno e 6 mesi prima, per il rinvio)"
+      ],
+      [
+       "Che cosa resta",
+       "Logotipo al titolare; theme art dismessa con la finale; memoria presso l’emittente e lo studio"
+      ]
+     ],
+     "descrizione": [
+      "La sessantacinquesima edizione si tiene a Rotterdam il 18, il 20 e il 22 maggio 2021, prodotta dalle emittenti pubbliche olandesi dopo la vittoria del 2019. La theme art, firmata dallo studio olandese CLEVER°FRANKE, è costruita sui dati: i colori delle bandiere dei paesi partecipanti sono disposti in fasce secondo l'ordine in cui ciascuno ha esordito nel concorso, e cinque fasci di luce rimandano alle cinque vittorie olandesi. Lo slogan è Open Up."
+     ],
+     "date": [
+      [
+       "Assegnazione a Rotterdam",
+       "30 agosto 2019."
+      ],
+      [
+       "Annuncio dello slogan Open Up",
+       "24 ottobre 2019."
+      ],
+      [
+       "Presentazione della theme art per l'edizione 2020",
+       "28 novembre 2019."
+      ],
+      [
+       "Date previste per l'edizione 2020",
+       "12, 14 e 16 maggio 2020."
+      ],
+      [
+       "Annullamento dell'edizione 2020",
+       "18 marzo 2020."
+      ],
+      [
+       "Semifinali e finale",
+       "18, 20 e 22 maggio 2021."
+      ],
+      [
+       "Durata dell'edizione",
+       "3 serate su una settimana."
+      ],
+      [
+       "Distanza tra prima theme art ed evento",
+       "1 anno e 6 mesi."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione dura due anni invece di cinque mesi. Il sistema viene disegnato e diffuso per l'edizione del 2020, che nel marzo di quell'anno viene annullata, e resta poi in circolazione per tutto il tempo del rinvio, fino alle serate del maggio 2021. È l'unico caso del repertorio in cui la promozione si prolunga oltre la durata prevista senza che il progetto venga rifatto.",
+      "La fase dell'evento occupa tre serate distribuite su una settimana. L'apparato lavora contemporaneamente in due luoghi che non comunicano: l'arena, dove il pubblico è contingentato e l'esperienza è quella di un concerto a capienza ridotta, e lo schermo, dove milioni di spettatori vedono soltanto quello che la regia inquadra. Il sistema deve quindi reggere una scenografia, una grafica di sovrimpressione e le sigle di collegamento tra i paesi, e la parte che il pubblico in sala percepisce è una frazione di quella che il progetto produce. Fuori dall'arena la città ospitante riceve una vestizione ridotta rispetto alle edizioni ordinarie, perché le limitazioni sanitarie riducono gli spazi collettivi su cui un'edizione normalmente si estende.",
+      "La fase post segue le regole del formato e distribuisce ciò che resta su due soggetti diversi. Il logotipo generico appartiene al titolare, non ha mai smesso di essere suo e passa all'edizione successiva senza modifiche. La theme art, con la propria tavolozza, la tipografia complementare e il sistema di motivi, esce di scena alla fine della finale e non viene riutilizzata da nessuno. La scenografia viene smontata e i suoi materiali seguono i circuiti ordinari della produzione televisiva. L'emittente ospitante, che è un soggetto permanente, torna alla propria attività e conserva le competenze acquisite, mentre lo studio che ha firmato il progetto conserva il proprio lavoro come portfolio: nei formati che riprogettano soltanto il contorno di un marchio fisso la memoria dell'edizione resta presso chi l'ha prodotta, e non esiste un comitato da sciogliere né un archivio da depositare."
+     ]
+    },
+    "2024": {
+     "title": "Eurovision Malmö 2024",
+     "scheda": [
+      [
+       "Formato",
+       "Eurovision Song Contest, grado di variabilità basso"
+      ],
+      [
+       "Sede e date",
+       "Malmö Arena, 7, 9 e 11 maggio 2024"
+      ],
+      [
+       "Produttore dell’edizione",
+       "SVT"
+      ],
+      [
+       "Progetto visivo",
+       "Theme art di Johan Bello (Uncut) con Bold Scandinavia; scenografia di Florian Wieder, luci e video di Fredrik Stormby"
+      ],
+      [
+       "Componenti principali",
+       "Logotipo generico rinnovato; theme art The Eurovision Lights a gradienti; palco a croce; vestizione cittadina"
+      ],
+      [
+       "Presentazione",
+       "Theme art, 14 dicembre 2023 (5 mesi prima)"
+      ],
+      [
+       "Che cosa resta",
+       "Theme art dismessa con la finale; lo slogan United by Music, nato nel 2023, è già passato al livello permanente"
+      ]
+     ],
+     "descrizione": [
+      "La sessantottesima edizione si tiene alla Malmö Arena il 7, il 9 e l'11 maggio 2024, prodotta da SVT dopo la vittoria svedese del 2023. La theme art, intitolata The Eurovision Lights, è disegnata da Johan Bello per l'agenzia Uncut con Bold Scandinavia, entrambe di Stoccolma, e si costruisce su gradienti lineari che uniscono l'aurora boreale e le barre di un equalizzatore, usando la tavolozza ufficiale del concorso come materiale di partenza. La scenografia, con il palco a croce collocato al centro dell'arena e circondato dal pubblico, è progettata da Florian Wieder con Fredrik Stormby alle luci e ai contenuti video."
+     ],
+     "date": [
+      [
+       "Assegnazione a Malmö e presentazione del logotipo generico rinnovato",
+       "7 luglio 2023."
+      ],
+      [
+       "Adozione permanente dello slogan United by Music",
+       "14 novembre 2023."
+      ],
+      [
+       "Presentazione della theme art",
+       "14 dicembre 2023."
+      ],
+      [
+       "Semifinali e finale",
+       "7, 9 e 11 maggio 2024."
+      ],
+      [
+       "Durata dell'edizione",
+       "3 serate su una settimana."
+      ],
+      [
+       "Distanza tra theme art e apertura",
+       "5 mesi."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione dura cinque mesi. La ragione sta nella regola di assegnazione: la sede si conosce soltanto quando l'edizione precedente finisce, quindi il progetto non può cominciare prima. La theme art viene presentata il 14 dicembre 2023 come annuncio autonomo, con dichiarazioni della produzione e del direttore creativo, e da quel momento accompagna la vendita dei biglietti, le selezioni nazionali dei paesi partecipanti e la comunicazione dell'emittente.",
+      "La fase dell'evento occupa tre serate distribuite su una settimana e impegna il sistema su due fronti distinti. Dentro l'arena l'apparato lavora attraverso la scenografia, con il palco a croce collocato al centro del pubblico, le luci e i contenuti video che ne costituiscono la parte mobile. Fuori, la città ospitante riceve una vestizione che copre spazi pubblici, aree per il pubblico e sedi collaterali. I gradienti che compongono la theme art sono stati costruiti per questa doppia destinazione, e la loro natura di superfici continue anziché di segni li rende applicabili a supporti di qualsiasi formato senza problemi di riduzione.",
+      "La fase post presenta un movimento che merita attenzione, perché è l'unico caso del repertorio in cui un elemento nato per una singola edizione passa al livello permanente. Lo slogan United by Music, sviluppato per l'edizione di Liverpool nel 2023, viene adottato dal titolare come slogan di tutte le edizioni successive il 14 novembre 2023, quindi prima ancora che l'edizione di Malmö cominci e un mese prima che la sua theme art venga presentata.",
+      "Il resto segue la regola del formato. La theme art esce di scena con la finale, la scenografia viene smontata, e la memoria dell'edizione resta presso l'emittente e gli studi che l'hanno prodotta, senza che nessuno debba depositare qualcosa da qualche parte."
+     ]
+    }
+   }
+  },
+  "offf-barcelona": {
+   "scheda": [
+    [
+     "Titolare formato",
+     "OFFF"
+    ],
+    [
+     "Produttore dell’edizione",
+     "OFFF, con studi esterni incaricati del progetto annuale"
+    ],
+    [
+     "Anno di fondazione",
+     "2001"
+    ],
+    [
+     "Ricorrenza",
+     "Annuale"
+    ],
+    [
+     "Edizioni svolte",
+     "25"
+    ],
+    [
+     "Arco temporale",
+     "2001-2026"
+    ],
+    [
+     "Durata dell’edizione",
+     "3 giorni"
+    ],
+    [
+     "Sede",
+     "Barcellona, Disseny Hub, con edizioni satellite in altre città"
+    ],
+    [
+     "Ambito",
+     "Progettuale"
+    ],
+    [
+     "Dimensione",
+     "globale"
+    ],
+    [
+     "Grado di variabilità",
+     "basso"
+    ],
+    [
+     "Segni permanenti",
+     "marchio OFFF"
+    ]
+   ],
+   "intro": "OFFF è un festival di cultura visiva digitale fondato a Barcellona nel 2001, dedicato a grafica, motion design, branding e arti digitali, con un programma di conferenze, masterclass e workshop distribuito su tre giornate. Il titolare è un'organizzazione permanente che produce ogni edizione con le proprie strutture e affida a uno studio diverso la campagna visiva dell'anno, insieme ai Main Titles, la sigla in movimento che apre il festival. Il marchio resta stabile e viene ridisegnato a intervalli lunghi per decisione del titolare, mentre l'apparato annuale nasce e si esaurisce con l'edizione. Accanto alla manifestazione principale il formato produce tappe in altre città, ciascuna con un proprio apparato visivo: sono edizioni derivate, e questo caso studio considera le sole edizioni di Barcellona, secondo il conteggio adottato dal festival.",
+   "edizioniTesto": [
+    "Venticinque edizioni svolte tra il 2001 e il 2026, con la sola interruzione del 2020.",
+    "Il formato attraversa una fase itinerante e ne esce. Nasce a Barcellona e vi resta per tre anni, si sposta a Valencia nel 2004, torna al Centro di Cultura Contemporanea per tre edizioni, e tra il 2008 e il 2010 si tiene fuori dalla Spagna, a Lisbona, a Oeiras e a Parigi. Nel 2011 rientra al Centro di Cultura Contemporanea e dal 2012 il Disseny Hub ne è la sede fissa, per quattordici edizioni consecutive. Il movimento è inverso a quello dei formati assegnati da un titolare permanente a un ospite diverso ogni volta, dove l'itineranza è una proprietà stabile del formato invece che una fase.",
+    "La durata resta di tre giorni in tutte le edizioni svolte, nello stesso contesto mediale. Per questo, lungo la serie, cambia poco il rapporto tra il tempo del progetto e quello dell'evento.",
+    "Alla stabilità della manifestazione principale corrisponde la moltiplicazione delle tappe derivate. La prima è New York nel 2007, un episodio isolato; dal 2012 Città del Messico entra nel circuito e non ne esce più, dal 2018 si aggiunge Siviglia, e dal 2019 le città sono tre per anno, con destinazioni che si alternano tra Kiev, Bogotá, Vienna e Montréal. Ciascuna riceve un proprio apparato visivo, quindi il formato produce ogni anno più identità parallele sotto lo stesso marchio.",
+    "L'unica interruzione della serie cade nel 2020, quando l'edizione viene annullata, e il 2021 si svolge in forma ibrida con Siviglia in tour."
+   ],
+   "tabella": {
+    "header": [
+     "anno",
+     "luogo",
+     "on tour",
+     "durata",
+     "epoca mediale"
+    ],
+    "rows": [
+     [
+      "2001",
+      "L’esordio assoluto (La Capsula)",
+      "—",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2002",
+      "Università Pompeu Fabra (UPF)",
+      "—",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2003",
+      "Università Pompeu Fabra (UPF)",
+      "—",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2004",
+      "Valencia",
+      "—",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2005",
+      "CCCB (Centro di Cultura Contemporanea)",
+      "— 102",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2006",
+      "CCCB (Centro di Cultura Contemporanea)",
+      "—",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2007",
+      "CCCB (Centro di Cultura Contemporanea)",
+      "New York (USA)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2008",
+      "Lisbona",
+      "—",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2009",
+      "Oeiras (Portogallo)",
+      "—",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2010",
+      "Parigi (Francia)",
+      "—",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2011",
+      "CCCB (Centro di Cultura Contemporanea)",
+      "Milano (Italia)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2012",
+      "DHUB - Museo del Design (Nuova sede fissa)",
+      "Città del Messico (Messico)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2013",
+      "Disseny Hub Barcelona (DHUB)",
+      "Città del Messico",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2014",
+      "Disseny Hub Barcelona (DHUB)",
+      "Città del Messico, Mosca (Russia)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2015",
+      "Disseny Hub Barcelona (DHUB)",
+      "Città del Messico, Anversa (Belgio)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2016",
+      "Disseny Hub Barcelona (DHUB)",
+      "Città del Messico, Londra (UK)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2017",
+      "Disseny Hub Barcelona (DHUB)",
+      "Città del Messico, Tel Aviv (Israele)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2018",
+      "Disseny Hub Barcelona (DHUB)",
+      "Città del Messico, Siviglia (Spagna)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2019",
+      "Disseny Hub Barcelona (DHUB)",
+      "Città del Messico, Siviglia, Kiev (Ucraina)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2020",
+      "Annullata",
+      "—",
+      "—",
+      "—"
+     ],
+     [
+      "2021",
+      "Edizione ibrida (Barcellona)",
+      "Siviglia",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2022",
+      "Disseny Hub Barcelona (DHUB)",
+      "Siviglia, Città del Messico, Bogotà (Colombia)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2023",
+      "Disseny Hub Barcelona (DHUB)",
+      "Siviglia, Città del Messico, Vienna (Austria)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2024",
+      "Disseny Hub Barcelona (DHUB)",
+      "Siviglia, Città del Messico",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2025",
+      "Disseny Hub Barcelona (DHUB)",
+      "Siviglia, Città del Messico, Montréal (Canada)",
+      "3 giorni",
+      "Digitale"
+     ],
+     [
+      "2026",
+      "Disseny Hub Barcelona (DHUB)",
+      "Siviglia, Città del Messico, Montréal",
+      "3 giorni",
+      "Digitale"
+     ]
+    ]
+   },
+   "casi": {
+    "2023": {
+     "title": "OFFF Barcelona 2023",
+     "scheda": [
+      [
+       "Formato",
+       "OFFF Barcelona, grado di variabilità basso"
+      ],
+      [
+       "Sede e date",
+       "Disseny Hub, Barcellona, 23-25 marzo 2023"
+      ],
+      [
+       "Produttore dell’edizione",
+       "OFFF"
+      ],
+      [
+       "Progetto visivo",
+       "Campagna Cube: Vasava (concetto e direzione), Found Studio (computer grafica e movimento), Combustion (suono); Main Titles di State"
+      ],
+      [
+       "Componenti principali",
+       "Film in sei capitoli; fondali del palco, murali, biglietti, cordoncini dei pass; libro TURN; Main Titles"
+      ],
+      [
+       "Presentazione",
+       "Campagna, 9-10 febbraio 2023 (6 settimane prima)"
+      ],
+      [
+       "Che cosa resta",
+       "Campagna nei portfolio degli studi e nella stampa di settore"
+      ]
+     ],
+     "descrizione": [
+      "L'edizione 2023 si tiene al Disseny Hub dal 23 al 25 marzo, anticipata di qualche settimana rispetto al consueto perché in aprile la sede ospita per la prima volta la mostra Digital Impact. La campagna visiva si intitola Cube ed è firmata da tre studi in tre continenti: Vasava di Barcellona per il concetto e la direzione, che aveva ridisegnato l'identità del festival l'anno precedente, Found Studio di Londra per la computer grafica e il movimento, Combustion di San Paolo per il suono e la musica. Il brief chiedeva di trattare OFFF come una camera delle meraviglie, un contenitore di conferenze, laboratori e mostre. Il protagonista è un cubo che attraversa una successione di ambienti e a ogni passaggio ne assorbe le qualità, cambiando forma, colore e materia: rappresenta il pubblico, e gli ambienti rappresentano le fasi del processo creativo, costruiti a partire dall'architettura in cemento del Disseny Hub. La campagna viene applicata ai fondali del palco principale, a murali di grande formato, ai biglietti, ai cordoncini dei pass e a tutti i materiali promozionali."
+     ],
+     "date": [
+      [
+       "Ridisegno dell'identità del festival, Vasava",
+       "2022."
+      ],
+      [
+       "Concezione e sviluppo della campagna Cube",
+       "settembre 2022 - gennaio 2023."
+      ],
+      [
+       "Presentazione pubblica della campagna, insieme al programma definitivo",
+       "9-10 febbraio 2023."
+      ],
+      [
+       "Apertura e proiezione del film di apertura",
+       "23 marzo 2023."
+      ],
+      [
+       "Presentazione del libro TURN e proiezione dei Main Titles, firmati da State",
+       "24 marzo 2023."
+      ],
+      [
+       "Chiusura",
+       "25 marzo 2023."
+      ],
+      [
+       "Durata dell'edizione",
+       "3 giorni."
+      ],
+      [
+       "Distanza tra presentazione della campagna e apertura",
+       "6 settimane."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione dura sei settimane e procede per capitoli. La campagna viene svelata il 9 febbraio insieme al programma, e il racconto è diviso in sei parti, Discovery, Insight, Entertainment, Process, Connections e Mastery, pubblicate una alla volta nelle settimane successive: il quarto capitolo esce intorno al 3 marzo. Ogni uscita mostra un ambiente diverso attraversato dal cubo, e il pubblico riceve il sistema visivo in porzioni successive, conoscendone il significato fin dalla prima.",
+      "La fase dell'evento occupa tre giornate e contiene due prime visioni. Il film di apertura viene proiettato il primo giorno, e la sera del secondo si aggiungono il libro TURN, curato da Héctor Ayuso e Marcel Ziul con Vasava, e i Main Titles firmati dallo studio State. Una parte del sistema visivo entra quindi in scena a manifestazione iniziata, davanti al solo pubblico presente.",
+      "La fase post non ha un termine definito. La campagna resta nei portfolio degli studi coinvolti, che la pubblicano come proprio lavoro, e le riviste di settore la documentano nei giorni successivi all'apertura."
+     ]
+    },
+    "2026": {
+     "title": "OFFF Barcelona 2026",
+     "scheda": [
+      [
+       "Formato",
+       "OFFF Barcelona, grado di variabilità basso"
+      ],
+      [
+       "Sede e date",
+       "Disseny Hub, Barcellona, 16-18 aprile 2026"
+      ],
+      [
+       "Produttore dell’edizione",
+       "OFFF"
+      ],
+      [
+       "Progetto visivo",
+       "Uncommon Creative Studio; Main Titles di PJ Richardson"
+      ],
+      [
+       "Componenti principali",
+       "Sistema grafico da colture di muffe; carattere disegnato per l’occasione; parte in movimento; Main Titles proiettati sulla facciata del Disseny Hub"
+      ],
+      [
+       "Presentazione",
+       "Campagna, 20 gennaio 2026; metodo rivelato dal palco il 16 aprile 2026"
+      ],
+      [
+       "Che cosa resta",
+       "Sistema in circolazione come cornice di fotografie e video del festival; caso pubblicato dallo studio e dalle riviste"
+      ]
+     ],
+     "descrizione": [
+      "L'edizione 2026 si tiene al Disseny Hub dal 16 al 18 aprile, in una città designata capitale mondiale dell'architettura per quell'anno. La campagna visiva è firmata da Uncommon Creative Studio, che ha sedi a Londra, New York e Stoccolma, e comprende un sistema grafico dedicato, un carattere disegnato per l'occasione e la parte in movimento. Le forme derivano da muffe coltivate in laboratorio a partire da tracce biologiche prelevate da bicchieri, maniglie e superfici condivise durante due incontri organizzati negli studi di Londra e New York, all'insaputa dei partecipanti. La tavolozza deriva dalle colture stesse. I Main Titles, firmati da PJ Richardson, sono proiettati per la prima volta all'aperto sulla facciata del Disseny Hub, all'interno di un programma serale gratuito e aperto al pubblico."
+     ],
+     "date": [
+      [
+       "Presentazione della campagna come What We Make It",
+       "20 gennaio 2026."
+      ],
+      [
+       "Rilascio progressivo di frammenti del sistema visivo",
+       "da gennaio ad aprile 2026."
+      ],
+      [
+       "Pubblicazione del titolo Cultured con il tema biologico e i crediti",
+       "fine marzo 2026, tre settimane prima dell'apertura."
+      ],
+      [
+       "Rivelazione del metodo dal palco",
+       "16 aprile 2026."
+      ],
+      [
+       "Apertura",
+       "16 aprile 2026."
+      ],
+      [
+       "Chiusura",
+       "18 aprile 2026."
+      ],
+      [
+       "Durata dell'edizione",
+       "3 giorni."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione dura cinque mesi e procede per svelamenti successivi che riguardano lo stesso oggetto. Il pubblico riceve prima il nome dello studio incaricato, poi un titolo e una cornice concettuale, poi frammenti dell'immagine che si allargano con l'avvicinarsi dell'apertura, infine il titolo definitivo e il tema biologico. Quello che manca fino all'ultimo è il modo in cui le immagini sono state prodotte, e arriva dal palco la mattina del 16 aprile. A essere distribuita nel tempo è quindi la leggibilità di un unico apparato, prima visiva e poi concettuale.",
+      "La fase dell'evento si apre con la spiegazione dell'identità, quindi l'intervento inaugurale entra a far parte del sistema invece di accompagnarlo.",
+      "La fase post non ha un termine definito. Nei giorni successivi alla chiusura il festival continua a pubblicare fotografie e video girati durante le tre giornate, e il sistema visivo resta in circolazione come cornice di quel materiale. Lo studio pubblica il proprio caso a partire dal giorno della rivelazione, e le riviste di settore riprendono l'identità e la documentano nelle settimane seguenti, quando l'evento è già concluso. La chiusura non interrompe quindi la circolazione dell'apparato, che passa dalla funzione di identificare la manifestazione a quella di illustrarla, su canali che non appartengono al festival."
+     ]
+    }
+   }
+  },
+  "documenta": {
+   "scheda": [
+    [
+     "Titolare formato",
+     "documenta und Museum Fridericianum"
+    ],
+    [
+     "Produttore dell’edizione",
+     "Direzione artistica incaricata per la singola edizione"
+    ],
+    [
+     "Anno di fondazione",
+     "1955"
+    ],
+    [
+     "Ricorrenza",
+     "Quinquennale, con cadenza irregolare nelle prime edizioni"
+    ],
+    [
+     "Edizioni svolte",
+     "15"
+    ],
+    [
+     "Arco temporale",
+     "1955-2022"
+    ],
+    [
+     "Durata dell’edizione",
+     "100 giorni"
+    ],
+    [
+     "Sede",
+     "Kassel"
+    ],
+    [
+     "Ambito",
+     "Arte"
+    ],
+    [
+     "Dimensione",
+     "locale"
+    ],
+    [
+     "Grado di variabilità",
+     "alto"
+    ],
+    [
+     "Segni permanenti",
+     "nessuno, vincolo di nomenclatura"
+    ]
+   ],
+   "intro": "documenta è una rassegna internazionale di arte contemporanea che si tiene a Kassel ogni cinque anni dal 1955, nata per riportare in Germania le opere che il regime nazionalsocialista aveva bandito. Il titolare è una società pubblica che custodisce il nome, la sede e l'archivio delle edizioni, e affida ciascuna occorrenza a una direzione artistica diversa, scelta da una commissione internazionale e incaricata di definire il taglio curatoriale insieme all'immagine della manifestazione. Ogni edizione dura cento giorni e riceve un proprio apparato visivo, che comprende il modo stesso in cui il nome viene scritto e numerato. Il titolare non impone alcun marchio.",
+   "edizioniTesto": [
+    "Quindici edizioni tra il 1955 e il 2022. La colonna dell'edizione è la più significativa della tabella, perché registra un elemento del sistema visivo invece di un dato organizzativo.",
+    "Il nome si scrive sempre in lettera minuscola, e questa è la sola costante di settant'anni. Tutto il resto varia per decisione della direzione artistica di turno: la cifra è araba nella prima, nella quinta e dalla sesta all'ottava, romana nella seconda, nella terza, nella nona e nella decima, attaccata al nome senza spazio nell'undicesima, racchiusa tra parentesi con il nome in maiuscolo nella tredicesima, scritta per esteso in inglese nella quindicesima. La numerazione è il punto in cui ogni edizione interviene sul segno del formato.",
+    "Il ritmo si stabilizza dopo le prime quattro edizioni. Gli intervalli iniziali sono di quattro e cinque anni, poi dal 1972 la cadenza quinquennale non conosce eccezioni.",
+    "Anche la durata si stabilizza. Le prime due edizioni restano sotto i cento giorni, la terza e la quarta li superano di poco. Dal 1972 i cento giorni diventano la misura costante della manifestazione, tanto che quell'edizione si presenta come i cento giorni. La durata diventa così un tratto riconoscibile del formato.",
+    "L'edizione del 2017 è l'unica a occupare due città. Atene apre in aprile e Kassel in giugno, ciascuna per cento giorni, quindi la manifestazione si estende su sei mesi complessivi mentre la durata dell'edizione resta quella canonica in ciascuna sede."
+   ],
+   "tabella": {
+    "header": [
+     "anno",
+     "luogo",
+     "edizione",
+     "durata",
+     "epoca mediale"
+    ],
+    "rows": [
+     [
+      "1955",
+      "Kassel",
+      "documenta",
+      "65 giorni",
+      "Stampa"
+     ],
+     [
+      "1959",
+      "Kassel",
+      "II. documenta",
+      "93 giorni",
+      "Stampa"
+     ],
+     [
+      "1964",
+      "Kassel",
+      "documenta III",
+      "101 giorni",
+      "Televisiva"
+     ],
+     [
+      "1968",
+      "Kassel",
+      "4. documenta",
+      "102 giorni",
+      "Televisiva"
+     ],
+     [
+      "1972",
+      "Kassel",
+      "documenta 5",
+      "100 giorni",
+      "Televisiva"
+     ],
+     [
+      "1977",
+      "Kassel",
+      "documenta 6",
+      "100 giorni",
+      "Televisiva"
+     ],
+     [
+      "1982",
+      "Kassel",
+      "documenta 7",
+      "100 giorni",
+      "Televisiva"
+     ],
+     [
+      "1987",
+      "Kassel",
+      "documenta 8",
+      "100 giorni",
+      "Televisiva"
+     ],
+     [
+      "1992",
+      "Kassel",
+      "DOCUMENTA IX",
+      "100 giorni",
+      "Televisiva"
+     ],
+     [
+      "1997",
+      "Kassel",
+      "documenta X 108",
+      "100 giorni",
+      "Televisiva"
+     ],
+     [
+      "2002",
+      "Kassel",
+      "Documenta11",
+      "100 giorni",
+      "Digitale"
+     ],
+     [
+      "2007",
+      "Kassel",
+      "documenta 12",
+      "100 giorni",
+      "Digitale"
+     ],
+     [
+      "2012",
+      "Kassel",
+      "dOCUMENTA (13)",
+      "100 giorni",
+      "Digitale"
+     ],
+     [
+      "2017",
+      "Kassel + Atene",
+      "documenta 14",
+      "100 giorni",
+      "Digitale"
+     ],
+     [
+      "2022",
+      "Kassel",
+      "documenta fifteen",
+      "100 giorni",
+      "Digitale"
+     ]
+    ]
+   },
+   "casi": {
+    "2012": {
+     "title": "dOCUMENTA (13)",
+     "scheda": [
+      [
+       "Formato",
+       "documenta, grado di variabilità alto"
+      ],
+      [
+       "Sede e date",
+       "Kassel, 9 giugno - 16 settembre 2012; sedi a Kabul, Alessandria e Il Cairo, Banff"
+      ],
+      [
+       "Produttore dell’edizione",
+       "Direzione artistica di Carolyn Christov-Bakargiev"
+      ],
+      [
+       "Progetto visivo",
+       "Leftloft, vincitore di concorso"
+      ],
+      [
+       "Componenti principali",
+       "Regola di scrittura del nome; collana 100 Notes - 100 Thoughts; catalogo in tre volumi più un manuale"
+      ],
+      [
+       "Presentazione",
+       "Identità visiva, 19 aprile 2010 (2 anni e 2 mesi prima)"
+      ],
+      [
+       "Che cosa resta",
+       "Catalogo che incorpora la collana e ricostruisce la preparazione dell’esposizione"
+      ]
+     ],
+     "descrizione": [
+      "La tredicesima edizione si tiene a Kassel dal 9 giugno al 16 settembre 2012 sotto la direzione artistica di Carolyn Christov-Bakargiev, con sedi collaterali a Kabul, ad Alessandria e al Cairo, e a Banff. L'identità visiva è affidata allo studio milanese Leftloft, che vince un concorso, e non consiste in un marchio. Consiste in una regola di scrittura: la lettera iniziale del nome resta minuscola, il resto della parola va in maiuscolo, il numero segue tra parentesi. La direttrice motiva la scelta richiamando l'uso storico della minuscola nel formato fin dalle origini, gesto radicale e democratico all'epoca e oggi diventato la norma della scrittura digitale. Il catalogo è composto da tre volumi più un manuale, con tre formati, tre tonalità di verde e tre caratteri diversi."
+     ],
+     "date": [
+      [
+       "Presentazione dell'identità visiva, comunicato del titolare",
+       "19 aprile 2010."
+      ],
+      [
+       "Annuncio dell'editore delle pubblicazioni",
+       "17 marzo 2010."
+      ],
+      [
+       "Avvio della collana 100 Notes – 100 Thoughts",
+       "2011."
+      ],
+      [
+       "Annuncio del tema Collapse and recovery",
+       "2 luglio 2011."
+      ],
+      [
+       "Apertura",
+       "9 giugno 2012."
+      ],
+      [
+       "Chiusura",
+       "16 settembre 2012."
+      ],
+      [
+       "Durata dell'edizione",
+       "100 giorni."
+      ],
+      [
+       "Distanza tra identità e apertura",
+       "2 anni e 2 mesi."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione si svolge attraverso una collana di libri. A partire dal 2011 vengono pubblicati cento quaderni, editi da Hatje Cantz e disegnati dallo stesso studio che firma l'identità, presentati come prologo dell'esposizione e come suo elemento centrale. Il sistema visivo entra quindi in circolazione su un supporto editoriale, un volume alla volta, per oltre un anno prima dell'apertura, e la promozione coincide con la pubblicazione di contenuti invece che con la diffusione di un'immagine.",
+      "La fase dell'evento occupa cento giorni. La regola di scrittura si applica a tutti i materiali, e la sua natura di norma anziché di segno consente alle sedi collaterali di adottarla senza che nulla debba essere adattato.",
+      "La fase post produce il catalogo in tre volumi, che assorbe la collana pubblicata prima dell'apertura riproducendola in facsimile o in nuova impaginazione, e uno dei tre volumi ricostruisce la preparazione dell'esposizione attraverso immagini, corrispondenza e interviste. La documentazione dell'edizione è quindi progettata come parte del sistema."
+     ]
+    },
+    "2022": {
+     "title": "documenta fifteen",
+     "scheda": [
+      [
+       "Formato",
+       "documenta, grado di variabilità alto"
+      ],
+      [
+       "Sede e date",
+       "Kassel, 18 giugno - 25 settembre 2022"
+      ],
+      [
+       "Produttore dell’edizione",
+       "Direzione artistica del collettivo ruangrupa"
+      ],
+      [
+       "Progetto visivo",
+       "Studio 4oo2 (Universitas Negeri Jakarta); kmmn_practice per la ruruHaus"
+      ],
+      [
+       "Componenti principali",
+       "Mani disegnate come corde (lumbung); tavolozza dai coloranti dei tessuti dell’Indonesia orientale; numero scritto per esteso; piattaforma digitale"
+      ],
+      [
+       "Presentazione",
+       "Identità visiva, 15 dicembre 2020 (1 anno e 6 mesi prima)"
+      ],
+      [
+       "Che cosa resta",
+       "Sito congelato nella forma originale e segnalato come archivio storico"
+      ]
+     ],
+     "descrizione": [
+      "La quindicesima edizione si tiene a Kassel dal 18 giugno al 25 settembre 2022 sotto la direzione artistica del collettivo indonesiano ruangrupa. L'identità visiva è firmata da Studio 4oo2, quattro studenti di educazione artistica dell'Universitas Negeri Jakarta, selezionati alla fine del 2019 tra oltre venti proposte presentate da studenti di Kassel e Giacarta. Il segno centrale sono mani disegnate come corde, che traducono il lumbung, la pratica indonesiana del granaio comune adottata come principio organizzativo dell'intera edizione. La tavolozza deriva dai coloranti naturali dei tessuti dell'Indonesia orientale. Il nome dell'edizione abbandona la cifra e scrive il numero per esteso in inglese."
+     ],
+     "date": [
+      [
+       "Nomina di ruangrupa come direzione artistica, annunciata dalla direttrice generale",
+       "22 febbraio 2019."
+      ],
+      [
+       "Invito rivolto a studenti di Kassel e Giacarta a sviluppare l'identità",
+       "fine 2019."
+      ],
+      [
+       "Selezione di due proposte tra oltre venti, Studio 4oo2 per l'identità complessiva e kmmn_practice per la ruruHaus",
+       "fine 2019."
+      ],
+      [
+       "Avvio del lavoro di Studio 4oo2",
+       "inizio estate 2020."
+      ],
+      [
+       "Comunicato che presenta il lumbung e i primi membri della rete",
+       "18 giugno 2020."
+      ],
+      [
+       "Presentazione pubblica dell'identità",
+       "15 dicembre 2020."
+      ],
+      [
+       "Apertura",
+       "18 giugno 2022."
+      ],
+      [
+       "Chiusura",
+       "25 settembre 2022."
+      ],
+      [
+       "Durata dell'edizione",
+       "100 giorni."
+      ],
+      [
+       "Distanza tra identità e apertura",
+       "1 anno e 6 mesi."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione dura un anno e mezzo. L'identità viene mostrata nel dicembre 2020, quando la manifestazione è ancora lontana, e accompagna il periodo in cui la direzione artistica costruisce la rete di collettivi che comporrà l'esposizione. La forma discende da quel processo: il lumbung è insieme il principio organizzativo dell'edizione e il soggetto del segno che la rappresenta.",
+      "La fase dell'evento occupa cento giorni. Il sistema si applica alle sedi, ai materiali e alla piattaforma digitale costruita dallo stesso studio, e la manifestazione è attraversata da una controversia pubblica che porta alla rimozione di un'opera nel giugno 2022 e alle dimissioni della direzione generale nel luglio successivo.",
+      "La fase post contiene una decisione di conservazione dichiarata. Il sito dell'edizione viene congelato nella propria forma originale e segnalato come sito storico, con un avviso che ne indica la funzione di archivio e rinvia altrove per le informazioni correnti. Il sistema visivo smette quindi di identificare una manifestazione in corso e resta consultabile come documento, senza essere aggiornato né dismesso. È il caso in cui il congedo dell'apparato è progettato invece che subito."
+     ]
+    }
+   }
+  },
+  "cop-conferenza-delle-parti-unfccc": {
+   "scheda": [
+    [
+     "Titolare formato",
+     "Segretariato UNFCCC"
+    ],
+    [
+     "Produttore dell’edizione",
+     "Paese ospitante, con il Segretariato UNFCCC"
+    ],
+    [
+     "Anno di fondazione",
+     "1992, convenzione; 1995, prima sessione"
+    ],
+    [
+     "Ricorrenza",
+     "Annuale"
+    ],
+    [
+     "Edizioni svolte",
+     "30"
+    ],
+    [
+     "Arco temporale",
+     "1995-2025"
+    ],
+    [
+     "Durata dell’edizione",
+     "2 settimane"
+    ],
+    [
+     "Sede",
+     "Itinerante"
+    ],
+    [
+     "Ambito",
+     "Istituzionale"
+    ],
+    [
+     "Dimensione",
+     "globale"
+    ],
+    [
+     "Grado di variabilità",
+     "alto"
+    ],
+    [
+     "Segni permanenti",
+     "nessuno nell'emblema; numerazione progressiva"
+    ]
+   ],
+   "intro": "La Conferenza delle Parti è l'assemblea annuale degli Stati aderenti alla convenzione quadro delle Nazioni Unite sui cambiamenti climatici, riunita per la prima volta a Berlino nel 1995. La sede ruota tra i gruppi regionali e il paese designato ne assume l'organizzazione attraverso il proprio governo, che costituisce una struttura dedicata e la scioglie a conferenza conclusa. Ogni sessione riceve un'identità visiva propria, commissionata dal paese ospitante e di sua proprietà. Il segretariato dispone di un proprio logo, che resta distinto da quello della sessione e il cui uso richiede autorizzazione scritta, mentre l'emblema delle Nazioni Unite non può comparire su materiali non ufficiali.",
+   "edizioniTesto": [
+    "Trenta sessioni svolte tra il 1995 e il 2025, con la sola interruzione del 2020, e la trentunesima in programma in Turchia per il 2026. La numerazione non corrisponde quindi agli anni, e per un formato in cui il numero d'ordine è l'elemento più stabile lo scarto va tenuto presente nella lettura della serie.",
+    "Il formato attraversa trent'anni senza un livello visivo permanente. Il segretariato dispone di un proprio marchio e ne subordina l'uso ad autorizzazione scritta, mentre l'identità della sessione appartiene al paese ospitante, che la commissiona con risorse proprie e ne detiene i diritti. Nessun segno passa da un'edizione all'altra, e ogni paese riparte da un foglio bianco su cui l'unico dato obbligato è il numero della conferenza.",
+    "La sesta sessione si svolge in due tranche, all'Aia nel novembre 2000 e a Bonn nel luglio 2001, dopo l'interruzione dei negoziati. Una singola edizione occupa quindi due paesi a otto mesi di distanza, e la sua identità visiva deve valere per entrambe le sedi.",
+    "In due casi la conferenza si tiene in un paese diverso da quello designato. Nel 2017 la sessione affidata alle Figi si svolge a Bonn, nel 2019 quella affidata al Cile viene trasferita a Madrid. Il sistema visivo nasce per un paese e viene applicato in una città che non gli appartiene."
+   ],
+   "tabella": {
+    "header": [
+     "anno",
+     "luogo",
+     "durata",
+     "epoca mediale"
+    ],
+    "rows": [
+     [
+      "1995",
+      "Berlino, Germania",
+      "2 settimane",
+      "Televisiva"
+     ],
+     [
+      "1996",
+      "Ginevra, Svizzera",
+      "2 settimane",
+      "Televisiva"
+     ],
+     [
+      "1997",
+      "Kyoto, Giappone",
+      "2 settimane",
+      "Televisiva"
+     ],
+     [
+      "1998",
+      "Buenos Aires, Argentina",
+      "2 settimane",
+      "Televisiva"
+     ],
+     [
+      "1999",
+      "Bonn, Germania",
+      "2 settimane",
+      "Televisiva"
+     ],
+     [
+      "2000",
+      "L’Aia, Paesi Bassi",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2001",
+      "Marrakech, Marocco",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2002",
+      "Nuova Delhi, India",
+      "2 settimane 113",
+      "Digitale"
+     ],
+     [
+      "2003",
+      "Milano, Italia",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2004",
+      "Buenos Aires, Argentina",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2005",
+      "Montréal, Canada",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2006",
+      "Nairobi, Kenya",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2007",
+      "Bali, Indonesia",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2008",
+      "Poznań, Polonia",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2009",
+      "Copenaghen, Danimarca",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2010",
+      "Cancún, Messico",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2011",
+      "Durban, Sudafrica",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2012",
+      "Doha, Qatar",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2013",
+      "Varsavia, Polonia",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2014",
+      "Lima, Perù",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2015",
+      "Parigi, Francia",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2016",
+      "Marrakech, Marocco",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2017",
+      "Bonn, Germania (Fiji)",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2018",
+      "Katowice, Polonia",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2019",
+      "Madrid, Spagna (Cile)",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2021",
+      "Glasgow, Regno Unito",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2022",
+      "Sharm el-Sheikh, Egitto",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2023",
+      "Dubai, Emirati Arabi",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2024",
+      "Baku, Azerbaigian",
+      "2 settimane",
+      "Digitale"
+     ],
+     [
+      "2025",
+      "Belém, Brasile",
+      "2 settimane",
+      "Digitale"
+     ]
+    ]
+   },
+   "casi": {
+    "2015": {
+     "title": "COP21 - Parigi 2015",
+     "scheda": [
+      [
+       "Formato",
+       "Conferenza delle Parti, grado di variabilità alto"
+      ],
+      [
+       "Sede e date",
+       "Le Bourget, Parigi, 30 novembre - 12 dicembre 2015"
+      ],
+      [
+       "Produttore dell’edizione",
+       "Paese ospitante, presidenza francese"
+      ],
+      [
+       "Progetto visivo",
+       "Florent Giambagli, progetto rielaborato dall’organizzazione"
+      ],
+      [
+       "Componenti principali",
+       "Marchio con Tour Eiffel e foglia in dominante verde"
+      ],
+      [
+       "Presentazione",
+       "Identità visiva, 14 gennaio 2015 (circa 10 mesi e mezzo prima)"
+      ],
+      [
+       "Che cosa resta",
+       "Segno dismesso con la chiusura; il nome sopravvive nell’Accordo di Parigi"
+      ]
+     ],
+     "descrizione": [
+      "La 21ª Conferenza delle Parti della Convenzione quadro delle Nazioni Unite sui cambiamenti climatici si tiene a Le Bourget, alle porte di Parigi, dal 30 novembre all’11 dicembre 2015, sotto presidenza francese, con il ministro degli Esteri Laurent Fabius alla guida dei lavori. L’identità visiva viene presentata dallo stesso Fabius il 14 gennaio 2015, quasi un anno prima dell’apertura, in un lancio che è tanto politico quanto grafico. Il marchio nasce da un concorso indetto dall’organizzazione, il cui requisito vincolante era un riferimento esplicito alla Tour Eiffel, simbolo indiscutibile della capitale. Il progetto vincitore, firmato dal giovane designer francese Florent Giambagli, integra la Tour Eiffel con una foglia, in una dominante verde. La proposta originale viene però rielaborata dall’organizzazione, che rende la torre molto più letterale e dettagliata, fino a mostrarne le travature, e interviene su tipografia e colore, un ritocco che parte della critica di settore ha giudicato dannoso per il segno. La scelta di fondo resta comunque opposta a quella che altre edizioni adotteranno: invece di astrarre il pianeta e cancellare i riferimenti nazionali, Parigi àncora l’identità a un simbolo urbano riconoscibile e lega il destino grafico della conferenza al nome della città."
+     ],
+     "date": [
+      [
+       "Designazione ufficiale della Francia come paese ospitante, durante la COP19 di Varsavia",
+       "22 novembre 2013."
+      ],
+      [
+       "Presentazione dell’identità visiva",
+       "14 gennaio 2015."
+      ],
+      [
+       "Apertura",
+       "30 novembre 2015."
+      ],
+      [
+       "Chiusura prevista",
+       "11 dicembre 2015."
+      ],
+      [
+       "Chiusura effettiva",
+       "12 dicembre 2015 (adozione dell’Accordo di Parigi, negoziati prolungati di un giorno)."
+      ],
+      [
+       "Durata dell’evento",
+       "12 giorni, portati a 13 dallo slittamento."
+      ],
+      [
+       "Distanza tra presentazione dell’identità e apertura",
+       "circa 10 mesi e mezzo."
+      ],
+      [
+       "Firma dell’Accordo di Parigi",
+       "22 aprile 2016, New York."
+      ],
+      [
+       "Entrata in vigore dell’Accordo",
+       "4 novembre 2016."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione anticipa l’evento di circa dieci mesi e si radica in una procedura di concorso. L’organizzazione impone come vincolo un riferimento esplicito alla Tour Eiffel, sceglie il progetto di Florent Giambagli e poi lo rielabora, rendendo la torre più evidente e intervenendo su tipografia e colore. Il marchio arriva così al pubblico già passato attraverso una revisione di committenza, e la sua paternità è doppia, di autore e di organizzazione. Il sistema è unico, un marchio con la sua gamma cromatica, e nasce saldato all’iconografia della città, perché la torre resa in poche linee garantisce riconoscibilità immediata senza affidare il senso a un concetto astratto.",
+      "La fase dell’evento occupa dodici giorni a Le Bourget e si svolge in una città sotto forte tensione, due settimane dopo gli attentati del novembre 2015, con lo stato di emergenza, trentamila agenti e centinaia di posti di controllo dispiegati fino alla chiusura. In quel contesto l’identità legata alla torre assume una carica simbolica ulteriore, perché il simbolo della città colpita diventa anche il simbolo del negoziato. Il marchio satura gli spazi del centro conferenze e la comunicazione dei lavori, mentre la cornice urbana parigina fa da amplificatore all’evento.",
+      "La fase post segue la logica consueta delle identità di evento, con un lascito quasi solo verbale. Il sistema visivo si esaurisce con la chiusura dei lavori e non passa all’edizione successiva, che a Marrakech nel 2016 adotta un marchio proprio, mentre la presidenza francese resta in carica fino a quel passaggio. La torre stilizzata e la foglia scompaiono con la conferenza, e di «Parigi» sopravvive il nome, consegnato all’Accordo di Parigi, non il segno grafico."
+     ]
+    },
+    "2021": {
+     "title": "COP26 - Glasgow 2021",
+     "scheda": [
+      [
+       "Formato",
+       "Conferenza delle Parti, grado di variabilità alto"
+      ],
+      [
+       "Sede e date",
+       "Glasgow, SEC Centre, 31 ottobre - 13 novembre 2021"
+      ],
+      [
+       "Produttore dell’edizione",
+       "Paese ospitante, presidenza del Regno Unito (Cabinet Office) in partenariato con l’Italia"
+      ],
+      [
+       "Progetto visivo",
+       "Johnson Banks, direzione di Michael Johnson; animazione di The Mill"
+      ],
+      [
+       "Componenti principali",
+       "Globo marmorizzato senza confini; tavolozza blu, verde e bianco; Tungsten; globo animato"
+      ],
+      [
+       "Presentazione",
+       "Identità visiva, febbraio 2020 (circa 1 anno e 9 mesi prima, per il rinvio)"
+      ],
+      [
+       "Che cosa resta",
+       "Identità esaurita con l’anno di presidenza; nessun passaggio a COP27"
+      ]
+     ],
+     "descrizione": [
+      "La 26ª Conferenza delle Parti della Convenzione quadro delle Nazioni Unite sui cambiamenti climatici si tiene a Glasgow, presso il SEC Centre, dal 31 ottobre al 12 novembre 2021, sotto presidenza del Regno Unito in partenariato con l’Italia. L’identità visiva, presentata nel febbraio 2020 e firmata dallo studio londinese Johnson Banks con la direzione di Michael Johnson, ruota attorno a un globo terrestre trattato con un effetto marmorizzato che dissolve i profili dei continenti: il concept, intitolato «The Climate has no Borders», rinuncia deliberatamente a mostrare forme di Paesi riconoscibili, così che nessuna nazione risulti né in primo piano né additata come responsabile. Il posizionamento concordato con il committente, il Cabinet Office, è «hope with a sense of urgency». La tavolozza è ridotta a tre colori, blu profondo, verde brillante e bianco; la tipografia adotta il Tungsten di Hoefler, un condensato scelto per trasmettere urgenza senza risultare gridato. Una versione animata del globo, sviluppata con lo studio The Mill, estende l’identità al movimento e alla proiezione ambientale. Il progetto nasce con l’obiettivo dichiarato di superare le identità delle edizioni precedenti, giudicate deboli, di maniera e in alcuni casi dilettantesche."
+     ],
+     "date": [
+      [
+       "Designazione del Regno Unito come Paese ospitante (con l’Italia partner)",
+       "2019."
+      ],
+      [
+       "Presentazione dell’identità visiva",
+       "febbraio 2020."
+      ],
+      [
+       "Rinvio dell’evento per la pandemia di COVID-19",
+       "aprile 2020."
+      ],
+      [
+       "Annuncio delle nuove date",
+       "maggio 2020."
+      ],
+      [
+       "Apertura",
+       "31 ottobre 2021."
+      ],
+      [
+       "Chiusura prevista",
+       "12 novembre 2021."
+      ],
+      [
+       "Chiusura effettiva",
+       "13 novembre 2021 (negoziati prolungati di un giorno)."
+      ],
+      [
+       "Durata dell’evento",
+       "13 giorni, portati a 14 dallo slittamento."
+      ],
+      [
+       "Distanza tra presentazione dell’identità e apertura",
+       "circa 1 anno e 9 mesi."
+      ]
+     ],
+     "ciclo": [
+      "La fase di presentazione contiene un solo sistema, ma attraversa un evento imprevisto che ne diventa la caratteristica principale. L’identità viene rivelata nel febbraio 2020 per una conferenza allora fissata a novembre 2020; il rinvio pandemico la costringe a sopravvivere per quasi due anni prima dell’uso reale, e lo stesso Johnson ha ammesso il timore che un’idea concepita anni prima potesse apparire «datata» al momento dell’esordio. In questo intervallo lo schema cromatico viene rivisto: la versione mostrata nel 2020, più vicina a viola e lime, si distilla nella triade blu-verde-bianco effettivamente dispiegata nel 2021. A differenza di un’edizione olimpica, che rivela in tempi distanziati emblema, mascotte e pittogrammi come eventi autonomi, COP26 lavora con un sistema unico presentato in un’unica occasione e poi applicato in blocco.",
+      "La fase dell’evento occupa tredici giorni e porta l’identità alla saturazione. Il sistema compare negli spazi della conferenza, nelle strade di Glasgow e di altre città britanniche, sui media, su superfici di grande scala fino alla gru del cantiere, mentre il globo animato di The Mill viene proiettato sul tetto del SEC. L’applicazione più visibile è proprio la ripetizione mediatica: capi di Stato e attivisti, da Biden a Greta Thunberg a David Attenborough, vengono ritratti davanti al marchio, che così funziona anche come sfondo del racconto politico dell’evento.",
+      "La fase post coincide con la conservazione della presidenza britannica fino all’apertura di COP27 a Sharm el-Sheikh nel 2022. L’identità è legata all’anno di presidenza e a quel ciclo si esaurisce, senza trasferirsi all’edizione successiva, che adotta un proprio sistema autonomo."
+     ]
+    }
+   }
+  }
+ },
+ "ricerca": {
+  "abstract": [
+   "Ogni edizione di un evento ricorrente riceve un sistema visivo destinato a essere dismesso con la sua chiusura. La tesi studia queste identità progettate per una durata stabilita in anticipo, come quelle di Giochi Olimpici, Esposizioni universali, festival e conferenze. Si chiede in che modo questa durata orienti le loro strategie formali, narrative e sistemiche, e come queste convivano con gli elementi che il formato conserva da un'edizione all'altra.",
+   "La letteratura sull'identità visiva ha costruito i propri criteri, longevità, coerenza e riconoscibilità, su soggetti destinati a durare, mentre gli Event Studies hanno trattato il design come componente dell'organizzazione. La ricerca definisce l'identità visiva effimera come categoria autonoma, distinta dalle identità dinamiche, dai sistemi interrotti per cause esterne e dalle campagne temporanee, e ne individua il criterio nella titolarità del progetto: l'identità effimera appartiene all'edizione, mentre il formato prosegue con il proprio titolare. Su questa distinzione la tesi costruisce una scala del grado di variabilità concesso dal titolare, un modello del ciclo di vita in tre fasi (presentazione, evento, congedo) e quattro domande per valutare un sistema la cui longevità non è un obiettivo.",
+   "Gli strumenti sono applicati a un archivio di formati ricorrenti, riprodotto in copertina e consultabile in forma digitale, e approfonditi su sei casi: Giochi Olimpici, Esposizioni universali, Eurovision Song Contest, OFFF Barcelona, documenta e Conferenza delle Parti. L'analisi mostra che durata e margine di variazione sono condizioni distinte, e che la riconoscibilità di un'edizione dipende in parte da segni, programmi e regole ricevuti dal formato. Mostra anche che la fase conclusiva è la meno governata: nessuno dei titolari esaminati dispone il deposito degli strumenti di progetto e nessun manuale consultato prevede la dismissione del sistema. I casi in cui la fine è progettata, come il catalogo di dOCUMENTA (13) o il sito congelato di documenta fifteen, mostrano che quella decisione era a disposizione del progettista."
+  ],
+  "domanda": [
+   "Un sistema visivo di evento raggiunge la propria massima estensione poche ore prima di cessare di esistere. Nel giorno della cerimonia di chiusura di un'edizione olimpica, lo stesso alfabeto di segni compare sui pettorali degli atleti, sulle transenne che delimitano i percorsi, sui pass degli accreditati, sulle grafiche di servizio delle trasmissioni televisive e sulle vetrine degli esercizi commerciali legati al programma di licenza. Nelle settimane successive quei supporti vengono rimossi, i pannelli smontati e le grafiche sostituite. Il sistema che li teneva insieme smette di avere un oggetto da identificare. Il progettista che ha costruito quell'apparato conosceva questo esito fin dal primo giorno di lavoro.",
+   "Da tale condizione discende l'interrogativo centrale della ricerca: in che modo la durata prestabilita di un'edizione orienta le strategie formali, narrative e sistemiche della sua identità visiva, e come queste si articolano con gli elementi che il formato conserva da un'edizione all'altra? Per orizzonte temporale definito intendo una durata stabilita prima dell'avvio del progetto, pubblica e condivisa dagli attori coinvolti. È iscritta in un calendario che il designer non può modificare. La posizione di questa durata nel programma progettuale orienta le scelte relative ai segni, al racconto e alla struttura del sistema visivo.",
+   "L'ipotesi di fondo è che la durata circoscritta orienti le scelte di progetto. Le proprietà che la letteratura attribuisce all'identità visiva sono state elaborate soprattutto per soggetti destinati a durare e richiedono quindi una verifica quando la scadenza è nota fin dall'inizio. Descrivere l'azione della temporalità permette di valutare se le identità a termine costituiscano una categoria progettuale con logiche proprie.",
+   "L'oggetto della ricerca richiede una precisazione, perché le identità a termine raramente operano da sole. La quasi totalità delle manifestazioni esaminate appartiene a un contenitore che si ripete: un formato dotato di un titolare, di un nome, di un regolamento e di un patrimonio di segni che attraversa le occorrenze. L'apparato grafico destinato a dissolversi appartiene alla singola edizione, mentre il formato prosegue e accumula memoria. I due livelli operano nello stesso momento e spesso sul medesimo artefatto, e la ricerca li tratta come tali, osservando la relazione tra gli elementi permanenti del formato e le variazioni attribuite a ciascuna edizione.",
+   "La ricerca esamina come un formato conservi la propria riconoscibilità quando le edizioni assumono aspetti diversi. Osserva poi quanto il titolare consenta di variare e in base a quali criteri: anche il margine lasciato al progettista è una decisione da ricostruire. La chiusura di ogni edizione permette infine di distinguere gli elementi che restano, quelli che tornano reinterpretati e quelli che scompaiono.",
+   "La durata incide anzitutto sulla forma dei segni. Conoscere in anticipo il perimetro delle applicazioni può consentire una densità figurativa difficile da sostenere in un marchio destinato a durare decenni. Incide anche sul racconto: l'evento raggiunge un culmine noto e deve rendersi comprensibile a un pubblico che spesso incontra quell'apparato per la prima volta. La struttura del sistema, infine, deve tenere insieme supporti presenti nello stesso spazio e nello stesso momento, rispettando i segni imposti dal formato.",
+   "Il dispositivo che collega la condizione temporale a questi livelli è il ciclo di vita. Un'identità permanente mantiene una presenza costante e affida il riconoscimento alla ripetizione prolungata. Un'identità a termine attraversa invece una fase di attesa, un picco di massima esposizione e una fase di dispersione, e ogni scelta va calibrata sulla posizione che occupa all'interno di questo profilo.",
+   "La chiusura lascia documenti, immagini, oggetti e manuali che continuano a circolare quando l'evento è finito. La ricerca esamina quanto la forma di questo residuo dipenda da scelte compiute durante il progetto e quanto da accumuli accidentali. Da qui deriva anche una domanda di valutazione: con quali criteri giudicare un sistema la cui longevità non è un obiettivo? Il primo obiettivo è definire l'identità visiva effimera attraverso le sue proprietà ricorrenti e i suoi confini. La definizione deve distinguerla dalle identità dinamiche, dai sistemi interrotti per cause esterne e dalle campagne temporanee inserite in identità permanenti.",
+   "Per analizzare i casi, la ricerca costruisce una scala del grado di variabilità, una griglia per registrare i formati e un modello del ciclo di vita in tre fasi. Applicati con gli stessi criteri, questi strumenti permettono di confrontare vicende lontane per epoca, scala e contesto culturale.",
+   "L'archivio è anche un risultato della ricerca. Ordina i formati secondo parametri dichiarati, rende visibili le differenze tra le loro edizioni e, per quelle approfondite, registra il ciclo di vita e ciò che sopravvive alla chiusura. Offre così un termine di confronto documentato a chi progetta queste identità e una base ampliabile a chi le studia.",
+   "Restano fuori dal perimetro le valutazioni sull'efficacia comunicativa condotte tramite dati di ricezione del pubblico, raramente reperibili per eventi conclusi da decenni, e l'impatto economico e le trasformazioni urbane delle città ospitanti, oggetto di letterature specialistiche autonome. L'analisi si concentra sugli artefatti visivi e sulle decisioni progettuali documentabili attraverso manuali, materiali originali, testimonianze dirette e storiografia critica."
+  ],
+  "metodo": [
+   "L’archivio prende come unità di analisi il formato ricorrente. Gli artefatti di un’edizione descrivono quell’edizione, e il rapporto tra continuità e cambiamento emerge soltanto dal confronto con le altre occorrenze della stessa serie. La continuità può dipendere da segni permanenti, oppure dal nome, dalla periodicità, dalle procedure organizzative o dalla struttura del programma. Il formato è quindi il quadro entro cui leggere ciascuna edizione.",
+   "L’archivio si articola su tre livelli, che corrispondono a gradi successivi di avvicinamento all’oggetto (fig. [6.1]). Il catalogo raccoglie i formati censiti e li presenta uno accanto all’altro. La scheda del formato descrive il contenitore e la sua serie. La scheda dell’edizione analizza una singola occorrenza ed esiste soltanto per le edizioni scelte come approfondimento. Una sezione dedicata alla ricerca, con metodo, criteri di selezione, glossario e fonti, accompagna i tre livelli senza appartenere a nessuno di essi.",
+   "[Figura 6.1. La struttura dell’archivio] La scheda del formato raccoglie i dati che restano stabili attraverso le occorrenze: nome, descrizione e ambito; titolare, produttore delle edizioni e ricorrenza; prima edizione e arco storico osservato; dimensione, sede e durata dell’edizione; segni permanenti e grado di variabilità. In chiusura riporta le fonti e le lacune documentarie, che vengono dichiarate come parte del dato. Seguono le identità visive di alcune edizioni, raggruppate per periodo, con marchi e applicazioni corredati da anno, didascalia e fonte. Per i formati approfonditi la scheda si estende alla serie completa dei marchi in ordine cronologico. Nella serie le edizioni dotate di una scheda propria si distinguono dalle altre, e da lì si accede al livello successivo.",
+   "La scheda dell’edizione si apre con il marchio, l’identità visiva e una selezione di applicazioni e materiali, ciascuno con didascalia, autori e fonte. Segue l’analisi, che descrive il contesto dell’edizione, il progetto grafico con i suoi autori e il rapporto tra l’apparato dell’edizione e i segni del formato. La scheda si chiude con la ricostruzione del progetto attraverso le date disponibili, ordinate secondo il ciclo di vita definito nel Capitolo 5: presentazione, evento e fase post, fino alla dismissione dei segni e alla loro eventuale persistenza. Le date si dispongono su un asse temporale che separa le tre fasi.",
+   "I dati che alimentano le schede sono codificati in una griglia comune a tutti i formati e ordinati in tre gruppi. Il primo riguarda l’identità del formato: denominazione, titolare, ricorrenza, scala, ambito e periodo osservato. Il secondo riguarda la continuità tra le edizioni: gli elementi che ritornano identici, quelli reinterpretati e quelli dismessi. Il terzo riguarda la variabilità, e registra il grado esercitato insieme alle componenti che cambiano tra un’edizione e l’altra. Il grado esercitato si attribuisce confrontando gli artefatti. Il grado concesso compare soltanto quando un regolamento, un manuale o un brief documenta la decisione del titolare (cfr. 2.2), e in assenza di fonti dirette l’analisi si limita alla variabilità osservabile. I dati privi di fonte sono segnati come non documentati e non vengono completati per analogia con le edizioni vicine.",
+   "La griglia consente tre letture. Quella longitudinale segue le edizioni di uno stesso formato e ne individua continuità, discontinuità e cambi di fase. Quella trasversale confronta formati diversi nello stesso periodo, per verificare se pratiche analoghe compaiono in contesti istituzionali e territoriali differenti. Quella storica colloca i risultati nelle fasi di sviluppo delle identità visive temporanee delineate nella Prima Parte.",
+   "L’archivio registra i formati ricorrenti nei quali le edizioni ricevono un sistema visivo progettato per una durata circoscritta. Con gli stessi campi codifica due insiemi di confronto: i formati di grado nullo, usati nei capitoli teorici come termini di paragone, e un gruppo di manifestazioni non ricorrenti, che costituiscono precedenti storici dell’identità effimera. I due insiemi restano fuori dagli approfondimenti, perché non offrono una serie di apparati di edizione da confrontare.",
+   "Per l’approfondimento sono stati selezionati sei formati: Giochi Olimpici, Esposizioni universali, Eurovision Song Contest, OFFF Barcelona, documenta e Conferenza delle Parti della Convenzione quadro delle Nazioni Unite sui cambiamenti climatici. All’interno di ciascuno, le edizioni approfondite sono quelle per cui esiste documentazione originale sufficiente a ricostruire il ciclo di vita. Manuali di applicazione, documenti di assegnazione, rapporti ufficiali e materiali originali hanno la priorità quando sono accessibili. La storiografia e le pubblicazioni degli studi di progettazione integrano le lacune, tenute distinte dai materiali promozionali. Quando una serie non si può ricostruire con sufficiente precisione, il limite viene dichiarato senza sostituire i dati mancanti con ipotesi."
+  ],
+  "gradi": [
+   [
+    "alto",
+    "Il grado alto corrisponde alla condizione in cui il titolare non trattiene alcun segno. L'edizione conserva il nome, la numerazione e le procedure di approvazione, e disegna il proprio marchio, la propria tavolozza e il proprio alfabeto senza doverli comporre con elementi ricevuti."
+   ],
+   [
+    "medio",
+    "Il grado medio si riconosce quando un segno che si ripete entra nell'apparato dell'edizione, che conserva la facoltà di disegnare il proprio marchio. L'emblema olimpico registra questa condizione nella propria costruzione: il segno della città ospitante occupa la posizione superiore, i cinque cerchi siedono sotto. Il vincolo riguarda la composizione e la presenza, lasciando al progetto la forma del segno principale."
+   ],
+   [
+    "basso",
+    "Il grado basso si osserva quando il marchio del formato resta invariato nella struttura, con un solo elemento variabile stabilito dal titolare, e il progetto agisce su ciò che lo circonda. Il logotipo dell'Eurovision Song Contest conserva il proprio disegno e accoglie nel cuore la bandiera del paese ospitante, unica parte che cambia di anno in anno; il progetto annuale non interviene sul resto del segno. Costruisce invece la theme art, la tipografia complementare e l'ambiente scenico: un apparato che riveste una struttura fissa e si dissolve con essa."
+   ],
+   [
+    "nullo",
+    "Il grado nullo chiude la scala. Il sistema non cambia con il ricorrere delle occorrenze, e le revisioni cadono quando il titolare le decide, a qualsiasi distanza dalle edizioni. Il marchio della Formula 1, introdotto nel 2018 in sostituzione di un segno rimasto in uso per oltre due decenni, ha attraversato tutte le stagioni successive con le medesime proporzioni, e nessuna di esse ha ricevuto un segno proprio. Wimbledon, discusso nell'Introduzione, occupa la stessa posizione. In questi casi il sistema non ha scadenza e segna il confine superiore della categoria indagata."
+   ]
+  ],
+  "bibliografia": [
+   "Aicher, O. (1994). The world as design. Ernst & Sohn.",
+   "Aiello, G., & Thurlow, C. (2006). Symbolic capitals: Visual discourse and intercultural exchange in the European Capital of Culture scheme. Language and Intercultural Communication, 6(2), 148–162.",
+   "Augé, M. (1995). Non-places: Introduction to an anthropology of supermodernity (J. Howe, Trans.). Verso.",
+   "Auslander, P. (1999). Liveness: Performance in a mediatized culture. Routledge.",
+   "Bauman, Z. (2000). Liquid modernity. Polity Press.",
+   "Burghausen, M., & Balmer, J. M. T. (2014). Corporate heritage identity management and the multi-modal implementation of a corporate heritage identity. Journal of Business Research, 67(11), 2311–2323. https://doi.org/10.1016/j.jbusres.2014.06.019",
+   "Debord, G. (1994). The society of the spectacle (D. Nicholson-Smith, Trans.). Zone Books. (Original work published 1967).",
+   "Fagiolo dell'Arco, M. (1997). La festa barocca. De Luca Editori d'Arte.",
+   "Falcinelli, R. (2014). Critica portatile al visual design. Einaudi.",
+   "Flyvbjerg, B. (2006). Five misunderstandings about case-study research. Qualitative Inquiry, 12(2), 219–245. https://doi.org/10.1177/1077800405284363",
+   "Galluzzo, M. (2024). Logo in real life: Note per una storia sociale della visual identity. Krisis Publishing.",
+   "Getz, D. (2012). Event studies: Theory, research and policy for planned events (2nd ed.). Routledge.",
+   "Grizzanti, G. (2011). Brand identikit: Trasformare un marchio in una marca. Fausto Lupetti Editore.",
+   "Jones, A. (1997). \"Presence\" in absentia: Experiencing performance as documentation. Art Journal, 56(4), 11–18. https://doi.org/10.1080/00043249.1997.10791844",
+   "Lewis, J. (1962). Printed ephemera: The changing uses of type and letterforms in English and American printing. W. S. Cowell.",
+   "Martins, T., Cunha, J. M., Bicker, J., & Machado, P. (2019). Dynamic visual identities: From a survey of the state-of-the-art to a model of features and mechanisms. Visible Language, 53(2), 4–35. https://doi.org/10.34314/vl.v53i2.4649",
+   "Mollerup, P. (1997). Marks of excellence: The history and taxonomy of trademarks. Phaidon Press.",
+   "Müller, J. (2018). The history of graphic design: Vol. 1. 1890–1959 (J. Wiedemann, Ed.). Taschen.",
+   "Munari, B. (1981). Da cosa nasce cosa: Appunti per una metodologia progettuale. Laterza.",
+   "Neumann, D., & Caralt, D. (2020). An accidental masterpiece: Mies van der Rohe's Barcelona Pavilion. Birkhäuser.",
+   "Nicolini, R. (1991). Estate romana. Edizioni Sisifo.",
+   "Olins, W. (1989). Corporate identity: Making business strategy visible through design. Thames & Hudson.",
+   "Osterwalder, M. (2019). Olympic games: The design. Niggli.",
+   "Patton, M. Q. (2015). Qualitative research and evaluation methods (4th ed.). SAGE.",
+   "Phelan, P. (1993). Unmarked: The politics of performance. Routledge.",
+   "Preuss, H. (2004). The economics of staging the Olympics: A comparison of the Games 1972–2008. Edward Elgar Publishing.",
+   "Rand, P. (1985). A designer's art. Yale University Press.",
+   "Raposo, D., da Silva, F. M., Neves, J., & Silva, J. (2018). Clarifying the concept of corporate identity: From a collective vision to cultural interface. In Advances in ergonomics in design (pp. 602–610). Springer. https://doi.org/10.1007/978-3-319-60582-1_60",
+   "Rathgeb, M. (2006). Otl Aicher. Phaidon Press.",
+   "Rickards, M. (2000). The encyclopedia of ephemera: A guide to the fragmentary documents of everyday life for the collector, curator, and historian (M. Twyman, Ed.). British Library.",
+   "Roche, M. (2000). Mega-events and modernity: Olympics and expos in the growth of global culture. Routledge.",
+   "Roche, M. (2003). Mega-events, time and modernity: On time structures in global society. Time & Society, 12(1), 99–126. https://doi.org/10.1177/0961463X03012001370",
+   "Taylor, D. (2003). The archive and the repertoire: Performing cultural memory in the Americas. Duke University Press.",
+   "Traganou, J. (2016). Designing the Olympics: Representation, participation, and contestation. Routledge.",
+   "Treccani. (s.d.). Effimero. In Vocabolario Treccani online. https://www.treccani.it/vocabolario/effimero/",
+   "van Nes, I. (2012). Dynamic identities: How to create a living brand. BIS Publishers.",
+   "Vignelli, M. (2010). The Vignelli canon. Lars Müller Publishers.",
+   "Wheeler, A. (2017). Designing brand identity: An essential guide for the whole branding team (5th ed.). John Wiley & Sons."
+  ],
+  "repertori": [
+   "Association of National Olympic Committees. (2017). Official emblems of Beijing 2022. anoc-olympic.org",
+   "Bureau International des Expositions. (2023). BIE receives final report on Expo 2020 Dubai. bie-paris.org",
+   "Comitato Olimpico Internazionale. (s.d.). Organising Committees for the Olympic Games. olympics.com",
+   "Walker Art Center. (2018). Radiant discord: Lance Wyman on the '68 Olympic design and the Tlatelolco massacre. walkerart.org",
+   "Creative Review. (2017). Formula 1 unveils new identity.",
+   "Dezeen. (2017, 30 novembre). Formula One reveals new visual identity by Wieden+Kennedy.",
+   "Malay Mail. (2019, 22 ottobre). Paris reveals golden Marianne logo for 2024 Olympics [Agence France-Presse].",
+   "NBC Sports. (2017, 15 dicembre). Beijing 2022 Winter Olympic emblem unveiled.",
+   "Paris 2024. (s.d.). Paris 2024 Olympic logo, poster design and look of the Games. olympics.com"
+  ],
+  "crediti": {
+   "titolo": "Designed to end. Identità progettate per finire: una teoria dell'identità visiva effimera",
+   "studente": "Nicolò Armelin",
+   "relatore": "Francesco Guida Ermanno",
+   "istituzione": "Politecnico di Milano",
+   "anno": "2025-2026"
+  }
+ }
+}
