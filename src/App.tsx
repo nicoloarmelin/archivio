@@ -378,8 +378,8 @@ const RATIOS = ['aspect-[3/4]', 'aspect-square', 'aspect-[4/5]', 'aspect-[2/3]',
 function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i: Image) => void }) {
   const info: [string, string][] = [
     ['ambito', f.ambito], ['titolare', f.titolare], ['produttore', f.produttore], ['ricorrenza', f.ricorrenzaNota || f.ricorrenza],
-    ['prima edizione', f.primaEdizione ? String(f.primaEdizione) : '—'], ['edizioni svolte', f.edizioniSvolte ? String(f.edizioniSvolte) : '—'], ['arco temporale', f.arco || '—'], ['dimensione', f.dimensione], ['sede', f.sede], ['durata', f.durata],
-    ['segni permanenti', f.segniPermanenti], ['variabilità', f.variabilita + (f.periodoVariabilita ? ` (${f.periodoVariabilita.replace(/^([A-Z])(?=[a-zà-ù])/, (m) => m.toLowerCase())})` : '')], ['edizioni confrontate', f.edizioniConfrontate || '—'],
+    ['prima edizione', f.primaEdizione ? String(f.primaEdizione) : '—'], ['edizioni svolte', f.edizioniSvolte ? String(f.edizioniSvolte) : '—'], ['arco temporale', f.arco || '—'], ['dimensione', f.dimensione],
+    ['sede', f.sede], ['segni permanenti', f.segniPermanenti], ['variabilità', f.variabilita], ['progetto visivo', f.progettoVisivo || '—'],
   ]
   // Galleria solo per i formati senza caso studio (i casi studio usano timeline dei loghi e approfondimenti)
   const gallery = f.editions
@@ -787,7 +787,7 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
       <aside className="flex max-h-[45svh] flex-col md:max-h-none">
         <button onClick={close} className="order-first ml-auto rounded-[6px] bg-g50 px-3.5 py-2 text-[14px] hover:bg-g100">chiudi</button>
         <div className="mt-3 space-y-4 overflow-y-auto md:mt-auto">
-          {[['formato', img.formato], ['edizione', img.edizione], ['tipo di applicazione', img.tipo], ['didascalia', img.didascalia]].map(([k, v]) => (
+          {[['formato', img.formato], [img.logo ? 'prima edizione' : 'edizione', img.edizione], ['tipo di applicazione', img.tipo], ['didascalia', img.didascalia]].map(([k, v]) => (
             <div key={k} className="border-t border-g100 pt-2">
               <Meta>{k}</Meta>
               <p className="mt-1 whitespace-pre-line break-words">{v.toLowerCase()}</p>
