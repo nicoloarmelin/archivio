@@ -27,7 +27,7 @@ const cap = (s: string) => (!s || /^documenta/.test(s) ? s : s[0].toUpperCase() 
 const Tile = ({ text, logo, colore, className = '', onClick, delay = 0 }: { text: string; logo?: Format; colore?: boolean; className?: string; onClick?: () => void; delay?: number }) => (
   <button
     onClick={onClick}
-    className={`reveal group relative flex items-center justify-center ${logo ? 'border border-g50' : 'bg-g50'} ${className}`}
+    className={`reveal group relative flex items-center justify-center ${logo ? `logo-box border border-g50 ${colore ? 'logo-fisso' : ''}` : 'bg-g50'} ${className}`}
     style={{ animationDelay: `${delay}s` }}
   >
     {logo ? (
@@ -353,7 +353,7 @@ function IndiceRows({ list, go }: { list: Format[]; go: (r: Route) => void }) {
           onClick={() => go({ page: 'formato', id: f.id })}
           className="group grid w-full grid-cols-[72px_minmax(0,1fr)_auto] items-center gap-4 border-b md:gap-6 border-g50 py-3 text-left md:grid-cols-[88px_1fr_1fr_1fr_1fr_100px]"
         >
-          <div className="reveal flex aspect-[4/3] items-center justify-center border border-g50 transition-colors group-hover:border-archive" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
+          <div className="logo-box reveal flex aspect-[4/3] items-center justify-center border border-g50 transition-colors group-hover:border-archive" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
             <Logo id={f.id} name={f.name} className="h-[60%] w-[74%]" />
           </div>
           <div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -776,7 +776,7 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
   return (
     <div className="fadeup fixed inset-0 z-[70] grid grid-rows-[minmax(0,1fr)_auto] gap-4 bg-paper p-3 pt-[calc(0.75rem+env(safe-area-inset-top))] pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:grid-cols-[1fr_320px] md:grid-rows-1 md:gap-6 md:p-10">
       {img.logo ? (
-        <div className="reveal group flex items-center justify-center border border-g50">
+        <div className="logo-box logo-fisso reveal flex items-center justify-center border border-g50">
           <Logo id={img.logo.id} name={img.logo.name} colore className="h-[60%] w-[76%]" />
         </div>
       ) : (

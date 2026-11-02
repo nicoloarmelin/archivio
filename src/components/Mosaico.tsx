@@ -217,7 +217,7 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
                 aria-hidden={origin ? undefined : true}
               >
                 <div
-                  className="reveal relative flex items-center justify-center border border-g50 bg-paper transition-[clip-path,opacity,transform] duration-300 ease-out-soft"
+                  className="logo-box reveal relative flex items-center justify-center border border-g50 bg-paper transition-[clip-path,opacity,transform] duration-300 ease-out-soft"
                   style={{
                     height: TH,
                     ...(delay >= 0 ? { animationDelay: `${delay}s` } : { animationName: 'none' }),
