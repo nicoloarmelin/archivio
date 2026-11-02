@@ -4,8 +4,8 @@ const BASE = `${import.meta.env.BASE_URL}loghi/`
 const size = dims as Record<string, { w: number; h: number }>
 
 // Logo del formato in tre versioni: nero di giorno, bianco di notte, a colori al passaggio del mouse.
-// Il contenitore deve avere la classe `group` perché il colore compaia sull'hover.
-export default function Logo({ id, name, className = '' }: { id: string; name: string; className?: string }) {
+// Il contenitore deve avere la classe `group` perché il colore compaia sull'hover; `colore` lo mostra sempre.
+export default function Logo({ id, name, colore = false, className = '' }: { id: string; name: string; colore?: boolean; className?: string }) {
   const d = size[id]
   if (!d) return null
   const img = (v: string, cls: string, alt = '') => (
@@ -20,6 +20,7 @@ export default function Logo({ id, name, className = '' }: { id: string; name: s
       className={`absolute inset-0 h-full w-full object-contain ${cls}`}
     />
   )
+  if (colore) return <div className={`relative ${className}`}>{img('colore', '', name)}</div>
   return (
     <div className={`relative ${className}`}>
       {img('nero', 'logo-giorno transition-opacity duration-300 group-hover:opacity-0', name)}

@@ -24,14 +24,14 @@ const Meta = ({ children, className = '' }: { children: ReactNode; className?: s
 // Testi in serif in tondo con l'iniziale maiuscola; i nomi propri scritti in minuscolo restano tali
 const cap = (s: string) => (!s || /^documenta/.test(s) ? s : s[0].toUpperCase() + s.slice(1))
 
-const Tile = ({ text, logo, className = '', onClick, delay = 0 }: { text: string; logo?: Format; className?: string; onClick?: () => void; delay?: number }) => (
+const Tile = ({ text, logo, colore, className = '', onClick, delay = 0 }: { text: string; logo?: Format; colore?: boolean; className?: string; onClick?: () => void; delay?: number }) => (
   <button
     onClick={onClick}
     className={`reveal group relative flex items-center justify-center ${logo ? 'border border-g50' : 'bg-g50'} ${className}`}
     style={{ animationDelay: `${delay}s` }}
   >
     {logo ? (
-      <Logo id={logo.id} name={logo.name} className="h-[56%] w-[70%]" />
+      <Logo id={logo.id} name={logo.name} colore={colore} className="h-[56%] w-[70%]" />
     ) : (
       <span className="px-3 text-center font-serif text-[12px] italic tracking-normal text-g200 transition-colors group-hover:text-ink">{cap(text)}</span>
     )}
@@ -396,7 +396,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
         </div>
       </header>
 
-      <Tile text="logo del formato" logo={f} className="mt-16 aspect-[4/3] w-full md:aspect-[21/9]" onClick={() => open({ ...img(String(f.primaEdizione ?? ''), 'logo'), logo: f, didascalia: 'logo del formato' })} />
+      <Tile text="logo del formato" logo={f} colore className="mt-16 aspect-[4/3] w-full md:aspect-[21/9]" onClick={() => open({ ...img(String(f.primaEdizione ?? ''), 'logo'), logo: f, didascalia: 'logo del formato' })} />
 
       <div className="mt-16 grid gap-10 md:grid-cols-4">
         <p className="font-serif text-[clamp(22px,2.2vw,32px)] leading-[1.25] md:col-span-3">{f.tesi?.intro || f.descrizione}</p>
@@ -777,7 +777,7 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
     <div className="fadeup fixed inset-0 z-[70] grid grid-rows-[minmax(0,1fr)_auto] gap-4 bg-paper p-3 pt-[calc(0.75rem+env(safe-area-inset-top))] pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:grid-cols-[1fr_320px] md:grid-rows-1 md:gap-6 md:p-10">
       {img.logo ? (
         <div className="reveal group flex items-center justify-center border border-g50">
-          <Logo id={img.logo.id} name={img.logo.name} className="h-[60%] w-[76%]" />
+          <Logo id={img.logo.id} name={img.logo.name} colore className="h-[60%] w-[76%]" />
         </div>
       ) : (
         <div className="reveal flex items-center justify-center bg-g50">
