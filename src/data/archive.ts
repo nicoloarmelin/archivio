@@ -22,7 +22,7 @@ export type Format = {
   variabilita: 'bassa' | 'media' | 'alta' | 'n.d.'; periodoVariabilita: string; titolare: string; produttore: string
   sede: string; durata: string; primaEdizione: number | null; edizioniSvolte: number | string | null; arco: string
   descrizione: string; segniPermanenti: string; esito: string; motivazione: string; lacune: string
-  edizioniConfrontate: string; fonti: string; progettoVisivo?: string; editions: Edition[]; caseStudy: boolean; tesi?: TesiFormato
+  edizioniConfrontate: string; fonti: string; progettoVisivo: string; editions: Edition[]; caseStudy: boolean; tesi?: TesiFormato
 }
 
 type Row = Omit<Format, 'editions' | 'caseStudy'> & { anniConfrontati: number[] }
