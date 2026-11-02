@@ -20,12 +20,20 @@ export default function Logo({ id, name, colore = false, className = '' }: { id:
       className={`absolute inset-0 h-full w-full object-contain ${cls}`}
     />
   )
-  if (colore) return <div className={`relative ${className}`}>{img('colore', '', name)}</div>
+  // Di notte il colore usa la versione con le parti nere rese bianche
+  if (colore)
+    return (
+      <div className={`relative ${className}`}>
+        {img('colore', 'logo-giorno', name)}
+        {img('colore-notte', 'logo-notte', name)}
+      </div>
+    )
   return (
     <div className={`relative ${className}`}>
       {img('nero', 'logo-giorno transition-opacity duration-300 group-hover:opacity-0', name)}
       {img('bianco', 'logo-notte transition-opacity duration-300 group-hover:opacity-0', name)}
-      {img('colore', 'opacity-0 transition-opacity duration-300 group-hover:opacity-100')}
+      {img('colore', 'logo-giorno opacity-0 transition-opacity duration-300 group-hover:opacity-100')}
+      {img('colore-notte', 'logo-notte opacity-0 transition-opacity duration-300 group-hover:opacity-100')}
     </div>
   )
 }
