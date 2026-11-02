@@ -112,3 +112,6 @@ input::placeholder { text-transform: uppercase; }
 .cursor-dot[data-text="1"] { width: 3px; height: 24px; border-radius: 2px; }
 .cursor-dot[data-down="1"] { width: 8px; height: 8px; }
 .cursor-dot[data-hot="1"][data-down="1"] { width: 44px; height: 44px; }
+
+/* Loghi: versione nera di giorno, bianca di notte */
+.dark .logo-giorno, :root:not(.dark) .logo-notte { display: none; }

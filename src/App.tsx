@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowUpRight, Moon, Search, Sun, X } from 'lucide-react'
 import Mosaico from './components/Mosaico'
 import Cursor from './components/Cursor'
 import Caricamento from './components/Caricamento'
+import Logo from './components/Logo'
 import { formats, ambiti, ricorrenze, dimensioni, ricerca, type Format, type Edition, type TesiFormato, type Caso } from './data/archive'
 
 type Route =
@@ -12,7 +13,7 @@ type Route =
   | { page: 'edizione'; id: string; ed: string }
   | { page: 'ricerca' }
 
-type Image = { formato: string; edizione: string; tipo: string; didascalia: string; fonte: string }
+type Image = { formato: string; edizione: string; tipo: string; didascalia: string; fonte: string; logo?: Format }
 type Filters = { ambito: string; ricorrenza: string; dimensione: string; variabilita: string; caseStudy: boolean }
 const EMPTY: Filters = { ambito: '', ricorrenza: '', dimensione: '', variabilita: '', caseStudy: false }
 
@@ -23,13 +24,17 @@ const Meta = ({ children, className = '' }: { children: ReactNode; className?: s
 // Testi in serif in tondo con l'iniziale maiuscola; i nomi propri scritti in minuscolo restano tali
 const cap = (s: string) => (!s || /^documenta/.test(s) ? s : s[0].toUpperCase() + s.slice(1))
 
-const Tile = ({ text, className = '', onClick, delay = 0 }: { text: string; className?: string; onClick?: () => void; delay?: number }) => (
+const Tile = ({ text, logo, className = '', onClick, delay = 0 }: { text: string; logo?: Format; className?: string; onClick?: () => void; delay?: number }) => (
   <button
     onClick={onClick}
-    className={`reveal group relative flex items-center justify-center bg-g50 ${className}`}
+    className={`reveal group relative flex items-center justify-center ${logo ? 'border border-g50' : 'bg-g50'} ${className}`}
     style={{ animationDelay: `${delay}s` }}
   >
-    <span className="px-3 text-center font-serif text-[12px] italic tracking-normal text-g200 transition-colors group-hover:text-ink">{cap(text)}</span>
+    {logo ? (
+      <Logo id={logo.id} name={logo.name} className="h-[56%] w-[70%]" />
+    ) : (
+      <span className="px-3 text-center font-serif text-[12px] italic tracking-normal text-g200 transition-colors group-hover:text-ink">{cap(text)}</span>
+    )}
     <span className="pointer-events-none absolute inset-0 opacity-0 ring-2 ring-archive transition-opacity group-hover:opacity-100" />
   </button>
 )
@@ -180,7 +185,7 @@ function Home({ go }: { go: (r: Route) => void }) {
           <div key={r} className="marquee-row flex w-max gap-2.5" style={{ animationDirection: r ? 'reverse' : 'normal', animationDuration: `${row.length * 3}s` }}>
             {[...row, ...row].map((f, i) => (
               <div key={`${f.id}-${i}`} className="w-[180px] shrink-0 md:w-[220px]" aria-hidden={i >= row.length || undefined}>
-                <Tile text={f.name} delay={0.4 + (i % 14) * 0.04} className="aspect-[4/3] w-full" onClick={() => go({ page: 'formato', id: f.id })} />
+                <Tile text={f.name} logo={f} delay={0.4 + (i % 14) * 0.04} className="aspect-[4/3] w-full" onClick={() => go({ page: 'formato', id: f.id })} />
                 <div className="mt-1.5 flex justify-between gap-2 text-[12px] text-g200">
                   <span className="truncate">{f.name.toLowerCase()}</span>
                   {f.caseStudy && <span className="shrink-0 font-serif italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">Caso studio</span>}
@@ -348,8 +353,8 @@ function IndiceRows({ list, go }: { list: Format[]; go: (r: Route) => void }) {
           onClick={() => go({ page: 'formato', id: f.id })}
           className="group grid w-full grid-cols-[72px_minmax(0,1fr)_auto] items-center gap-4 border-b md:gap-6 border-g50 py-3 text-left md:grid-cols-[88px_1fr_1fr_1fr_1fr_100px]"
         >
-          <div className="reveal flex aspect-[4/3] items-center justify-center bg-g50 transition-colors group-hover:bg-archive" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
-            <span className="font-serif text-[9px] italic tracking-normal text-g200">Logo</span>
+          <div className="reveal flex aspect-[4/3] items-center justify-center border border-g50 transition-colors group-hover:border-archive" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
+            <Logo id={f.id} name={f.name} className="h-[60%] w-[74%]" />
           </div>
           <div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">
             <span className="text-[clamp(18px,1.6vw,24px)] transition-transform duration-300 ease-out-soft group-hover:translate-x-1.5">{f.name.toLowerCase()}</span>
@@ -391,7 +396,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
         </div>
       </header>
 
-      <Tile text="logo del formato" className="mt-16 aspect-[4/3] w-full md:aspect-[21/9]" onClick={() => open(img(String(f.primaEdizione ?? ''), 'logo'))} />
+      <Tile text="logo del formato" logo={f} className="mt-16 aspect-[4/3] w-full md:aspect-[21/9]" onClick={() => open({ ...img(String(f.primaEdizione ?? ''), 'logo'), logo: f, didascalia: 'logo del formato' })} />
 
       <div className="mt-16 grid gap-10 md:grid-cols-4">
         <p className="font-serif text-[clamp(22px,2.2vw,32px)] leading-[1.25] md:col-span-3">{f.tesi?.intro || f.descrizione}</p>
@@ -770,9 +775,15 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
   }, [close])
   return (
     <div className="fadeup fixed inset-0 z-[70] grid grid-rows-[minmax(0,1fr)_auto] gap-4 bg-paper p-3 pt-[calc(0.75rem+env(safe-area-inset-top))] pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:grid-cols-[1fr_320px] md:grid-rows-1 md:gap-6 md:p-10">
-      <div className="reveal flex items-center justify-center bg-g50">
-        <span className="font-serif text-[14px] italic tracking-normal text-g200">Immagine ingrandita</span>
-      </div>
+      {img.logo ? (
+        <div className="reveal group flex items-center justify-center border border-g50">
+          <Logo id={img.logo.id} name={img.logo.name} className="h-[60%] w-[76%]" />
+        </div>
+      ) : (
+        <div className="reveal flex items-center justify-center bg-g50">
+          <span className="font-serif text-[14px] italic tracking-normal text-g200">Immagine ingrandita</span>
+        </div>
+      )}
       <aside className="flex max-h-[45svh] flex-col md:max-h-none">
         <button onClick={close} className="order-first ml-auto rounded-[6px] bg-g50 px-3.5 py-2 text-[14px] hover:bg-g100">chiudi</button>
         <div className="mt-3 space-y-4 overflow-y-auto md:mt-auto">

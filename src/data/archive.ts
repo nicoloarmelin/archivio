@@ -20,7 +20,7 @@ export type Edition = { id: string; label: string; year: number; city?: string; 
 export type Format = {
   id: string; name: string; ambito: string; ricorrenza: string; ricorrenzaNota: string; dimensione: string
   variabilita: 'bassa' | 'media' | 'alta' | 'n.d.'; periodoVariabilita: string; titolare: string; produttore: string
-  sede: string; durata: string; primaEdizione: number | null; edizioniSvolte: number | null; arco: string
+  sede: string; durata: string; primaEdizione: number | null; edizioniSvolte: number | string | null; arco: string
   descrizione: string; segniPermanenti: string; esito: string; motivazione: string; lacune: string
   edizioniConfrontate: string; fonti: string; editions: Edition[]; caseStudy: boolean; tesi?: TesiFormato
 }

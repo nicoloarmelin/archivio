@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Minus, Plus, Maximize } from 'lucide-react'
 import type { Format } from '../data/archive'
+import Logo from './Logo'
 
 const COLS = 10
 const TW = 220
@@ -216,14 +217,14 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
                 aria-hidden={origin ? undefined : true}
               >
                 <div
-                  className="reveal relative flex items-center justify-center bg-g50 transition-[clip-path,opacity,transform] duration-300 ease-out-soft"
+                  className="reveal relative flex items-center justify-center border border-g50 bg-paper transition-[clip-path,opacity,transform] duration-300 ease-out-soft"
                   style={{
                     height: TH,
                     ...(delay >= 0 ? { animationDelay: `${delay}s` } : { animationName: 'none' }),
                     ...(on ? {} : { clipPath: 'inset(50% 50% 50% 50%)', opacity: 0, transform: 'scale(0.7)', animationName: 'none' }),
                   }}
                 >
-                  <span className="px-4 text-center font-serif text-[13px] italic tracking-normal text-g200 transition-colors group-hover:text-ink">{f.name}</span>
+                  <Logo id={f.id} name={f.name} className="h-[56%] w-[70%]" />
                   {f.caseStudy && <span className="absolute left-2 top-2 rounded-[3px] bg-archive px-2 py-0.5 text-[10px] text-[#231f20]">caso studio</span>}
                   <span className="pointer-events-none absolute inset-0 ring-2 ring-archive opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
