@@ -37,6 +37,7 @@
   --sfumatura-x-notte: linear-gradient(to right, #3a3d71 0%, #4e4b97 33%, #7d7ab8 67%, #a7a7d3 100%);
   --sfumatura-x-tramonto: linear-gradient(to right, #f6d98b 0%, #f5a36f 33%, #ea543e 67%, #b2362c 100%);
   --sfumatura-x: var(--sfumatura-x-notte);
+  --sfumatura-piede: var(--sfumatura-notte);
   color-scheme: light;
 }
 [data-parte='ricerca'] {
@@ -45,12 +46,15 @@
   --scuro: #b2362c;
   --sfumatura: var(--sfumatura-tramonto);
   --sfumatura-x: var(--sfumatura-x-tramonto);
+  --sfumatura-piede: var(--sfumatura-tramonto);
 }
 [data-parte='home'] {
   --velatura: #dbdada;
   --medio: var(--ink);
   --scuro: var(--ink);
   --sfumatura: none;
+  /* la home è l'introduzione: nel piedino le due parti del libro, la Ricerca sopra l'Archivio */
+  --sfumatura-piede: linear-gradient(to bottom, #f6d98b 0%, #f5a36f 14%, #ea543e 28%, #b2362c 43%, #3a3d71 57%, #4e4b97 71%, #7d7ab8 86%, #a7a7d3 100%);
 }
 .dark {
   --paper: #1e2121;

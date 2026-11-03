@@ -4,6 +4,7 @@ import Mosaico from './components/Mosaico'
 import Cursor from './components/Cursor'
 import Caricamento from './components/Caricamento'
 import Logo from './components/Logo'
+import Piedino from './components/Piedino'
 import { formats, ambiti, ricorrenze, dimensioni, ricerca, type Format, type Edition, type TesiFormato, type Caso } from './data/archive'
 
 type Route =
@@ -92,11 +93,14 @@ export default function App() {
       </main>
 
       {route.page !== 'archivio' && (
-        <footer className="mt-32 grid grid-cols-2 gap-4 px-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-[13px] text-ink md:grid-cols-4 md:px-10">
-          <span>designed to end</span>
-          <span>archivio digitale delle identità visive dei formati di eventi</span>
-          <span className="hidden md:block">base: tesi / foglio archivio</span>
-          <span className="hidden text-right md:block">dati segnaposto · 2026</span>
+        <footer className="mt-32">
+          <div className="grid grid-cols-2 gap-4 px-6 pb-10 text-[13px] text-ink md:grid-cols-4 md:px-10">
+            <span>designed to end</span>
+            <span>archivio digitale delle identità visive dei formati di eventi</span>
+            <span className="hidden md:block">base: tesi / foglio archivio</span>
+            <span className="hidden text-right md:block">dati segnaposto · 2026</span>
+          </div>
+          <Piedino />
         </footer>
       )}
 
