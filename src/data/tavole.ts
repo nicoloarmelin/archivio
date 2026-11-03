@@ -18,6 +18,18 @@ export type Tavola = { sinistra: Blocco[][]; destra: Blocco[][] }
 
 const hex = (nome: string, h: string): Colore => [nome, h.toUpperCase(), h]
 
+// I file dell'archivio usati in una tavola: nella scheda non si ripetono nella galleria sotto
+export const usate = (t: Tavola): Set<string> => {
+  const fs = new Set<string>()
+  const giro = (b: Blocco) => {
+    if ('colonna' in b) b.colonna.forEach(giro)
+    else if ('gruppo' in b) b.gruppo.forEach((f) => fs.add(f))
+    else if ('f' in b && b.f) fs.add(b.f)
+  }
+  ;[...t.sinistra, ...t.destra].flat().forEach(giro)
+  return fs
+}
+
 export const tavole: Record<string, Tavola> = {
   'giochi-olimpici/1968': {
     sinistra: [

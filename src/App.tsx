@@ -6,7 +6,7 @@ import Caricamento from './components/Caricamento'
 import Logo from './components/Logo'
 import Piedino from './components/Piedino'
 import { useFoto, fotoSrc, annoFoto, type Foto } from './data/foto'
-import { tavole } from './data/tavole'
+import { tavole, usate } from './data/tavole'
 import Tavola from './components/Tavola'
 import { formats, ambiti, ricorrenze, dimensioni, ricerca, type Format, type Edition, type TesiFormato, type Caso } from './data/archive'
 
@@ -564,6 +564,9 @@ function Edizione({ f, e, go, open }: { f: Format; e: Edition; go: (r: Route) =>
   const lista = foto?.[String(e.year)] ?? []
   const marchio = lista.findIndex((x) => x.logo)
   const tavola = lista.findIndex((x) => x.tavola)
+  // Nella galleria non si ripete niente di ciò che la pagina mostra già: tavola, marchio in alto, immagini della tavola
+  const nellaTavola = tavole[`${f.id}/${e.year}`] ? usate(tavole[`${f.id}/${e.year}`]) : new Set<string>()
+  const galleria = lista.filter((x, i) => !x.tavola && i !== marchio && !nellaTavola.has(x.f.split('/').pop()!))
   const apri = (i: number) => open({ formato: f.name, edizione: e.label, tipo: lista[i].t, didascalia: '', fonte: f.fonti, foto: lista, i })
   return (
     <article className="px-6 pt-[calc(8rem+env(safe-area-inset-top))] md:px-10">
@@ -612,8 +615,8 @@ function Edizione({ f, e, go, open }: { f: Format; e: Edition; go: (r: Route) =>
             />
           </button>
         )}
-        {lista.length > 0 ? (
-          <FotoGriglia foto={lista.filter((x) => !x.tavola)} apri={(i) => apri(lista.indexOf(lista.filter((x) => !x.tavola)[i]))} />
+        {galleria.length > 0 ? (
+          <FotoGriglia foto={galleria} apri={(i) => apri(lista.indexOf(galleria[i]))} />
         ) : (
           <div className="columns-2 gap-2.5 md:columns-3 lg:columns-4">
             {mats.map((t, i) => (
