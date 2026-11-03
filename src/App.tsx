@@ -93,15 +93,12 @@ export default function App() {
       </main>
 
       {route.page !== 'archivio' && (
-        <footer className="mt-32">
-          <div className="grid grid-cols-2 gap-4 px-6 pb-10 text-[13px] text-ink md:grid-cols-4 md:px-10">
-            <span>designed to end</span>
-            <span>archivio digitale delle identità visive dei formati di eventi</span>
-            <span className="hidden md:block">base: tesi / foglio archivio</span>
-            <span className="hidden text-right md:block">dati segnaposto · 2026</span>
-          </div>
-          <Piedino />
-        </footer>
+        <Piedino>
+          <span>designed to end</span>
+          <span>archivio digitale delle identità visive dei formati di eventi</span>
+          <span className="hidden md:block">base: tesi / foglio archivio</span>
+          <span className="hidden text-right md:block">dati segnaposto · 2026</span>
+        </Piedino>
       )}
 
       {lightbox && <Lightbox img={lightbox} close={() => setLightbox(null)} />}
