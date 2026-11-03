@@ -10,7 +10,8 @@ export type Foto = {
   logo: boolean // marchio dell'edizione
   d: string // didascalia o fonte
   l: string // pagine del libro, se usata nella tesi
-  scuro?: boolean // marchio in versione bianca: va su fondo scuro
+  scuro?: boolean // disegno chiaro (marchio in bianco): va su fondo scuro
+  tr?: boolean // immagine trasparente: va su un fondo pieno, bianco o (se scuro) nero
   tavola?: boolean // tavola d'identità della tesi (casi studio): anche in versione da 2400 px
 }
 export type FotoFormato = Record<string, Foto[]>
@@ -22,6 +23,9 @@ const BASE = `${import.meta.env.BASE_URL}foto/`
 // p: miniatura per le griglie (480 px), g: vista ingrandita (1280 px), x: tavola a tutta larghezza (2400 px)
 export const fotoSrc = (x: Foto, misura: 'p' | 'g' | 'x') => `${BASE}${misura}/${x.f}.webp`
 export const annoFoto = (x: Foto) => x.f.split('/')[1]
+// Fondo dietro un'immagine: i marchi e le immagini trasparenti su un fondo pieno che dia contrasto in
+// entrambi i temi (bianco, o nero per i disegni chiari); le fotografie sul grigio del segnaposto
+export const fondoFoto = (x: Foto) => (x.scuro ? 'bg-nero' : x.logo || x.tr ? 'bg-white' : 'bg-g50')
 
 export function useFoto(id: string) {
   const [foto, setFoto] = useState<FotoFormato | null>(null)

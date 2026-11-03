@@ -61,7 +61,7 @@ function Cornice({ f, r, ar, fit, alt, ctx }: { f?: string; r?: string; ar: numb
   const src = i >= 0 ? fotoSrc(ctx.lista[i], 'g') : r ? `${BASE}g/${ctx.cartella}/${r}.webp` : ''
   const img = <img src={src} alt={alt} loading="lazy" decoding="async" className={`h-full w-full ${fit === 'cover' ? 'object-cover' : 'object-contain'}`} />
   return (
-    <div className={`cornice relative overflow-hidden ${fit === 'cover' ? 'bg-g50' : 'bg-white'}`} style={{ ['--ar' as string]: ar }}>
+    <div className={`cornice relative overflow-hidden ${i >= 0 && ctx.lista[i].scuro ? 'bg-nero' : fit === 'cover' && !(i >= 0 && ctx.lista[i].tr) ? 'bg-g50' : 'bg-white'}`} style={{ ['--ar' as string]: ar }}>
       {i >= 0 ? (
         <button onClick={() => ctx.apri(i)} className="group block h-full w-full">
           {img}
