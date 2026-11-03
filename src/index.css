@@ -183,3 +183,7 @@ input::placeholder { text-transform: uppercase; }
    carta; di notte il fondo è bianco, perché i marchi a colori stanno su bianco */
 .cerchio-marchio { background: color-mix(in srgb, var(--g50) 45%, #fff); }
 .dark .cerchio-marchio { background: #fff; }
+
+/* Palette delle tavole: sul telefono meno colori per riga (--cols-telefono) */
+.palette { grid-template-columns: repeat(var(--cols-telefono), minmax(0, 1fr)); }
+@media (min-width: 768px) { .palette { grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); } }

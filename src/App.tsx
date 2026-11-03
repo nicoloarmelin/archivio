@@ -6,6 +6,8 @@ import Caricamento from './components/Caricamento'
 import Logo from './components/Logo'
 import Piedino from './components/Piedino'
 import { useFoto, fotoSrc, annoFoto, type Foto } from './data/foto'
+import { tavole } from './data/tavole'
+import Tavola from './components/Tavola'
 import { formats, ambiti, ricorrenze, dimensioni, ricerca, type Format, type Edition, type TesiFormato, type Caso } from './data/archive'
 
 type Route =
@@ -590,8 +592,13 @@ function Edizione({ f, e, go, open }: { f: Format; e: Edition; go: (r: Route) =>
 
       <section className="mt-32">
         <SectionHead title="logo e immagini" sub="applicazioni e materiali selezionati · didascalie, autori e fonti nella vista ingrandita" />
-        {tavola >= 0 && (
-          // La tavola d'identità della tesi, a tutta larghezza dello schermo sopra le immagini del caso
+        {tavole[`${f.id}/${e.year}`] ? (
+          // La tavola d'identità della tesi, ricomposta con le stesse immagini, sopra le altre immagini del caso
+          <div className="mb-16 md:mb-24">
+            <Tavola t={tavole[`${f.id}/${e.year}`]} cartella={`${f.id}/${e.year}`} lista={lista} apri={apri} />
+          </div>
+        ) : tavola >= 0 && (
+          // Tavola non ancora ricomposta: l'esportazione della tesi a tutta larghezza
           <button onClick={() => apri(tavola)} className="group relative -mx-6 mb-10 block w-[calc(100%+3rem)] md:-mx-10 md:mb-16 md:w-[calc(100%+5rem)]">
             <img
               src={fotoSrc(lista[tavola], 'g')}
