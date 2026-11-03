@@ -1,17 +1,19 @@
 import { useEffect, useRef } from 'react'
 
 // Fondo del piedino: colonne nella sfumatura della parte, sfocate fino a fondersi.
-// Lo scorrimento ne fa un ciclo di vita: all'ingresso la sfumatura nasce piatta dal basso (pre),
-// a metà le colonne salgono a gradini verso il centro (evento), in fondo alla pagina tornano
-// tutte alla stessa altezza e la sfumatura resta orizzontale (post).
+// Quando il piedino arriva nell'inquadratura si compie un ciclo di vita: la sfumatura nasce
+// piatta dal basso (pre), le colonne salgono a gradini verso il centro (evento) e poi tornano
+// tutte alla stessa altezza, così la sfumatura resta orizzontale (post). Uscendo si riavvolge.
 const COLONNE = 9
 const PIATTA = 58 // altezza delle colonne a riposo, in %
 const PICCO = 30 // quanto sale la colonna centrale al culmine; lascia spazio sopra alla sfocatura
+const DURATA = 2600
 const profilo = Array.from({ length: COLONNE }, (_, i) => {
   const c = (COLONNE - 1) / 2
   return 1 - Math.abs(i - c) / c
 })
 const clamp = (x: number) => Math.min(1, Math.max(0, x))
+const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
 
 export default function Piedino() {
   const box = useRef<HTMLDivElement>(null)
@@ -19,32 +21,49 @@ export default function Piedino() {
   const col = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
-    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    let raf = 0
-    const draw = () => {
-      raf = 0
-      const r = box.current?.getBoundingClientRect()
-      if (!r) return
-      // 0 quando il piedino entra dal basso, 1 quando la pagina è finita
-      const p = still ? 1 : clamp((window.innerHeight - r.top) / r.height)
-      const nasce = clamp(p / 0.4)
-      const culmine = Math.sin(Math.PI * p)
-      scena.current!.style.transform = `scaleY(${nasce})`
+    // p da 0 (non ancora nata) a 1 (orizzontale): crescita nel primo terzo, culmine a metà
+    const draw = (p: number) => {
+      const culmine = Math.sin(Math.PI * clamp((p - 0.15) / 0.85))
+      scena.current!.style.transform = `scaleY(${clamp(p / 0.35)})`
       profilo.forEach((k, i) => {
         const el = col.current[i]
         if (el) el.style.height = `${PIATTA + PICCO * k * culmine}%`
       })
     }
-    const on = () => {
-      if (!raf) raf = requestAnimationFrame(draw)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      draw(1)
+      return
     }
-    draw()
-    window.addEventListener('scroll', on, { passive: true })
-    window.addEventListener('resize', on)
+    draw(0)
+    let raf = 0
+    let fatto = false
+    const play = () => {
+      const t0 = performance.now()
+      const step = (now: number) => {
+        const t = clamp((now - t0) / DURATA)
+        draw(ease(t))
+        raf = t < 1 ? requestAnimationFrame(step) : 0
+      }
+      raf = requestAnimationFrame(step)
+    }
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.intersectionRatio >= 0.5 && !fatto) {
+          fatto = true
+          play()
+        } else if (!e.isIntersecting && fatto) {
+          // fuori dall'inquadratura si riavvolge, per ripartire al prossimo arrivo
+          fatto = false
+          cancelAnimationFrame(raf)
+          draw(0)
+        }
+      },
+      { threshold: [0, 0.5] },
+    )
+    io.observe(box.current!)
     return () => {
+      io.disconnect()
       cancelAnimationFrame(raf)
-      window.removeEventListener('scroll', on)
-      window.removeEventListener('resize', on)
     }
   }, [])
 
