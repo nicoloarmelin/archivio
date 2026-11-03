@@ -33,6 +33,10 @@
   --sfumatura-notte: linear-gradient(to bottom, #3a3d71 0%, #4e4b97 33%, #7d7ab8 67%, #a7a7d3 100%);
   --sfumatura-tramonto: linear-gradient(to bottom, #f6d98b 0%, #f5a36f 33%, #ea543e 67%, #b2362c 100%);
   --sfumatura: var(--sfumatura-notte);
+  /* la stessa sfumatura in orizzontale, per i dettagli (contorni, barrette, linee) */
+  --sfumatura-x-notte: linear-gradient(to right, #3a3d71 0%, #4e4b97 33%, #7d7ab8 67%, #a7a7d3 100%);
+  --sfumatura-x-tramonto: linear-gradient(to right, #f6d98b 0%, #f5a36f 33%, #ea543e 67%, #b2362c 100%);
+  --sfumatura-x: var(--sfumatura-x-notte);
   color-scheme: light;
 }
 [data-parte='ricerca'] {
@@ -40,6 +44,7 @@
   --medio: #ea543e;
   --scuro: #b2362c;
   --sfumatura: var(--sfumatura-tramonto);
+  --sfumatura-x: var(--sfumatura-x-tramonto);
 }
 [data-parte='home'] {
   --velatura: #dbdada;
@@ -144,5 +149,28 @@ input::placeholder { text-transform: uppercase; }
 .dark .group:hover .logo-box, .dark .logo-box.group:hover, .dark .logo-fisso { background-color: #fff; }
 
 /* Sfumatura della parte sul bordo destro della finestra, come la fascia sul taglio del libro */
-.fascia { position: fixed; top: 0; right: 0; bottom: 0; width: 4px; background: var(--sfumatura); pointer-events: none; z-index: 55; }
-@media (min-width: 768px) { .fascia { width: 6px; } }
+.fascia { position: fixed; top: 0; right: 0; bottom: 0; width: 6px; background: var(--sfumatura); pointer-events: none; z-index: 55; }
+@media (min-width: 768px) { .fascia { width: 10px; } }
+
+/* Dettagli nella sfumatura della parte: un contorno di 2 px, mai un fondo sotto il testo.
+   .anello è un elemento sovrapposto; .contorno lo disegna come ::after dell'elemento stesso
+   e compare sempre (.contorno-on), al passaggio del mouse (.contorno-hover) o su quello del gruppo */
+.anello, .contorno::after {
+  padding: 2px;
+  border-radius: inherit;
+  background: var(--sfumatura-x);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.contorno { position: relative; }
+.contorno::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contorno-on::after, .contorno-hover:hover::after, .group:hover .contorno-gruppo::after { opacity: 1; }

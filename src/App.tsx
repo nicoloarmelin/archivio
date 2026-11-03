@@ -35,7 +35,7 @@ const Tile = ({ text, logo, colore, className = '', onClick, delay = 0 }: { text
     ) : (
       <span className="px-3 text-center font-serif text-[12px] italic tracking-normal text-ink">{cap(text)}</span>
     )}
-    <span className="pointer-events-none absolute inset-0 opacity-0 ring-2 ring-medio transition-opacity group-hover:opacity-100" />
+    <span className="anello absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100" />
   </button>
 )
 
@@ -137,8 +137,8 @@ function Nav({ section, go, dark, toggleDark }: { section: string; go: (r: Route
         </button>
       ))}
       <span
-        className="absolute bottom-2.5 h-[3px] bg-medio transition-all duration-300 ease-out-soft"
-        style={{ left: bar.left, width: bar.width, opacity: bar.on ? 1 : 0 }}
+        className="absolute bottom-2.5 h-[3px] transition-all duration-300 ease-out-soft"
+        style={{ background: 'var(--sfumatura-x)', left: bar.left, width: bar.width, opacity: bar.on ? 1 : 0 }}
       />
       <span className="h-4 w-px bg-g100" />
       <button
@@ -176,7 +176,7 @@ function Home({ go }: { go: (r: Route) => void }) {
           <span className="text-g300">Cosa resta e cosa cambia, attraverso immagini e analisi.</span>
         </p>
         <div className="flex flex-col items-start gap-3 md:col-start-4 md:items-end">
-          <button onClick={() => go({ page: 'archivio' })} className="rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper transition-colors hover:bg-velatura-archivio hover:text-nero">
+          <button onClick={() => go({ page: 'archivio' })} className="contorno contorno-hover rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper transition-colors hover:bg-velatura-archivio hover:text-nero">
             Entra nell'archivio
           </button>
           <button onClick={() => go({ page: 'ricerca' })} className="rounded-[6px] bg-g50 px-[22px] py-[14px] text-[14px] transition-colors hover:bg-g100">
@@ -255,7 +255,7 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
           <button
             key={o}
             onClick={() => set(k, filters[k] === o ? '' : o)}
-            className={`rounded-[6px] px-3.5 py-2 text-[14px] transition-colors ${filters[k] === o ? 'bg-velatura text-nero' : 'bg-g50 hover:bg-g100'}`}
+            className={`rounded-[6px] px-3.5 py-2 text-[14px] transition-colors ${filters[k] === o ? 'contorno contorno-on bg-velatura text-nero' : 'bg-g50 hover:bg-g100'}`}
           >
             {o.toLowerCase()}
           </button>
@@ -279,7 +279,7 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
       >
         <div className="flex rounded-[6px] bg-g50 p-0.5">
           {(['mosaico', 'indice'] as const).map((v) => (
-            <button key={v} onClick={() => setView(v)} className={`rounded-[4px] px-2 py-2 text-[12px] transition-colors min-[400px]:px-2.5 min-[400px]:text-[14px] sm:px-3.5 ${view === v ? 'bg-velatura text-nero' : 'text-ink'}`}>
+            <button key={v} onClick={() => setView(v)} className={`rounded-[4px] px-2 py-2 text-[12px] transition-colors min-[400px]:px-2.5 min-[400px]:text-[14px] sm:px-3.5 ${view === v ? 'contorno contorno-on bg-velatura text-nero' : 'text-ink'}`}>
               {v}
             </button>
           ))}
@@ -324,14 +324,14 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
             <Chips k="variabilita" label="grado di variabilità" opts={['bassa', 'media', 'alta', 'n.d.']} />
             <div>
               <Meta>approfondimento</Meta>
-              <button onClick={() => set('caseStudy', !filters.caseStudy)} className={`mt-3 rounded-[6px] px-3.5 py-2 text-[14px] transition-colors ${filters.caseStudy ? 'bg-velatura text-nero' : 'bg-g50 hover:bg-g100'}`}>
+              <button onClick={() => set('caseStudy', !filters.caseStudy)} className={`mt-3 rounded-[6px] px-3.5 py-2 text-[14px] transition-colors ${filters.caseStudy ? 'contorno contorno-on bg-velatura text-nero' : 'bg-g50 hover:bg-g100'}`}>
                 solo con caso studio
               </button>
             </div>
           </div>
           <div className="flex gap-2 pt-6">
             <button onClick={() => setFilters(EMPTY)} className="flex-1 rounded-[6px] bg-g50 py-[14px] text-[14px] hover:bg-g100">azzera</button>
-            <button onClick={() => setPanel(false)} className="flex-1 rounded-[6px] bg-ink py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-velatura hover:text-nero">
+            <button onClick={() => setPanel(false)} className="contorno contorno-hover flex-1 rounded-[6px] bg-ink py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-velatura hover:text-nero">
               Mostra {list.length} formati
             </button>
           </div>
@@ -358,7 +358,7 @@ function IndiceRows({ list, go }: { list: Format[]; go: (r: Route) => void }) {
           onClick={() => go({ page: 'formato', id: f.id })}
           className="group grid w-full grid-cols-[72px_minmax(0,1fr)_auto] items-center gap-4 border-b md:gap-6 border-g50 py-3 text-left md:grid-cols-[88px_1fr_1fr_1fr_1fr_100px]"
         >
-          <div className="logo-box reveal flex aspect-[4/3] items-center justify-center border border-g50 transition-colors group-hover:border-medio" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
+          <div className="logo-box contorno contorno-gruppo reveal flex aspect-[4/3] items-center justify-center border border-g50" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
             <Logo id={f.id} name={f.name} className="h-[60%] w-[74%]" />
           </div>
           <div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -454,7 +454,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
                   className="group flex shrink-0 flex-col items-center gap-3"
                 >
                   <span
-                    className={`reveal flex h-[88px] w-[88px] items-center justify-center rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'bg-velatura text-nero' : 'bg-g50 text-ink'}`}
+                    className={`reveal flex h-[88px] w-[88px] items-center justify-center rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'contorno contorno-on bg-velatura text-nero' : 'bg-g50 text-ink'}`}
                     style={{ animationDelay: `${i * 0.06}s` }}
                   >
                     Logo
@@ -626,10 +626,10 @@ function Ciclo({ c }: { c: Caso }) {
     <section className="mt-32">
       <SectionHead title="ciclo di vita e date" sub="presentazione, evento e fase post · le date disponibili ordinate sull'asse del progetto" />
       <div className="relative grid gap-12 pt-10 md:grid-cols-3 md:gap-10">
-        <div className="absolute inset-x-0 top-0 h-px bg-ink" />
+        <div className="absolute inset-x-0 top-0 h-[2px]" style={{ background: 'var(--sfumatura-x)' }} />
         {phases.map((p, i) => (
           <div key={p.k} className="relative">
-            <span className="absolute -top-[45.5px] left-0 hidden h-[11px] w-[11px] rounded-full bg-medio ring-1 ring-ink md:block" />
+            <span className="absolute -top-[44.5px] left-0 hidden h-[11px] w-[11px] rounded-full bg-medio ring-1 ring-ink md:block" />
             <div className="text-[clamp(25px,3vw,40px)] leading-none">{p.k}</div>
             <Meta className="mt-2">{p.v}</Meta>
             {p.date.length > 0 && (
@@ -762,7 +762,7 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
               <div className="min-w-0 space-y-5 font-serif text-[15px] leading-[1.65] tracking-normal text-ink [overflow-wrap:anywhere] md:col-span-2">{body}</div>
             </section>
           ))}
-          <button onClick={() => go({ page: 'archivio' })} className="mt-6 rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-velatura hover:text-nero">
+          <button onClick={() => go({ page: 'archivio' })} className="contorno contorno-hover mt-6 rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-velatura hover:text-nero">
             Vai all'archivio
           </button>
         </div>

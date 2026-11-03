@@ -226,7 +226,7 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
                 >
                   <Logo id={f.id} name={f.name} className="h-[56%] w-[70%]" />
                   {f.caseStudy && <span className="absolute left-2 top-2 rounded-[3px] bg-velatura-archivio px-2 py-0.5 text-[10px] text-nero">caso studio</span>}
-                  <span className="pointer-events-none absolute inset-0 ring-2 ring-medio opacity-0 transition-opacity group-hover:opacity-100" />
+                  <span className="anello absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
                 <div className={`mt-2 flex justify-between text-[12px] transition-opacity ${on ? 'opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100' : 'opacity-0'}`}>
                   <span className="truncate pr-2">{f.name.toLowerCase()}</span>
