@@ -187,3 +187,18 @@ input::placeholder { text-transform: uppercase; }
 /* Palette delle tavole: sul telefono meno colori per riga (--cols-telefono) */
 .palette { grid-template-columns: repeat(var(--cols-telefono), minmax(0, 1fr)); }
 @media (min-width: 768px) { .palette { grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); } }
+
+/* Tavole: sul telefono ogni cornice ha le proporzioni della tesi; da 768 px la doppia è un quadrato
+   e righe, colonne e campioni si dividono l'altezza (--peso), le immagini riempiono le cornici */
+.tavola .cornice, .tavola .tinta { aspect-ratio: var(--ar); }
+@media (min-width: 768px) {
+  .tavola { aspect-ratio: 1; grid-template-rows: minmax(0, 1fr); }
+  .tavola .pagina { display: flex; flex-direction: column; gap: 1.25rem; min-height: 0; }
+  .tavola .riga, .tavola .colonna > * { flex: var(--peso) 1 0; min-height: 0; grid-auto-rows: minmax(0, 1fr); }
+  .tavola .colonna { min-height: 0; }
+  .tavola .figura { display: flex; flex-direction: column; min-height: 0; }
+  .tavola .cornice, .tavola .gruppo, .tavola .tinta { aspect-ratio: auto; flex: 1 1 0; min-height: 0; }
+  .tavola .gruppo { grid-auto-rows: minmax(0, 1fr); }
+  .tavola .palette { grid-auto-rows: minmax(0, 1fr); min-height: 0; }
+  .tavola .campione { min-height: 0; }
+}

@@ -5,14 +5,26 @@ const BASE = `${import.meta.env.BASE_URL}foto/`
 
 type Ctx = { cartella: string; lista: Foto[]; apri: (i: number) => void }
 
-// La doppia della tesi ricomposta: le due pagine affiancate su schermo grande, una sotto l'altra sul
-// telefono. Dentro ogni pagina i blocchi stanno su 12 colonne; sul telefono i blocchi stretti vanno
-// a due per riga e le palette larghe su tre colonne. Le immagini aprono la vista ingrandita.
+// Altezza stimata di un blocco, in frazioni della larghezza della pagina: serve a ripartire l'altezza
+// del quadrato tra le righe in proporzione alla tavola della tesi
+const DIDA = 0.06
+const altezza = (b: Blocco, f = b.span / 12): number => {
+  if ('colonna' in b) return b.colonna.reduce((h, x) => h + altezza(x, f), 0) + 0.02 * (b.colonna.length - 1)
+  if ('colori' in b) return Math.ceil(b.colori.length / b.cols) * (f / b.cols / (b.ar ?? 1.2) + 0.05)
+  if ('gruppo' in b) return Math.ceil(b.gruppo.length / b.cols) * (f / b.cols / b.ar) + DIDA
+  return f / b.ar + DIDA
+}
+const peso = (riga: Blocco[]) => Math.max(...riga.map((b) => altezza(b)))
+
+// La doppia della tesi ricomposta. Su schermo grande le due pagine affiancate formano un quadrato, come
+// la tavola stampata: le righe si dividono l'altezza in proporzione e le immagini riempiono le cornici.
+// Sul telefono le pagine vanno una sotto l'altra con le proporzioni delle immagini; i blocchi stretti
+// stanno a due per riga e le palette larghe su tre colonne. Le immagini aprono la vista ingrandita.
 export default function Tavola({ t, ...ctx }: { t: TavolaDati } & Ctx) {
   const pagina = (righe: Blocco[][]) => (
-    <div className="space-y-6 md:space-y-7">
+    <div className="pagina space-y-6 md:space-y-0">
       {righe.map((riga, ri) => (
-        <div key={ri} className="grid grid-cols-12 gap-x-2.5 gap-y-6">
+        <div key={ri} className="riga grid grid-cols-12 gap-x-2.5 gap-y-6" style={{ ['--peso' as string]: peso(riga) }}>
           {riga.map((b, bi) => (
             <Pezzo key={bi} b={b} ctx={ctx} />
           ))}
@@ -21,7 +33,7 @@ export default function Tavola({ t, ...ctx }: { t: TavolaDati } & Ctx) {
     </div>
   )
   return (
-    <div data-tavola className="grid gap-y-6 md:grid-cols-2 md:gap-x-10">
+    <div data-tavola className="tavola grid gap-y-6 md:grid-cols-2 md:gap-x-10">
       {pagina(t.sinistra)}
       {pagina(t.destra)}
     </div>
@@ -36,7 +48,7 @@ const sfondo = (c: string) => (c.includes('>') ? `linear-gradient(to bottom, ${c
 
 function Didascalia({ titolo, sotto }: { titolo: string; sotto?: string }) {
   return (
-    <figcaption className="mt-2 border-b border-ink pb-1.5">
+    <figcaption className="mt-2 shrink-0">
       <div className="text-[10px] tracking-[0.03em]">{titolo}</div>
       {sotto && <div className="font-serif text-[12px] leading-snug tracking-normal">{sotto}</div>}
     </figcaption>
@@ -49,7 +61,7 @@ function Cornice({ f, r, ar, fit, alt, ctx }: { f?: string; r?: string; ar: numb
   const src = i >= 0 ? fotoSrc(ctx.lista[i], 'g') : r ? `${BASE}g/${ctx.cartella}/${r}.webp` : ''
   const img = <img src={src} alt={alt} loading="lazy" decoding="async" className={`h-full w-full ${fit === 'cover' ? 'object-cover' : 'object-contain'}`} />
   return (
-    <div className={`relative overflow-hidden ${fit === 'cover' ? 'bg-g50' : 'bg-white'}`} style={{ aspectRatio: String(ar) }}>
+    <div className={`cornice relative overflow-hidden ${fit === 'cover' ? 'bg-g50' : 'bg-white'}`} style={{ ['--ar' as string]: ar }}>
       {i >= 0 ? (
         <button onClick={() => ctx.apri(i)} className="group block h-full w-full">
           {img}
@@ -65,9 +77,9 @@ function Cornice({ f, r, ar, fit, alt, ctx }: { f?: string; r?: string; ar: numb
 function Pezzo({ b, ctx }: { b: Blocco; ctx: Ctx }) {
   if ('colonna' in b) {
     return (
-      <div className={`${colonne(b.span)} flex min-w-0 flex-col gap-6`}>
+      <div className={`${colonne(b.span)} colonna flex min-w-0 flex-col gap-6`}>
         {b.colonna.map((x, k) => (
-          <div key={k} className="grid grid-cols-12">
+          <div key={k} className="grid grid-cols-12" style={{ ['--peso' as string]: altezza(x, b.span / 12) }}>
             <Pezzo b={{ ...x, span: 12 }} ctx={ctx} />
           </div>
         ))}
@@ -78,9 +90,9 @@ function Pezzo({ b, ctx }: { b: Blocco; ctx: Ctx }) {
     return (
       <div className={`${colonne(b.span)} palette grid min-w-0 gap-y-4`} style={{ ['--cols' as string]: b.cols, ['--cols-telefono' as string]: b.cols > 4 ? 3 : b.cols }}>
         {b.colori.map(([nome, codici, c], k) => (
-          <div key={k} className="min-w-0">
-            <div className="border-g100" style={{ background: sfondo(c), aspectRatio: String(b.ar ?? 1.2), borderWidth: c.toLowerCase() === '#ffffff' ? 1 : 0 }} />
-            <div className="mt-2 pr-1.5 text-[9px] leading-[1.35] tracking-normal break-words">
+          <div key={k} className="campione flex min-w-0 flex-col">
+            <div className="tinta border-g100" style={{ background: sfondo(c), ['--ar' as string]: b.ar ?? 1.2, borderWidth: c.toLowerCase() === '#ffffff' ? 1 : 0 }} />
+            <div className="mt-2 shrink-0 pr-1.5 text-[9px] leading-[1.35] tracking-normal break-words">
               <div>{nome}</div>
               <div className="whitespace-pre-line">{codici}</div>
             </div>
@@ -92,8 +104,8 @@ function Pezzo({ b, ctx }: { b: Blocco; ctx: Ctx }) {
   const alt = [b.titolo, b.sotto].filter(Boolean).join(', ')
   if ('gruppo' in b) {
     return (
-      <figure className={`${colonne(b.span)} min-w-0`}>
-        <div className="grid gap-2.5" style={{ gridTemplateColumns: `repeat(${b.cols}, minmax(0, 1fr))` }}>
+      <figure className={`${colonne(b.span)} figura min-w-0`}>
+        <div className="gruppo grid gap-2.5" style={{ gridTemplateColumns: `repeat(${b.cols}, minmax(0, 1fr))` }}>
           {b.gruppo.map((f) => (
             <Cornice key={f} f={f} ar={b.ar} fit={b.fit} alt={alt} ctx={ctx} />
           ))}
@@ -103,7 +115,7 @@ function Pezzo({ b, ctx }: { b: Blocco; ctx: Ctx }) {
     )
   }
   return (
-    <figure className={`${colonne(b.span)} min-w-0`}>
+    <figure className={`${colonne(b.span)} figura min-w-0`}>
       <Cornice f={b.f} r={b.r} ar={b.ar} fit={b.fit} alt={alt} ctx={ctx} />
       <Didascalia titolo={b.titolo} sotto={b.sotto} />
     </figure>
