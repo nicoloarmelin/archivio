@@ -12,6 +12,7 @@ export type Foto = {
   l: string // pagine del libro, se usata nella tesi
   scuro?: boolean // disegno chiaro (marchio in bianco): va su fondo scuro
   tr?: boolean // immagine trasparente: va su un fondo pieno, bianco o (se scuro) nero
+  v?: number // versione del file, se è stato rifatto (es. scritta bianca resa scura)
   m?: string // disegno su fondo uniforme: margine del colore del fondo ('tr' se trasparente)
   tavola?: boolean // tavola d'identità della tesi (casi studio): anche in versione da 2400 px
 }
@@ -23,7 +24,7 @@ const carica = () => (indice ??= import('./immagini.json').then((m) => m.default
 const BASE = `${import.meta.env.BASE_URL}foto/`
 // p: miniatura per le griglie (480 px), g: vista ingrandita (1280 px), x: tavola a tutta larghezza (2400 px)
 // Le misure nell'indirizzo: se un file cambia (ritaglio) cambia anche l'indirizzo e il browser non usa la copia vecchia
-export const fotoSrc = (x: Foto, misura: 'p' | 'g' | 'x') => `${BASE}${misura}/${x.f}.webp?${x.w}x${x.h}`
+export const fotoSrc = (x: Foto, misura: 'p' | 'g' | 'x') => `${BASE}${misura}/${x.f}.webp?${x.w}x${x.h}${x.v ? `v${x.v}` : ''}`
 export const annoFoto = (x: Foto) => x.f.split('/')[1]
 // Fondo dietro un'immagine: i marchi e le immagini trasparenti su un fondo pieno che dia contrasto in
 // entrambi i temi (bianco, o nero per i disegni chiari); le fotografie sul grigio del segnaposto
