@@ -477,10 +477,10 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
                   className="group flex shrink-0 flex-col items-center gap-3"
                 >
                   <span
-                    className={`reveal flex h-[88px] w-[88px] items-center justify-center overflow-hidden rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'contorno contorno-on bg-velatura text-nero' : marchio ? 'bg-white' : 'bg-g50 text-ink'}`}
+                    className={`reveal flex h-[88px] w-[88px] items-center justify-center overflow-hidden rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'contorno contorno-on bg-velatura text-nero' : marchio ? 'cerchio-marchio border border-g100' : 'bg-g50 text-ink'}`}
                     style={{ animationDelay: `${i * 0.06}s` }}
                   >
-                    {marchio ? <img src={fotoSrc(marchio, 'p')} alt={`marchio ${e.year}`} loading="lazy" decoding="async" className={`h-[64%] w-[64%] object-contain ${e.caseStudy ? 'mix-blend-multiply' : ''}`} /> : 'Logo'}
+                    {marchio ? <img src={fotoSrc(marchio, 'p')} alt={`marchio ${e.year}`} loading="lazy" decoding="async" className="h-[64%] w-[64%] object-contain mix-blend-multiply" /> : 'Logo'}
                   </span>
                   <span className="tabular-nums">{e.year}</span>
                   {e.city && <span className="-mt-2 max-w-[88px] text-center md:max-w-[120px] text-[12px] leading-tight text-ink">{e.city.toLowerCase()}</span>}

@@ -178,3 +178,8 @@ input::placeholder { text-transform: uppercase; }
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contorno-on::after, .contorno-hover:hover::after, .group:hover .contorno-gruppo::after { opacity: 1; }
+
+/* Cerchi della serie con il marchio dell'edizione: un fondo appena grigio e un filetto li staccano dalla
+   carta; di notte il fondo è bianco, perché i marchi a colori stanno su bianco */
+.cerchio-marchio { background: color-mix(in srgb, var(--g50) 45%, #fff); }
+.dark .cerchio-marchio { background: #fff; }
