@@ -1,10 +1,11 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import { ArrowLeft, ArrowUpRight, Moon, Search, Sun, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUpRight, Moon, Search, Sun, X } from 'lucide-react'
 import Mosaico from './components/Mosaico'
 import Cursor from './components/Cursor'
 import Caricamento from './components/Caricamento'
 import Logo from './components/Logo'
 import Piedino from './components/Piedino'
+import { useFoto, fotoSrc, annoFoto, type Foto } from './data/foto'
 import { formats, ambiti, ricorrenze, dimensioni, ricerca, type Format, type Edition, type TesiFormato, type Caso } from './data/archive'
 
 type Route =
@@ -14,7 +15,7 @@ type Route =
   | { page: 'edizione'; id: string; ed: string }
   | { page: 'ricerca' }
 
-type Image = { formato: string; edizione: string; tipo: string; didascalia: string; fonte: string; logo?: Format }
+type Image = { formato: string; edizione: string; tipo: string; didascalia: string; fonte: string; logo?: Format; foto?: Foto[]; i?: number }
 type Filters = { ambito: string; ricorrenza: string; dimensione: string; variabilita: string; caseStudy: boolean }
 const EMPTY: Filters = { ambito: '', ricorrenza: '', dimensione: '', variabilita: '', caseStudy: false }
 
@@ -38,6 +39,27 @@ const Tile = ({ text, logo, colore, className = '', onClick, delay = 0 }: { text
     )}
     <span className="anello absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100" />
   </button>
+)
+
+// Foto dell'archivio a bacheca: altezze naturali, il marchio dell'edizione su fondo bianco come vogliono le linee guida
+const FotoGriglia = ({ foto, apri }: { foto: Foto[]; apri: (i: number) => void }) => (
+  <div className="columns-2 gap-2.5 md:columns-3 lg:columns-4">
+    {foto.map((x, i) => (
+      <button key={x.f} onClick={() => apri(i)} className="group relative mb-2.5 block w-full break-inside-avoid">
+        <img
+          src={fotoSrc(x, 'p')}
+          width={x.w}
+          height={x.h}
+          alt={`${x.t}, ${annoFoto(x)}`}
+          loading="lazy"
+          decoding="async"
+          className={`reveal block h-auto w-full ${x.logo ? 'bg-white p-[14%]' : 'bg-g50'}`}
+          style={{ animationDelay: `${Math.min(i, 12) * 0.04}s` }}
+        />
+        <span className="anello absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100" />
+      </button>
+    ))}
+  </div>
 )
 
 export default function App() {
@@ -377,7 +399,6 @@ function IndiceRows({ list, go }: { list: Format[]; go: (r: Route) => void }) {
   )
 }
 
-const TIPI = ['logo', 'manifesto', 'applicazione', 'segnaletica', 'pubblicazione', 'merchandising', 'allestimento', 'biglietto']
 const RATIOS = ['aspect-[3/4]', 'aspect-square', 'aspect-[4/5]', 'aspect-[2/3]', 'aspect-[4/3]', 'aspect-[3/5]']
 
 /* 03–04 — Scheda del formato */
@@ -388,8 +409,10 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
     ['sede', f.sede], ['segni permanenti', f.segniPermanenti], ['variabilità', f.variabilita], ['progetto visivo', f.progettoVisivo || '—'],
   ]
   // Galleria solo per i formati senza caso studio (i casi studio usano timeline dei loghi e approfondimenti)
-  const gallery = f.editions
+  const foto = useFoto(f.id)
+  const anni = foto ? Object.keys(foto).sort() : []
   const img = (edizione: string, tipo: string): Image => ({ formato: f.name, edizione, tipo, didascalia: 'didascalia da definire', fonte: f.fonti })
+  const apri = (lista: Foto[], i: number) => open({ ...img(annoFoto(lista[i]), lista[i].t), foto: lista, i })
 
   return (
     <article className="px-6 pt-[calc(8rem+env(safe-area-inset-top))] md:px-10">
@@ -418,23 +441,18 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
 
       {f.tesi && <Serie t={f.tesi} />}
 
-      {!f.caseStudy && (
+      {!f.caseStudy && anni.length > 0 && (
         <section className="mt-32">
-          <SectionHead title="identità visive di alcune edizioni" sub="loghi e applicazioni raccolti per edizione · anno, didascalia e fonte" />
+          <SectionHead title="identità visive delle edizioni" sub="marchi e applicazioni raccolti per edizione · anno, didascalia e fonte nella vista ingrandita" />
           <div className="space-y-20">
-            {gallery.map((e, gi) => (
-              <div key={e.id}>
+            {anni.map((anno) => (
+              <div key={anno}>
                 <div className="flex items-baseline justify-between border-t border-ink pt-3">
-                  <span className="text-[clamp(32px,4vw,64px)] leading-none tracking-normal tabular-nums">{e.year}</span>
-                  <Meta>{(e.caseStudy ? e.label : e.city || '').toLowerCase()}</Meta>
+                  <span className="text-[clamp(32px,4vw,64px)] leading-none tracking-normal tabular-nums">{anno}</span>
+                  <Meta>{foto![anno].length === 1 ? '1 immagine' : `${foto![anno].length} immagini`}</Meta>
                 </div>
-                {/* Masonry: colonne CSS, altezze variabili come una bacheca */}
-                <div className="mt-5 columns-2 gap-2.5 md:columns-3 lg:columns-4">
-                  {TIPI.slice(0, 5 + ((e.year + gi) % 4)).map((t, i) => (
-                    <div key={t} className="mb-2.5 break-inside-avoid">
-                      <Tile text={t} delay={i * 0.04} className={`w-full ${RATIOS[(e.year * 7 + i * 3) % RATIOS.length]}`} onClick={() => open(img(String(e.year), t))} />
-                    </div>
-                  ))}
+                <div className="mt-5">
+                  <FotoGriglia foto={foto![anno]} apri={(i) => apri(foto![anno], i)} />
                 </div>
               </div>
             ))}
@@ -448,22 +466,27 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
           <div className="relative">
             <div className="absolute inset-x-0 top-[44px] h-px bg-g100 md:top-[60px]" />
             <div className="relative flex gap-8 overflow-x-auto pb-6">
-              {f.editions.map((e, i) => (
+              {f.editions.map((e, i) => {
+                // Tokyo 2020 si è tenuta nel 2021: le foto stanno nell'anno nominale, che non è un'edizione a sé
+                const lista = foto?.[String(e.year)] ?? (f.editions.some((o) => o.year === e.year - 1) ? [] : foto?.[String(e.year - 1)] ?? [])
+                const marchio = lista.find((x) => x.logo)
+                return (
                 <button
                   key={e.id}
-                  onClick={() => (e.caseStudy ? go({ page: 'edizione', id: f.id, ed: e.id }) : open(img(String(e.year), 'logo')))}
+                  onClick={() => (e.caseStudy ? go({ page: 'edizione', id: f.id, ed: e.id }) : lista.length ? apri(lista, 0) : open(img(String(e.year), 'logo')))}
                   className="group flex shrink-0 flex-col items-center gap-3"
                 >
                   <span
-                    className={`reveal flex h-[88px] w-[88px] items-center justify-center rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'contorno contorno-on bg-velatura text-nero' : 'bg-g50 text-ink'}`}
+                    className={`reveal flex h-[88px] w-[88px] items-center justify-center overflow-hidden rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'contorno contorno-on bg-velatura text-nero' : marchio ? 'bg-white' : 'bg-g50 text-ink'}`}
                     style={{ animationDelay: `${i * 0.06}s` }}
                   >
-                    Logo
+                    {marchio ? <img src={fotoSrc(marchio, 'p')} alt={`marchio ${e.year}`} loading="lazy" decoding="async" className={`h-[64%] w-[64%] object-contain ${e.caseStudy ? 'mix-blend-multiply' : ''}`} /> : 'Logo'}
                   </span>
                   <span className="tabular-nums">{e.year}</span>
                   {e.city && <span className="-mt-2 max-w-[88px] text-center md:max-w-[120px] text-[12px] leading-tight text-ink">{e.city.toLowerCase()}</span>}
                 </button>
-              ))}
+                )
+              })}
             </div>
           </div>
 
@@ -535,6 +558,10 @@ function Edizione({ f, e, go, open }: { f: Format; e: Edition; go: (r: Route) =>
   const others = f.editions.filter((x) => x.caseStudy && x.id !== e.id)
   const c = e.caso
   const mats = ['manifesto', 'pittogrammi', 'segnaletica', 'biglietto', 'merchandising', 'pubblicazione', 'uniforme', 'medaglia']
+  const foto = useFoto(f.id)
+  const lista = foto?.[String(e.year)] ?? []
+  const marchio = lista.findIndex((x) => x.logo)
+  const apri = (i: number) => open({ formato: f.name, edizione: e.label, tipo: lista[i].t, didascalia: '', fonte: f.fonti, foto: lista, i })
   return (
     <article className="px-6 pt-[calc(8rem+env(safe-area-inset-top))] md:px-10">
       <BackBtn onClick={() => go({ page: 'formato', id: f.id })} label={f.name.toLowerCase()} />
@@ -546,21 +573,33 @@ function Edizione({ f, e, go, open }: { f: Format; e: Edition; go: (r: Route) =>
         </div>
       </header>
 
-      <Tile
-        text="logo dell'edizione e identità visiva"
-        className="mt-16 aspect-[4/3] w-full md:aspect-[21/9]"
-        onClick={() => open({ formato: f.name, edizione: e.label, tipo: 'logo', didascalia: 'didascalia', fonte: f.fonti })}
-      />
+      {marchio >= 0 ? (
+        // Il marchio dell'edizione su fondo bianco, come la scheda del formato
+        <button onClick={() => apri(marchio)} className="logo-box logo-fisso group reveal relative mt-16 flex aspect-[4/3] w-full items-center justify-center border border-g50 md:aspect-[21/9]">
+          <img src={fotoSrc(lista[marchio], 'g')} alt={`marchio di ${e.label}`} decoding="async" className="h-[64%] w-[76%] object-contain" />
+          <span className="anello absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100" />
+        </button>
+      ) : (
+        <Tile
+          text="logo dell'edizione e identità visiva"
+          className="mt-16 aspect-[4/3] w-full md:aspect-[21/9]"
+          onClick={() => open({ formato: f.name, edizione: e.label, tipo: 'logo', didascalia: 'didascalia', fonte: f.fonti })}
+        />
+      )}
 
       <section className="mt-32">
-        <SectionHead title="logo e immagini" sub="applicazioni e materiali selezionati · didascalie, autori e fonti" />
-        <div className="columns-2 gap-2.5 md:columns-3 lg:columns-4">
-          {mats.map((t, i) => (
-            <div key={t} className="mb-2.5 break-inside-avoid">
-              <Tile text={t} delay={i * 0.05} className={`w-full ${RATIOS[(e.year * 7 + i * 3) % RATIOS.length]}`} onClick={() => open({ formato: f.name, edizione: e.label, tipo: t, didascalia: 'didascalia, autore', fonte: f.fonti })} />
-            </div>
-          ))}
-        </div>
+        <SectionHead title="logo e immagini" sub="applicazioni e materiali selezionati · didascalie, autori e fonti nella vista ingrandita" />
+        {lista.length > 0 ? (
+          <FotoGriglia foto={lista} apri={apri} />
+        ) : (
+          <div className="columns-2 gap-2.5 md:columns-3 lg:columns-4">
+            {mats.map((t, i) => (
+              <div key={t} className="mb-2.5 break-inside-avoid">
+                <Tile text={t} delay={i * 0.05} className={`w-full ${RATIOS[(e.year * 7 + i * 3) % RATIOS.length]}`} onClick={() => open({ formato: f.name, edizione: e.label, tipo: t, didascalia: 'didascalia, autore', fonte: f.fonti })} />
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {c && (
@@ -774,14 +813,38 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
 
 /* Consultazione delle immagini */
 function Lightbox({ img, close }: { img: Image; close: () => void }) {
+  const [i, setI] = useState(img.i ?? 0)
+  const lista = img.foto
+  const n = lista?.length ?? 0
+  const x = lista?.[i]
+  const vai = (d: number) => n && setI((v) => (v + d + n) % n)
   useEffect(() => {
-    const k = (e: KeyboardEvent) => e.key === 'Escape' && close()
+    const k = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close()
+      else if (e.key === 'ArrowRight') vai(1)
+      else if (e.key === 'ArrowLeft') vai(-1)
+    }
     window.addEventListener('keydown', k)
     return () => window.removeEventListener('keydown', k)
-  }, [close])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [close, n])
+  // Nella vista di una foto: didascalia o fonte (link se è un indirizzo) e pagine del libro
+  const voci: [string, ReactNode][] = x
+    ? [
+        ['formato', img.formato.toLowerCase()],
+        ['edizione', annoFoto(x)],
+        ['tipo', x.t],
+        ...(x.d ? [[/^https?:\/\//.test(x.d) ? 'fonte' : 'didascalia o fonte', /^https?:\/\//.test(x.d) ? <a href={x.d} target="_blank" rel="noreferrer" className="break-all font-serif text-[14px] tracking-normal underline decoration-g100 underline-offset-2 hover:decoration-ink">{x.d.replace(/^https?:\/\/(www\.)?/, '')}</a> : <span className="font-serif text-[15px] leading-snug tracking-normal">{x.d}</span>] as [string, ReactNode]] : []),
+        ...(x.l ? [['nella tesi', `p. ${x.l}`] as [string, ReactNode]] : []),
+      ]
+    : [['formato', img.formato.toLowerCase()], [img.logo ? 'prima edizione' : 'edizione', img.edizione.toLowerCase()], ['tipo di applicazione', img.tipo.toLowerCase()], ['didascalia', img.didascalia.toLowerCase()]]
   return (
     <div className="fadeup fixed inset-0 z-[70] grid grid-rows-[minmax(0,1fr)_auto] gap-4 bg-paper p-3 pt-[calc(0.75rem+env(safe-area-inset-top))] pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:grid-cols-[1fr_320px] md:grid-rows-1 md:gap-6 md:p-10">
-      {img.logo ? (
+      {x ? (
+        <div className={`relative flex min-h-0 items-center justify-center ${x.logo ? 'bg-white' : 'bg-g50'}`}>
+          <img key={x.f} src={fotoSrc(x, 'g')} alt={`${x.t}, ${annoFoto(x)}`} className={`fadein max-h-full max-w-full object-contain ${x.logo ? 'p-[10%]' : ''}`} />
+        </div>
+      ) : img.logo ? (
         <div className="logo-box logo-fisso reveal flex items-center justify-center border border-g50">
           <Logo id={img.logo.id} name={img.logo.name} colore className="h-[60%] w-[76%]" />
         </div>
@@ -791,12 +854,21 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
         </div>
       )}
       <aside className="flex max-h-[45svh] flex-col md:max-h-none">
-        <button onClick={close} className="order-first ml-auto rounded-[6px] bg-g50 px-3.5 py-2 text-[14px] hover:bg-g100">chiudi</button>
+        <div className="order-first flex items-center gap-2">
+          {n > 1 && (
+            <>
+              <button onClick={() => vai(-1)} className="rounded-[6px] bg-g50 p-2.5 hover:bg-g100" aria-label="Immagine precedente"><ArrowLeft size={16} /></button>
+              <button onClick={() => vai(1)} className="rounded-[6px] bg-g50 p-2.5 hover:bg-g100" aria-label="Immagine successiva"><ArrowRight size={16} /></button>
+              <span className="ml-1 text-[13px] tabular-nums">{i + 1} / {n}</span>
+            </>
+          )}
+          <button onClick={close} className="ml-auto rounded-[6px] bg-g50 px-3.5 py-2 text-[14px] hover:bg-g100">chiudi</button>
+        </div>
         <div className="mt-3 space-y-4 overflow-y-auto md:mt-auto">
-          {[['formato', img.formato], [img.logo ? 'prima edizione' : 'edizione', img.edizione], ['tipo di applicazione', img.tipo], ['didascalia', img.didascalia]].map(([k, v]) => (
+          {voci.map(([k, v]) => (
             <div key={k} className="border-t border-g100 pt-2">
               <Meta>{k}</Meta>
-              <p className="mt-1 whitespace-pre-line break-words">{v.toLowerCase()}</p>
+              <div className="mt-1 whitespace-pre-line break-words">{v}</div>
             </div>
           ))}
         </div>

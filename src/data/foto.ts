@@ -1,0 +1,34 @@
+import { useEffect, useState } from 'react'
+
+// Foto dall'ARCHIVIO DIGITALE (cartella Drive, _INDICE.csv), divise per formato e anno.
+// L'indice completo, con didascalie e fonti, è pesante: si carica solo quando si apre una scheda.
+export type Foto = {
+  f: string // percorso senza estensione: formato/anno/nome
+  w: number
+  h: number
+  t: string // tipo, dal nome del file (manifesto, applicazione, scenografia…)
+  logo: boolean // marchio dell'edizione
+  d: string // didascalia o fonte
+  l: string // pagine del libro, se usata nella tesi
+}
+export type FotoFormato = Record<string, Foto[]>
+
+let indice: Promise<Record<string, FotoFormato>> | null = null
+const carica = () => (indice ??= import('./immagini.json').then((m) => m.default as unknown as Record<string, FotoFormato>))
+
+const BASE = `${import.meta.env.BASE_URL}foto/`
+// p: miniatura per le griglie (480 px), g: vista ingrandita (1280 px)
+export const fotoSrc = (x: Foto, misura: 'p' | 'g') => `${BASE}${misura}/${x.f}.webp`
+export const annoFoto = (x: Foto) => x.f.split('/')[1]
+
+export function useFoto(id: string) {
+  const [foto, setFoto] = useState<FotoFormato | null>(null)
+  useEffect(() => {
+    let vivo = true
+    carica().then((tutte) => vivo && setFoto(tutte[id] ?? {}))
+    return () => {
+      vivo = false
+    }
+  }, [id])
+  return foto
+}

@@ -1,6 +1,7 @@
 // Dati dal foglio ARCHIVIO.xlsx (scheda «Formati»), convertiti in formati.json
 import raw from './formati.json'
 import tesiRaw from './tesi.json'
+import anniFotoRaw from './anni-foto.json'
 
 // Testi dalla tesi (cap. 6): formato, serie delle edizioni e approfondimenti
 export type Caso = { title: string; scheda: [string, string][]; descrizione: string[]; date: [string, string][]; ciclo: string[] }
@@ -42,7 +43,9 @@ export const formats: Format[] = (raw as Row[]).map(({ anniConfrontati, ...r }) 
     }
     return { ...r, tesi: t, caseStudy: true, editions: [...byYear.values()].sort((a, b) => a.year - b.year) }
   }
-  const years = [...new Set([...(r.primaEdizione ? [r.primaEdizione] : []), ...anniConfrontati])].sort((a, b) => a - b)
+  // Le edizioni sono gli anni di cui l'archivio ha immagini; senza immagini, prima edizione e anni confrontati
+  const anniFoto = (anniFotoRaw as Record<string, number[]>)[r.id]
+  const years = anniFoto?.length ? anniFoto : [...new Set([...(r.primaEdizione ? [r.primaEdizione] : []), ...anniConfrontati])].sort((a, b) => a - b)
   return { ...r, caseStudy: false, editions: years.map((year) => ({ id: String(year), label: String(year), year })) }
 })
 
