@@ -175,7 +175,7 @@
  },
  {
   "id": "istanbul-biennial",
-  "name": "Istanbul Biennial (İstanbul Bienali)",
+  "name": "Istanbul Biennial",
   "ambito": "arte",
   "ricorrenza": "biennale",
   "ricorrenzaNota": "biennale (dal 1992 con curatore unico; le prime due edizioni 1987 e 1989 furono coordinate da Beral Madra)",
@@ -259,7 +259,7 @@
  },
  {
   "id": "lisbon-architecture-triennale",
-  "name": "Lisbon Architecture Triennale (Trienal de Arquitectura de Lisboa)",
+  "name": "Lisbon Architecture Triennale",
   "ambito": "arte",
   "ricorrenza": "triennale",
   "ricorrenzaNota": "triennale (con alcune irregolarità di calendario)",
@@ -317,7 +317,7 @@
  },
  {
   "id": "chicago-architecture-biennial",
-  "name": "Chicago Architecture Biennial (CAB)",
+  "name": "Chicago Architecture Biennial",
   "ambito": "arte",
   "ricorrenza": "biennale",
   "ricorrenzaNota": "biennale",
@@ -433,7 +433,7 @@
  },
  {
   "id": "performa",
-  "name": "Performa (New York)",
+  "name": "Performa",
   "ambito": "arte",
   "ricorrenza": "biennale",
   "ricorrenzaNota": "biennale",
@@ -491,7 +491,7 @@
  },
  {
   "id": "biennale-de-lyon",
-  "name": "Biennale de Lyon (Biennale d'art contemporain)",
+  "name": "Biennale de Lyon",
   "ambito": "arte",
   "ricorrenza": "biennale",
   "ricorrenzaNota": "biennale",
@@ -693,7 +693,7 @@
  },
  {
   "id": "giubileo",
-  "name": "Giubileo (Anno Santo) della Chiesa cattolica",
+  "name": "Giubileo della Chiesa cattolica",
   "ambito": "congressi e vertici istituzionali",
   "ricorrenza": "irregolare",
   "ricorrenzaNota": "ordinaria ogni 25 anni, con Giubilei straordinari indetti occasionalmente (es. 1933, 2015-2016)",
@@ -722,7 +722,7 @@
  },
  {
   "id": "international-astronautical-congress",
-  "name": "International Astronautical Congress (IAC)",
+  "name": "International Astronautical Congress",
   "ambito": "congressi e vertici istituzionali",
   "ricorrenza": "annuale",
   "ricorrenzaNota": "annuale",
@@ -780,7 +780,7 @@
  },
  {
   "id": "vertice-g20",
-  "name": "Vertice G20 (Gruppo dei Venti)",
+  "name": "Vertice G20",
   "ambito": "congressi e vertici istituzionali",
   "ricorrenza": "annuale",
   "ricorrenzaNota": "annuale (vertici dei leader)",
@@ -809,7 +809,7 @@
  },
  {
   "id": "vertice-g7",
-  "name": "Vertice G7 (Gruppo dei Sette)",
+  "name": "Vertice G7",
   "ambito": "congressi e vertici istituzionali",
   "ricorrenza": "annuale",
   "ricorrenzaNota": "annuale",
@@ -867,7 +867,7 @@
  },
  {
   "id": "world-urban-forum",
-  "name": "World Urban Forum (WUF)",
+  "name": "World Urban Forum",
   "ambito": "congressi e vertici istituzionali",
   "ricorrenza": "biennale",
   "ricorrenzaNota": "biennale",
@@ -1157,7 +1157,7 @@
  },
  {
   "id": "bundesgartenschau",
-  "name": "Bundesgartenschau (BUGA)",
+  "name": "Bundesgartenschau",
   "ambito": "esposizioni e fiere",
   "ricorrenza": "irregolare",
   "ricorrenzaNota": "circa ogni due anni (non rigidamente fissa)",
@@ -1273,7 +1273,7 @@
  },
  {
   "id": "europalia",
-  "name": "Europalia (EUROPALIA)",
+  "name": "Europalia",
   "ambito": "esposizioni e fiere",
   "ricorrenza": "biennale",
   "ricorrenzaNota": "biennale",
@@ -1533,7 +1533,7 @@
  },
  {
   "id": "academy-awards",
-  "name": "Academy Awards (Oscar)",
+  "name": "Academy Awards",
   "ambito": "format televisivi",
   "ricorrenza": "annuale",
   "ricorrenzaNota": "annuale",
@@ -1591,7 +1591,7 @@
  },
  {
   "id": "mtv-europe-music-awards",
-  "name": "MTV Europe Music Awards (EMA)",
+  "name": "MTV Europe Music Awards",
   "ambito": "format televisivi",
   "ricorrenza": "annuale",
   "ricorrenzaNota": "annuale",
@@ -1620,7 +1620,7 @@
  },
  {
   "id": "mtv-video-music-awards",
-  "name": "MTV Video Music Awards (VMA)",
+  "name": "MTV Video Music Awards",
   "ambito": "format televisivi",
   "ricorrenza": "annuale",
   "ricorrenzaNota": "annuale",
@@ -1649,7 +1649,7 @@
  },
  {
   "id": "survivor",
-  "name": "Survivor (edizione USA)",
+  "name": "Survivor",
   "ambito": "format televisivi",
   "ricorrenza": "irregolare",
   "ricorrenzaNota": "una o più stagioni annue",
@@ -2228,7 +2228,7 @@
  },
  {
   "id": "fifa-world-cup",
-  "name": "FIFA World Cup (Coppa del Mondo FIFA, maschile)",
+  "name": "FIFA World Cup",
   "ambito": "sport",
   "ricorrenza": "quadriennale",
   "ricorrenzaNota": "quadriennale",
@@ -2344,7 +2344,7 @@
  },
  {
   "id": "pan-american-games",
-  "name": "Pan American Games (Giochi Panamericani)",
+  "name": "Pan American Games",
   "ambito": "sport",
   "ricorrenza": "quadriennale",
   "ricorrenzaNota": "quadriennale",
@@ -2401,7 +2401,7 @@
  },
  {
   "id": "giochi-olimpici-invernali",
-  "name": "Giochi Olimpici invernali (Olympic Winter Games)",
+  "name": "Giochi Olimpici invernali",
   "ambito": "sport",
   "ricorrenza": "quadriennale",
   "ricorrenzaNota": "quadriennale",
@@ -2430,7 +2430,7 @@
  },
  {
   "id": "uefa-european-football-championship",
-  "name": "UEFA European Football Championship (EURO)",
+  "name": "UEFA European Football Championship",
   "ambito": "sport",
   "ricorrenza": "quadriennale",
   "ricorrenzaNota": "quadriennale",
@@ -2546,7 +2546,7 @@
  },
  {
   "id": "world-athletics-championships",
-  "name": "World Athletics Championships (Campionati mondiali di atletica leggera)",
+  "name": "World Athletics Championships",
   "ambito": "sport",
   "ricorrenza": "biennale",
   "ricorrenzaNota": "biennale",
@@ -2604,7 +2604,7 @@
  },
  {
   "id": "fifa-women-s-world-cup",
-  "name": "FIFA Women's World Cup (Coppa del Mondo FIFA femminile)",
+  "name": "FIFA Women's World Cup",
   "ambito": "sport",
   "ricorrenza": "quadriennale",
   "ricorrenzaNota": "quadriennale",
@@ -2633,7 +2633,7 @@
  },
  {
   "id": "finale-di-uefa-champions-league",
-  "name": "Finale di UEFA Champions League (per città ospitante)",
+  "name": "Finale di UEFA Champions League",
   "ambito": "sport",
   "ricorrenza": "annuale",
   "ricorrenzaNota": "annuale",
@@ -2720,7 +2720,7 @@
  },
  {
   "id": "giochi-paralimpici-estivi",
-  "name": "Giochi Paralimpici estivi (Summer Paralympic Games)",
+  "name": "Giochi Paralimpici estivi",
   "ambito": "sport",
   "ricorrenza": "quadriennale",
   "ricorrenzaNota": "quadriennale",
@@ -2749,7 +2749,7 @@
  },
  {
   "id": "european-games",
-  "name": "European Games (Giochi Europei)",
+  "name": "European Games",
   "ambito": "sport",
   "ricorrenza": "quadriennale",
   "ricorrenzaNota": "quadriennale",
@@ -2778,7 +2778,7 @@
  },
  {
   "id": "expo-specializzate-bie",
-  "name": "Expo specializzate BIE (Esposizioni Internazionali Riconosciute)",
+  "name": "Expo specializzate BIE",
   "ambito": "esposizioni e fiere",
   "ricorrenza": "irregolare",
   "ricorrenzaNota": "irregolare",
