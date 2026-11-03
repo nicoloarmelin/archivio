@@ -94,10 +94,10 @@ export default function App() {
 
       {route.page !== 'archivio' && (
         <Piedino>
-          <span>designed to end</span>
-          <span>archivio digitale delle identità visive dei formati di eventi</span>
-          <span className="hidden md:block">base: tesi / foglio archivio</span>
-          <span className="hidden text-right md:block">dati segnaposto · 2026</span>
+          <span>Designed to end</span>
+          <span>Identità progettate per finire</span>
+          <span>Politecnico di Milano</span>
+          <span className="md:text-right">A.A. 2025–2026</span>
         </Piedino>
       )}
 

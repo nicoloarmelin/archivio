@@ -9,7 +9,9 @@ const COLONNE = 9
 const PIATTA = 55 // altezza di tutte le colonne quando la sfumatura nasce, in %
 const BASSA = 42 // altezza finale delle colonne ai lati
 const ALTA = 88 // altezza finale della colonna centrale; lascia spazio sopra alla sfocatura
-const SALITA = [0.05, 0.09, 0.09, 0.05] // di quanto salgono le scritte, in frazioni dell'altezza dello schermo
+// di quanto salgono le scritte, in frazioni dell'altezza dello schermo: di più al centro, di meno ai lati
+const SALITA_LATI = 0.03
+const SALITA_CENTRO = 0.11
 const profilo = Array.from({ length: COLONNE }, (_, i) => {
   const c = (COLONNE - 1) / 2
   return 1 - Math.abs(i - c) / c
@@ -41,8 +43,11 @@ export default function Piedino({ children }: { children: ReactNode }) {
         const el = col.current[i]
         if (el) el.style.height = `${PIATTA + (BASSA + (ALTA - BASSA) * k - PIATTA) * forma}%`
       })
-      Array.from(voci.current!.children).forEach((el, i) => {
-        ;(el as HTMLElement).style.transform = `translateY(${-p * SALITA[i % SALITA.length] * window.innerHeight}px)`
+      const vw = window.innerWidth
+      Array.from(voci.current!.children).forEach((el) => {
+        const b = el.getBoundingClientRect()
+        const centro = 1 - Math.abs(b.left + b.width / 2 - vw / 2) / (vw / 2)
+        ;(el as HTMLElement).style.transform = `translateY(${-p * (SALITA_LATI + (SALITA_CENTRO - SALITA_LATI) * centro) * vh}px)`
       })
     }
     const on = () => {
