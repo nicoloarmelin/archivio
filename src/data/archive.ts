@@ -17,7 +17,7 @@ export type Ricerca = {
 const tesi = tesiRaw as unknown as { formati: Record<string, TesiFormato>; ricerca: Ricerca }
 export const ricerca = tesi.ricerca
 
-export type Edition = { id: string; label: string; year: number; city?: string; caseStudy?: boolean; caso?: Caso }
+export type Edition = { id: string; label: string; year: number; city?: string; nome?: string; annullata?: boolean; caseStudy?: boolean; caso?: Caso }
 export type Format = {
   id: string; name: string; ambito: string; ricorrenza: string; ricorrenzaNota: string; dimensione: string
   variabilita: 'bassa' | 'media' | 'alta' | 'n.d.'; periodoVariabilita: string; titolare: string; produttore: string
@@ -33,10 +33,16 @@ export const formats: Format[] = (raw as Row[]).map(({ anniConfrontati, ...r }) 
   if (t) {
     // Serie completa dalla tabella «Le edizioni»; gli approfondimenti aprono la scheda dell'edizione
     const byYear = new Map<number, Edition>()
-    for (const [anno, luogo] of t.tabella.rows) {
+    // Nome dell'edizione per i cerchi senza marchio: la colonna «edizione» se c'è (documenta), COP e numero
+    // per le conferenze, altrimenti il luogo
+    const colEd = t.tabella.header.indexOf('edizione')
+    t.tabella.rows.forEach((row, i) => {
+      const [anno, luogo] = row
       const year = parseInt(anno)
-      if (!byYear.has(year)) byYear.set(year, { id: String(year), label: String(year), year, city: luogo })
-    }
+      const annullata = /annullat/i.test(luogo)
+      const nome = colEd >= 0 ? row[colEd] : r.id.startsWith('cop-') ? `COP${i + 1}` : luogo
+      if (!byYear.has(year)) byYear.set(year, { id: String(year), label: String(year), year, city: annullata ? undefined : luogo, nome, annullata })
+    })
     for (const [y, caso] of Object.entries(t.casi)) {
       const year = Number(y)
       byYear.set(year, { ...(byYear.get(year) ?? { id: y, year }), id: y, year, label: caso.title, caseStudy: true, caso })

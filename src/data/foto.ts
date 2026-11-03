@@ -10,6 +10,7 @@ export type Foto = {
   logo: boolean // marchio dell'edizione
   d: string // didascalia o fonte
   l: string // pagine del libro, se usata nella tesi
+  scuro?: boolean // marchio in versione bianca: va su fondo scuro
 }
 export type FotoFormato = Record<string, Foto[]>
 

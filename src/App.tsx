@@ -53,7 +53,7 @@ const FotoGriglia = ({ foto, apri }: { foto: Foto[]; apri: (i: number) => void }
           alt={`${x.t}, ${annoFoto(x)}`}
           loading="lazy"
           decoding="async"
-          className={`reveal block h-auto w-full ${x.logo ? 'bg-white p-[14%]' : 'bg-g50'}`}
+          className={`reveal block h-auto w-full ${x.logo ? `${x.scuro ? 'bg-nero' : 'bg-white'} p-[14%]` : 'bg-g50'}`}
           style={{ animationDelay: `${Math.min(i, 12) * 0.04}s` }}
         />
         <span className="anello absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100" />
@@ -480,7 +480,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
                     className={`reveal flex h-[88px] w-[88px] items-center justify-center overflow-hidden rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'contorno contorno-on bg-velatura text-nero' : marchio ? 'cerchio-marchio border border-g100' : 'bg-g50 text-ink'}`}
                     style={{ animationDelay: `${i * 0.06}s` }}
                   >
-                    {marchio ? <img src={fotoSrc(marchio, 'p')} alt={`marchio ${e.year}`} loading="lazy" decoding="async" className="h-[64%] w-[64%] object-contain mix-blend-multiply" /> : 'Logo'}
+                    {marchio ? <img src={fotoSrc(marchio, 'p')} alt={`marchio ${e.year}`} loading="lazy" decoding="async" className="h-[64%] w-[64%] object-contain mix-blend-multiply" /> : <span className="px-2 text-center leading-tight">{e.annullata ? 'Annullata' : e.nome || e.city || e.year}</span>}
                   </span>
                   <span className="tabular-nums">{e.year}</span>
                   {e.city && <span className="-mt-2 max-w-[88px] text-center md:max-w-[120px] text-[12px] leading-tight text-ink">{e.city.toLowerCase()}</span>}
@@ -841,7 +841,7 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
   return (
     <div className="fadeup fixed inset-0 z-[70] grid grid-rows-[minmax(0,1fr)_auto] gap-4 bg-paper p-3 pt-[calc(0.75rem+env(safe-area-inset-top))] pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:grid-cols-[1fr_320px] md:grid-rows-1 md:gap-6 md:p-10">
       {x ? (
-        <div className={`relative flex min-h-0 items-center justify-center ${x.logo ? 'bg-white' : 'bg-g50'}`}>
+        <div className={`relative flex min-h-0 items-center justify-center ${x.logo ? (x.scuro ? 'bg-nero' : 'bg-white') : 'bg-g50'}`}>
           <img key={x.f} src={fotoSrc(x, 'g')} alt={`${x.t}, ${annoFoto(x)}`} className={`fadein max-h-full max-w-full object-contain ${x.logo ? 'p-[10%]' : ''}`} />
         </div>
       ) : img.logo ? (
