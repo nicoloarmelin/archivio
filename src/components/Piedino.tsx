@@ -7,9 +7,9 @@ import { useEffect, useRef, type ReactNode } from 'react'
 // di quelle esterne, e alla fine disegnano anche loro un arco.
 const COLONNE = 9
 const PIATTA = 55 // altezza di tutte le colonne quando la sfumatura nasce, in %
-const BASSA = 30 // altezza finale delle colonne ai lati
+const BASSA = 42 // altezza finale delle colonne ai lati
 const ALTA = 88 // altezza finale della colonna centrale; lascia spazio sopra alla sfocatura
-const SALITA = [0.1, 0.18, 0.18, 0.1] // di quanto salgono le scritte, in frazioni dell'altezza dello schermo
+const SALITA = [0.05, 0.09, 0.09, 0.05] // di quanto salgono le scritte, in frazioni dell'altezza dello schermo
 const profilo = Array.from({ length: COLONNE }, (_, i) => {
   const c = (COLONNE - 1) / 2
   return 1 - Math.abs(i - c) / c
@@ -61,10 +61,11 @@ export default function Piedino({ children }: { children: ReactNode }) {
   return (
     <footer className="mt-32">
       {/* Lo spazio sopra le scritte è quello in cui salgono */}
-      <div ref={voci} className="grid grid-cols-2 gap-4 px-6 pt-[18svh] pb-10 text-[13px] text-ink md:grid-cols-4 md:px-10">
+      <div ref={voci} className="relative z-10 grid grid-cols-2 gap-4 px-6 pt-[10svh] pb-6 text-[13px] text-ink md:grid-cols-4 md:px-10">
         {children}
       </div>
-      <div ref={fondo} aria-hidden="true" className="relative h-[clamp(240px,48svh,520px)] overflow-hidden">
+      {/* La parte alta della sfumatura, vuota, scorre sotto le scritte: meno spazio tra le due */}
+      <div ref={fondo} aria-hidden="true" className="relative -mt-[10svh] h-[clamp(240px,48svh,520px)] overflow-hidden">
         {/* Oltre i bordi, perché la sfocatura non schiarisca i lati e il fondo */}
         <div ref={scena} className="absolute -inset-x-10 -bottom-10 top-0 flex origin-bottom items-end blur-[14px] will-change-transform md:blur-[22px]">
           {profilo.map((_, i) => (
