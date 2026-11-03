@@ -1,14 +1,15 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 
 // Piedino con la sfumatura della parte, sul modello del footer di Dia: colonne sfocate fino a fondersi.
-// Lo scorrimento dentro il piedino ne fa un ciclo di vita: appena entra nello schermo la sfumatura
-// nasce dal basso (pre), a metà le colonne salgono a gradini verso il centro (evento), in fondo alla
-// pagina tornano tutte alla stessa altezza e la sfumatura resta orizzontale (post).
-// Le scritte salgono insieme, quelle esterne più lente di quelle interne.
+// Lo scorrimento dentro il piedino la fa crescere: appena entra nello schermo nasce dal basso piatta
+// e orizzontale, poi le colonne salgono a gradini verso il centro fino alla forma piena in fondo
+// alla pagina. Tornando su si riappiattisce. Le scritte salgono con lei, quelle interne più in alto
+// di quelle esterne, e alla fine disegnano anche loro un arco.
 const COLONNE = 9
-const PIATTA = 58 // altezza delle colonne a riposo, in %
-const PICCO = 30 // quanto sale la colonna centrale al culmine; lascia spazio sopra alla sfocatura
-const SALITA = [24, 48, 48, 24] // di quanto salgono le scritte, in px
+const PIATTA = 55 // altezza di tutte le colonne quando la sfumatura nasce, in %
+const BASSA = 30 // altezza finale delle colonne ai lati
+const ALTA = 88 // altezza finale della colonna centrale; lascia spazio sopra alla sfocatura
+const SALITA = [0.1, 0.18, 0.18, 0.1] // di quanto salgono le scritte, in frazioni dell'altezza dello schermo
 const profilo = Array.from({ length: COLONNE }, (_, i) => {
   const c = (COLONNE - 1) / 2
   return 1 - Math.abs(i - c) / c
@@ -30,14 +31,14 @@ export default function Piedino({ children }: { children: ReactNode }) {
       if (!r) return
       // 0 quando il piedino entra dal basso, 1 quando la pagina è finita
       const p = still ? 1 : clamp((window.innerHeight - r.top) / Math.min(r.height, window.innerHeight))
-      const culmine = Math.sin(Math.PI * p)
-      scena.current!.style.transform = `scaleY(${clamp(p / 0.3)})`
+      const forma = p * p * (3 - 2 * p)
+      scena.current!.style.transform = `scaleY(${clamp(p / 0.35)})`
       profilo.forEach((k, i) => {
         const el = col.current[i]
-        if (el) el.style.height = `${PIATTA + PICCO * k * culmine}%`
+        if (el) el.style.height = `${PIATTA + (BASSA + (ALTA - BASSA) * k - PIATTA) * forma}%`
       })
       Array.from(voci.current!.children).forEach((el, i) => {
-        ;(el as HTMLElement).style.transform = `translateY(${(1 - p) * SALITA[i % SALITA.length]}px)`
+        ;(el as HTMLElement).style.transform = `translateY(${-p * SALITA[i % SALITA.length] * window.innerHeight}px)`
       })
     }
     const on = () => {
@@ -55,7 +56,8 @@ export default function Piedino({ children }: { children: ReactNode }) {
 
   return (
     <footer ref={box} className="mt-32">
-      <div ref={voci} className="grid grid-cols-2 gap-4 px-6 pb-10 text-[13px] text-ink md:grid-cols-4 md:px-10">
+      {/* Lo spazio sopra le scritte è quello in cui salgono */}
+      <div ref={voci} className="grid grid-cols-2 gap-4 px-6 pt-[18svh] pb-10 text-[13px] text-ink md:grid-cols-4 md:px-10">
         {children}
       </div>
       <div aria-hidden="true" className="relative h-[clamp(240px,48svh,520px)] overflow-hidden">
