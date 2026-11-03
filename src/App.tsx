@@ -5,7 +5,7 @@ import Cursor from './components/Cursor'
 import Caricamento from './components/Caricamento'
 import Logo from './components/Logo'
 import Piedino from './components/Piedino'
-import { useFoto, fotoSrc, annoFoto, fondoFoto, type Foto } from './data/foto'
+import { useFoto, fotoSrc, annoFoto, fondoFoto, margineFoto, coloreFoto, type Foto } from './data/foto'
 import { tavole, usate } from './data/tavole'
 import Tavola from './components/Tavola'
 import { formats, ambiti, ricorrenze, dimensioni, ricerca, type Format, type Edition, type TesiFormato, type Caso } from './data/archive'
@@ -55,8 +55,8 @@ const FotoGriglia = ({ foto, apri }: { foto: Foto[]; apri: (i: number) => void }
           alt={`${x.t}, ${annoFoto(x)}`}
           loading="lazy"
           decoding="async"
-          className={`reveal block h-auto w-full ${fondoFoto(x)} ${x.logo ? 'p-[14%]' : ''}`}
-          style={{ animationDelay: `${Math.min(i, 12) * 0.04}s` }}
+          className={`reveal block h-auto w-full ${fondoFoto(x)} ${margineFoto(x)}`}
+          style={{ animationDelay: `${Math.min(i, 12) * 0.04}s`, ...coloreFoto(x) }}
         />
         <span className="anello absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100" />
       </button>
@@ -867,8 +867,8 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
   return (
     <div className="fadeup fixed inset-0 z-[70] grid grid-rows-[minmax(0,1fr)_auto] gap-4 bg-paper p-3 pt-[calc(0.75rem+env(safe-area-inset-top))] pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:grid-cols-[1fr_320px] md:grid-rows-1 md:gap-6 md:p-10">
       {x ? (
-        <div className={`relative flex min-h-0 items-center justify-center ${fondoFoto(x)}`}>
-          <img key={x.f} src={fotoSrc(x, 'g')} alt={`${x.t}, ${annoFoto(x)}`} className={`fadein max-h-full max-w-full object-contain ${x.logo ? 'p-[10%]' : ''}`} />
+        <div className={`relative flex min-h-0 items-center justify-center ${fondoFoto(x)}`} style={coloreFoto(x)}>
+          <img key={x.f} src={fotoSrc(x, 'g')} alt={`${x.t}, ${annoFoto(x)}`} className={`fadein max-h-full max-w-full object-contain ${margineFoto(x, true)}`} />
         </div>
       ) : img.logo ? (
         <div className="logo-box logo-fisso reveal flex items-center justify-center border border-g50">
