@@ -30,14 +30,16 @@
   --velatura: #dcdcf0;
   --medio: #7d7ab8;
   --scuro: #3a3d71;
-  --sfumatura: linear-gradient(to bottom, #3a3d71 0%, #4e4b97 33%, #7d7ab8 67%, #a7a7d3 100%);
+  --sfumatura-notte: linear-gradient(to bottom, #3a3d71 0%, #4e4b97 33%, #7d7ab8 67%, #a7a7d3 100%);
+  --sfumatura-tramonto: linear-gradient(to bottom, #f6d98b 0%, #f5a36f 33%, #ea543e 67%, #b2362c 100%);
+  --sfumatura: var(--sfumatura-notte);
   color-scheme: light;
 }
 [data-parte='ricerca'] {
   --velatura: #fee6c3;
   --medio: #ea543e;
   --scuro: #b2362c;
-  --sfumatura: linear-gradient(to bottom, #f6d98b 0%, #f5a36f 33%, #ea543e 67%, #b2362c 100%);
+  --sfumatura: var(--sfumatura-tramonto);
 }
 [data-parte='home'] {
   --velatura: #dbdada;

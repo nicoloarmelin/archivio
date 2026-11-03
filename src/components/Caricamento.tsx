@@ -9,7 +9,8 @@ const PHASES = ['pre', 'evento', 'post'] as const
 const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
 
 // Schermata di caricamento progettata per finire: l'archivio scorre da 000 a 100,
-// il ciclo pre / evento / post si compie e la pagina si chiude verso l'alto
+// il ciclo pre / evento / post si compie e la pagina si chiude verso l'alto.
+// Il fondo è la sfumatura Notte della parte Archivio: testo bianco dove è scura, nero in basso dove schiarisce
 export default function Caricamento({ formats, onEnd }: { formats: Format[]; onEnd: () => void }) {
   const total = formats.length
   const [n, setN] = useState(0)
@@ -51,8 +52,9 @@ export default function Caricamento({ formats, onEnd }: { formats: Format[]; onE
       role="status"
       aria-label="Caricamento dell'archivio"
       onClick={end}
-      className="fixed inset-0 z-[100] flex cursor-pointer flex-col bg-nero p-6 pt-[calc(1.5rem+env(safe-area-inset-top))] pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-white md:p-10"
+      className="fixed inset-0 z-[100] flex cursor-pointer flex-col p-6 pt-[calc(1.5rem+env(safe-area-inset-top))] pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-white md:p-10"
       style={{
+        background: 'var(--sfumatura-notte)',
         clipPath: ending ? 'inset(0 0 100% 0)' : 'inset(0 0 0 0)',
         transition: `clip-path ${EXIT_MS}ms cubic-bezier(0.76, 0, 0.24, 1)`,
       }}
@@ -63,7 +65,8 @@ export default function Caricamento({ formats, onEnd }: { formats: Format[]; onE
         <span className="text-right">06 — L'archivio</span>
       </div>
 
-      <div className="flex flex-1 flex-col items-center justify-center text-center" aria-hidden>
+      {/* Il blocco centrale sale un poco per restare sulla parte scura della sfumatura */}
+      <div className="flex flex-1 flex-col items-center justify-center pb-[20vh] text-center" aria-hidden>
         <div className="font-serif text-[clamp(110px,24vw,340px)] leading-[0.85] tabular-nums tracking-normal">
           {String(n).padStart(3, '0')}
         </div>
@@ -74,16 +77,16 @@ export default function Caricamento({ formats, onEnd }: { formats: Format[]; onE
       </div>
 
       {/* Ciclo di vita: la linea si riempie, i punti si accendono uno dopo l'altro */}
-      <div aria-hidden>
-        <div className="relative h-px bg-white/25">
-          <div className="absolute inset-y-0 left-0 bg-white" style={{ width: `${progress * 100}%` }} />
+      <div aria-hidden className="text-nero">
+        <div className="relative h-px bg-nero/25">
+          <div className="absolute inset-y-0 left-0 bg-nero" style={{ width: `${progress * 100}%` }} />
           {PHASES.map((p, i) => {
             const at = i / (PHASES.length - 1)
             const on = progress >= at - 0.001
             return (
               <span
                 key={p}
-                className={`absolute top-1/2 h-[11px] w-[11px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white transition-colors duration-200 ${on ? 'bg-white' : 'bg-nero'}`}
+                className={`absolute top-1/2 h-[11px] w-[11px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-nero transition-colors duration-200 ${on ? 'bg-nero' : 'bg-transparent'}`}
                 style={{ left: `${at * 100}%` }}
               />
             )
