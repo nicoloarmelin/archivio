@@ -77,7 +77,7 @@ function Cornice({ f, r, ar, fit, alt, ctx }: { f?: string; r?: string; ar: numb
 function Pezzo({ b, ctx }: { b: Blocco; ctx: Ctx }) {
   if ('colonna' in b) {
     return (
-      <div className={`${colonne(b.span)} colonna flex min-w-0 flex-col gap-6`}>
+      <div className={`col-span-12 ${b.span === 8 ? 'md:col-span-8' : 'md:col-span-6'} colonna flex min-w-0 flex-col gap-6`}>
         {b.colonna.map((x, k) => (
           <div key={k} className="grid grid-cols-12" style={{ ['--peso' as string]: altezza(x, b.span / 12) }}>
             <Pezzo b={{ ...x, span: 12 }} ctx={ctx} />
@@ -88,13 +88,18 @@ function Pezzo({ b, ctx }: { b: Blocco; ctx: Ctx }) {
   }
   if ('colori' in b) {
     return (
-      <div className={`${colonne(b.span)} palette grid min-w-0 gap-y-4`} style={{ ['--cols' as string]: b.cols, ['--cols-telefono' as string]: b.cols > 4 ? 3 : b.cols }}>
+      // Sul telefono la palette è un elenco a due colonne su tutta la pagina; --car è la riga più lunga delle diciture
+      <div
+        className={`${b.span <= 6 ? 'col-span-12 md:col-span-6' : colonne(b.span)} palette grid min-w-0 gap-y-4`}
+        style={{ ['--cols' as string]: b.cols, ['--car' as string]: Math.max(...b.colori.flatMap(([n, c]) => [n, ...c.split('\n')].map((r) => r.length))) }}
+      >
         {b.colori.map(([nome, codici, c], k) => (
           <div key={k} className="campione flex min-w-0 flex-col">
-            <div className="tinta border-g100" style={{ background: sfondo(c), ['--ar' as string]: b.ar ?? 1.2, borderWidth: c.toLowerCase() === '#ffffff' ? 1 : 0 }} />
-            <div className="mt-2 shrink-0 pr-1.5 text-[9px] leading-[1.35] tracking-normal break-words">
+            {/* Sul telefono un quadratino accanto alla dicitura, su schermo grande il campione pieno */}
+            <div className="tinta border-g100" style={{ background: sfondo(c), ['--ar' as string]: c.includes('>') ? 0.9 : 1.7, borderWidth: c.toLowerCase() === '#ffffff' ? 1 : 0 }} />
+            <div className="dicitura mt-2 shrink-0 pr-1 leading-[1.35] tracking-normal whitespace-nowrap">
               <div>{nome}</div>
-              <div className="whitespace-pre-line">{codici}</div>
+              <div className="whitespace-pre">{codici}</div>
             </div>
           </div>
         ))}

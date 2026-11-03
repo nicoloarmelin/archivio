@@ -184,13 +184,23 @@ input::placeholder { text-transform: uppercase; }
 .cerchio-marchio { background: color-mix(in srgb, var(--g50) 45%, #fff); }
 .dark .cerchio-marchio { background: #fff; }
 
-/* Palette delle tavole: sul telefono meno colori per riga (--cols-telefono) */
-.palette { grid-template-columns: repeat(var(--cols-telefono), minmax(0, 1fr)); }
-@media (min-width: 768px) { .palette { grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); } }
+/* Palette delle tavole. Sul telefono un elenco a due colonne: quadratino di colore e dicitura accanto.
+   Da 768 px i campioni pieni in colonne come nella tesi. Le diciture non vanno a capo: il corpo si
+   adatta allo spazio disponibile (--car è la riga più lunga), così i campioni hanno tutti la stessa altezza */
+.palette { container-type: inline-size; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0.75rem; }
+.palette .campione { flex-direction: row; align-items: flex-start; gap: 0.6rem; }
+.palette .tinta { flex: none; width: 2.25rem; height: 2.25rem; aspect-ratio: auto; }
+.palette .dicitura { margin-top: 0; font-size: min(10px, calc((50cqw - 3.3rem) / (var(--car) * 0.64))); overflow: hidden; }
+@media (min-width: 768px) {
+  .palette { grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); column-gap: 0; }
+  .palette .campione { flex-direction: column; align-items: stretch; gap: 0; }
+  .palette .tinta { width: auto; height: auto; aspect-ratio: var(--ar); }
+  .palette .dicitura { margin-top: 0.5rem; font-size: min(10px, calc(100cqw / var(--cols) / (var(--car) * 0.64))); }
+}
 
 /* Tavole: sul telefono ogni cornice ha le proporzioni della tesi; da 768 px la doppia è un quadrato
    e righe, colonne e campioni si dividono l'altezza (--peso), le immagini riempiono le cornici */
-.tavola .cornice, .tavola .tinta { aspect-ratio: var(--ar); }
+.tavola .cornice { aspect-ratio: var(--ar); }
 @media (min-width: 768px) {
   .tavola { aspect-ratio: 1; grid-template-rows: minmax(0, 1fr); }
   .tavola .pagina { display: flex; flex-direction: column; gap: 1.25rem; min-height: 0; }
