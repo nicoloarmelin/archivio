@@ -55,11 +55,12 @@ function Didascalia({ titolo, sotto }: { titolo: string; sotto?: string }) {
   )
 }
 
-// Una cornice con l'immagine: apre la vista ingrandita se la foto è nell'archivio
+// Una cornice con l'immagine: apre la vista ingrandita se la foto è nell'archivio. Le immagini intere
+// (marchi, schemi) hanno un margine, così non toccano il bordo della cornice
 function Cornice({ f, r, ar, fit, alt, ctx }: { f?: string; r?: string; ar: number; fit?: 'cover'; alt: string; ctx: Ctx }) {
   const i = f ? ctx.lista.findIndex((x) => x.f === `${ctx.cartella}/${f}`) : -1
   const src = i >= 0 ? fotoSrc(ctx.lista[i], 'g') : r ? `${BASE}g/${ctx.cartella}/${r}.webp` : ''
-  const img = <img src={src} alt={alt} loading="lazy" decoding="async" className={`h-full w-full ${fit === 'cover' ? 'object-cover' : 'object-contain'}`} />
+  const img = <img src={src} alt={alt} loading="lazy" decoding="async" className={`h-full w-full ${fit === 'cover' ? 'object-cover' : 'object-contain p-[clamp(6px,3%,20px)]'}`} />
   return (
     <div className={`cornice relative overflow-hidden ${i >= 0 && ctx.lista[i].scuro ? 'bg-nero' : fit === 'cover' && !(i >= 0 && ctx.lista[i].tr) ? 'bg-g50' : 'bg-white'}`} style={{ ['--ar' as string]: ar }}>
       {i >= 0 ? (
