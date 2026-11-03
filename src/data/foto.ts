@@ -11,6 +11,7 @@ export type Foto = {
   d: string // didascalia o fonte
   l: string // pagine del libro, se usata nella tesi
   scuro?: boolean // marchio in versione bianca: va su fondo scuro
+  tavola?: boolean // tavola d'identità della tesi (casi studio): anche in versione da 2400 px
 }
 export type FotoFormato = Record<string, Foto[]>
 
@@ -18,8 +19,8 @@ let indice: Promise<Record<string, FotoFormato>> | null = null
 const carica = () => (indice ??= import('./immagini.json').then((m) => m.default as unknown as Record<string, FotoFormato>))
 
 const BASE = `${import.meta.env.BASE_URL}foto/`
-// p: miniatura per le griglie (480 px), g: vista ingrandita (1280 px)
-export const fotoSrc = (x: Foto, misura: 'p' | 'g') => `${BASE}${misura}/${x.f}.webp`
+// p: miniatura per le griglie (480 px), g: vista ingrandita (1280 px), x: tavola a tutta larghezza (2400 px)
+export const fotoSrc = (x: Foto, misura: 'p' | 'g' | 'x') => `${BASE}${misura}/${x.f}.webp`
 export const annoFoto = (x: Foto) => x.f.split('/')[1]
 
 export function useFoto(id: string) {

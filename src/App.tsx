@@ -561,6 +561,7 @@ function Edizione({ f, e, go, open }: { f: Format; e: Edition; go: (r: Route) =>
   const foto = useFoto(f.id)
   const lista = foto?.[String(e.year)] ?? []
   const marchio = lista.findIndex((x) => x.logo)
+  const tavola = lista.findIndex((x) => x.tavola)
   const apri = (i: number) => open({ formato: f.name, edizione: e.label, tipo: lista[i].t, didascalia: '', fonte: f.fonti, foto: lista, i })
   return (
     <article className="px-6 pt-[calc(8rem+env(safe-area-inset-top))] md:px-10">
@@ -589,8 +590,23 @@ function Edizione({ f, e, go, open }: { f: Format; e: Edition; go: (r: Route) =>
 
       <section className="mt-32">
         <SectionHead title="logo e immagini" sub="applicazioni e materiali selezionati · didascalie, autori e fonti nella vista ingrandita" />
+        {tavola >= 0 && (
+          // La tavola d'identità della tesi, a tutta larghezza dello schermo sopra le immagini del caso
+          <button onClick={() => apri(tavola)} className="group relative -mx-6 mb-10 block w-[calc(100%+3rem)] md:-mx-10 md:mb-16 md:w-[calc(100%+5rem)]">
+            <img
+              src={fotoSrc(lista[tavola], 'g')}
+              srcSet={`${fotoSrc(lista[tavola], 'g')} 1280w, ${fotoSrc(lista[tavola], 'x')} 2400w`}
+              sizes="100vw"
+              width={lista[tavola].w}
+              height={lista[tavola].h}
+              alt={`tavola d'identità di ${e.label}`}
+              decoding="async"
+              className="reveal block h-auto w-full bg-g50"
+            />
+          </button>
+        )}
         {lista.length > 0 ? (
-          <FotoGriglia foto={lista} apri={apri} />
+          <FotoGriglia foto={lista.filter((x) => !x.tavola)} apri={(i) => apri(lista.indexOf(lista.filter((x) => !x.tavola)[i]))} />
         ) : (
           <div className="columns-2 gap-2.5 md:columns-3 lg:columns-4">
             {mats.map((t, i) => (
