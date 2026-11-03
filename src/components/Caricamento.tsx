@@ -51,7 +51,7 @@ export default function Caricamento({ formats, onEnd }: { formats: Format[]; onE
       role="status"
       aria-label="Caricamento dell'archivio"
       onClick={end}
-      className="fixed inset-0 z-[100] flex cursor-pointer flex-col bg-archive p-6 pt-[calc(1.5rem+env(safe-area-inset-top))] pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-[#231f20] md:p-10"
+      className="fixed inset-0 z-[100] flex cursor-pointer flex-col bg-nero p-6 pt-[calc(1.5rem+env(safe-area-inset-top))] pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-white md:p-10"
       style={{
         clipPath: ending ? 'inset(0 0 100% 0)' : 'inset(0 0 0 0)',
         transition: `clip-path ${EXIT_MS}ms cubic-bezier(0.76, 0, 0.24, 1)`,
@@ -75,15 +75,15 @@ export default function Caricamento({ formats, onEnd }: { formats: Format[]; onE
 
       {/* Ciclo di vita: la linea si riempie, i punti si accendono uno dopo l'altro */}
       <div aria-hidden>
-        <div className="relative h-px bg-[#231f20]/25">
-          <div className="absolute inset-y-0 left-0 bg-[#231f20]" style={{ width: `${progress * 100}%` }} />
+        <div className="relative h-px bg-white/25">
+          <div className="absolute inset-y-0 left-0 bg-white" style={{ width: `${progress * 100}%` }} />
           {PHASES.map((p, i) => {
             const at = i / (PHASES.length - 1)
             const on = progress >= at - 0.001
             return (
               <span
                 key={p}
-                className={`absolute top-1/2 h-[11px] w-[11px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#231f20] transition-colors duration-200 ${on ? 'bg-[#231f20]' : 'bg-archive'}`}
+                className={`absolute top-1/2 h-[11px] w-[11px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white transition-colors duration-200 ${on ? 'bg-white' : 'bg-nero'}`}
                 style={{ left: `${at * 100}%` }}
               />
             )

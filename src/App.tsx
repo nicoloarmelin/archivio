@@ -18,7 +18,7 @@ type Filters = { ambito: string; ricorrenza: string; dimensione: string; variabi
 const EMPTY: Filters = { ambito: '', ricorrenza: '', dimensione: '', variabilita: '', caseStudy: false }
 
 const Meta = ({ children, className = '' }: { children: ReactNode; className?: string }) => (
-  <div className={`font-sans text-[11px] uppercase tracking-[0.03em] text-g200 ${className}`}>{children}</div>
+  <div className={`font-sans text-[11px] uppercase tracking-[0.03em] text-ink ${className}`}>{children}</div>
 )
 
 // Testi in serif in tondo con l'iniziale maiuscola; i nomi propri scritti in minuscolo restano tali
@@ -33,9 +33,9 @@ const Tile = ({ text, logo, colore, className = '', onClick, delay = 0 }: { text
     {logo ? (
       <Logo id={logo.id} name={logo.name} colore={colore} className="h-[56%] w-[70%]" />
     ) : (
-      <span className="px-3 text-center font-serif text-[12px] italic tracking-normal text-g200 transition-colors group-hover:text-ink">{cap(text)}</span>
+      <span className="px-3 text-center font-serif text-[12px] italic tracking-normal text-ink">{cap(text)}</span>
     )}
-    <span className="pointer-events-none absolute inset-0 opacity-0 ring-2 ring-archive transition-opacity group-hover:opacity-100" />
+    <span className="pointer-events-none absolute inset-0 opacity-0 ring-2 ring-medio transition-opacity group-hover:opacity-100" />
   </button>
 )
 
@@ -66,12 +66,17 @@ export default function App() {
   }
 
   const section = route.page === 'formato' || route.page === 'edizione' ? 'archivio' : route.page
+  // La parte aperta sceglie velatura, tono medio e sfumatura (vedi index.css)
+  useEffect(() => {
+    document.documentElement.dataset.parte = section
+  }, [section])
 
   return (
     <div className="min-h-svh">
       {loading && <Caricamento formats={formats} onEnd={() => setLoading(false)} />}
 
       <Nav section={section} go={go} dark={dark} toggleDark={() => setDark((d) => !d)} />
+      {section !== 'home' && <div className="fascia" aria-hidden="true" />}
 
       <main key={JSON.stringify(route)} className="fadein">
         {route.page === 'home' && <Home go={go} />}
@@ -87,7 +92,7 @@ export default function App() {
       </main>
 
       {route.page !== 'archivio' && (
-        <footer className="mt-32 grid grid-cols-2 gap-4 px-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-[13px] text-g200 md:grid-cols-4 md:px-10">
+        <footer className="mt-32 grid grid-cols-2 gap-4 px-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-[13px] text-ink md:grid-cols-4 md:px-10">
           <span>designed to end</span>
           <span>archivio digitale delle identità visive dei formati di eventi</span>
           <span className="hidden md:block">base: tesi / foglio archivio</span>
@@ -125,14 +130,14 @@ function Nav({ section, go, dark, toggleDark }: { section: string; go: (r: Route
           ref={(el) => { refs.current[k] = el }}
           onClick={() => go({ page: k })}
           aria-label={k === 'home' ? label : undefined}
-          className={`text-[12px] min-[400px]:text-[13px] sm:text-[clamp(16px,1.2vw,18px)] transition-colors duration-300 ease-out-soft ${section === k || k === 'home' ? 'text-ink' : 'text-g300 hover:text-ink'}`}
+          className={`text-[12px] min-[400px]:text-[13px] sm:text-[clamp(16px,1.2vw,18px)] transition-colors duration-300 ease-out-soft ${section === k || k === 'home' ? 'text-ink' : 'text-ink hover:text-ink sm:text-g300'}`}
         >
           {/* Il Mono è largo: sui telefoni più stretti il marchio si abbrevia */}
           {k === 'home' ? (<><span className="min-[375px]:hidden">dte</span><span className="hidden min-[375px]:inline">{label}</span></>) : label}
         </button>
       ))}
       <span
-        className="absolute bottom-2.5 h-[3px] bg-archive transition-all duration-300 ease-out-soft"
+        className="absolute bottom-2.5 h-[3px] bg-medio transition-all duration-300 ease-out-soft"
         style={{ left: bar.left, width: bar.width, opacity: bar.on ? 1 : 0 }}
       />
       <span className="h-4 w-px bg-g100" />
@@ -168,10 +173,10 @@ function Home({ go }: { go: (r: Route) => void }) {
       <div className="mt-16 grid gap-10 md:grid-cols-4">
         <p className="font-serif text-[clamp(25px,3vw,40px)] leading-[1.15] md:col-span-2">
           Un archivio delle identità visive dei formati di eventi e delle loro edizioni.{' '}
-          <span className="text-g200">Cosa resta e cosa cambia, attraverso immagini e analisi.</span>
+          <span className="text-g300">Cosa resta e cosa cambia, attraverso immagini e analisi.</span>
         </p>
         <div className="flex flex-col items-start gap-3 md:col-start-4 md:items-end">
-          <button onClick={() => go({ page: 'archivio' })} className="rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper transition-colors hover:bg-archive hover:text-[#231f20]">
+          <button onClick={() => go({ page: 'archivio' })} className="rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper transition-colors hover:bg-velatura-archivio hover:text-nero">
             Entra nell'archivio
           </button>
           <button onClick={() => go({ page: 'ricerca' })} className="rounded-[6px] bg-g50 px-[22px] py-[14px] text-[14px] transition-colors hover:bg-g100">
@@ -186,9 +191,9 @@ function Home({ go }: { go: (r: Route) => void }) {
             {[...row, ...row].map((f, i) => (
               <div key={`${f.id}-${i}`} className="w-[180px] shrink-0 md:w-[220px]" aria-hidden={i >= row.length || undefined}>
                 <Tile text={f.name} logo={f} delay={0.4 + (i % 14) * 0.04} className="aspect-[4/3] w-full" onClick={() => go({ page: 'formato', id: f.id })} />
-                <div className="mt-1.5 flex justify-between gap-2 text-[12px] text-g200">
+                <div className="mt-1.5 flex justify-between gap-2 text-[12px] text-ink">
                   <span className="truncate">{f.name.toLowerCase()}</span>
-                  {f.caseStudy && <span className="shrink-0 font-serif italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">Caso studio</span>}
+                  {f.caseStudy && <span className="shrink-0 font-serif italic tracking-normal rounded-[3px] bg-velatura-archivio px-1.5 text-nero">Caso studio</span>}
                 </div>
               </div>
             ))}
@@ -250,7 +255,7 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
           <button
             key={o}
             onClick={() => set(k, filters[k] === o ? '' : o)}
-            className={`rounded-[6px] px-3.5 py-2 text-[14px] transition-colors ${filters[k] === o ? 'bg-archive text-[#231f20]' : 'bg-g50 hover:bg-g100'}`}
+            className={`rounded-[6px] px-3.5 py-2 text-[14px] transition-colors ${filters[k] === o ? 'bg-velatura text-nero' : 'bg-g50 hover:bg-g100'}`}
           >
             {o.toLowerCase()}
           </button>
@@ -274,31 +279,31 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
       >
         <div className="flex rounded-[6px] bg-g50 p-0.5">
           {(['mosaico', 'indice'] as const).map((v) => (
-            <button key={v} onClick={() => setView(v)} className={`rounded-[4px] px-2 py-2 text-[12px] transition-colors min-[400px]:px-2.5 min-[400px]:text-[14px] sm:px-3.5 ${view === v ? 'bg-archive text-[#231f20]' : 'text-g300 hover:text-ink'}`}>
+            <button key={v} onClick={() => setView(v)} className={`rounded-[4px] px-2 py-2 text-[12px] transition-colors min-[400px]:px-2.5 min-[400px]:text-[14px] sm:px-3.5 ${view === v ? 'bg-velatura text-nero' : 'text-ink'}`}>
               {v}
             </button>
           ))}
         </div>
         <label className="flex min-w-0 flex-1 items-center gap-2 px-2 sm:flex-none sm:px-3">
-          <Search size={14} className="text-g200" />
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="cerca" className="w-full min-w-0 bg-transparent text-[16px] outline-none placeholder:text-g200 sm:w-44 sm:text-[14px]" />
+          <Search size={14} className="text-g300" />
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="cerca" className="w-full min-w-0 bg-transparent text-[16px] outline-none placeholder:text-g300 sm:w-44 sm:text-[14px]" />
         </label>
-        <button onClick={() => setPanel(true)} className="flex shrink-0 items-center gap-2 rounded-[6px] px-2 py-2 text-[12px] text-g300 min-[400px]:px-3 min-[400px]:text-[14px] hover:bg-g50 hover:text-ink sm:px-3.5">
+        <button onClick={() => setPanel(true)} className="flex shrink-0 items-center gap-2 rounded-[6px] px-2 py-2 text-[12px] text-ink min-[400px]:px-3 min-[400px]:text-[14px] hover:bg-g50 hover:text-ink sm:px-3.5">
           filtri
-          {active > 0 && <span className="flex h-4 min-w-4 items-center justify-center rounded-[3px] bg-archive px-1 text-[10px] text-[#231f20]">{active}</span>}
+          {active > 0 && <span className="flex h-4 min-w-4 items-center justify-center rounded-[3px] bg-velatura px-1 text-[10px] text-nero">{active}</span>}
         </button>
-        <span className="hidden pr-3 pl-1 text-[13px] tabular-nums text-g200 sm:block">{list.length}/{formats.length}</span>
+        <span className="hidden pr-3 pl-1 text-[13px] tabular-nums text-ink sm:block">{list.length}/{formats.length}</span>
       </div>
 
       {view === 'indice' && <IndiceRows list={list} go={go} />}
 
       {view === 'mosaico' && (
-        <div className="pointer-events-none fixed bottom-[calc(1.75rem+env(safe-area-inset-bottom))] left-6 z-30 hidden text-[13px] text-g200 lg:block">
+        <div className="pointer-events-none fixed bottom-[calc(1.75rem+env(safe-area-inset-bottom))] left-6 z-30 hidden text-[13px] text-ink lg:block">
           trascina · scroll · ⌘ + scroll per zoom
         </div>
       )}
       {view === 'mosaico' && (
-        <div className="pointer-events-none fixed inset-x-0 top-[calc(4.5rem+env(safe-area-inset-top))] z-30 text-center text-[12px] text-g200 sm:hidden">trascina · pizzica per zoom</div>
+        <div className="pointer-events-none fixed inset-x-0 top-[calc(4.5rem+env(safe-area-inset-top))] z-30 text-center text-[12px] text-ink sm:hidden">trascina · pizzica per zoom</div>
       )}
 
       {/* Scheda filtri in overlay */}
@@ -319,14 +324,14 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
             <Chips k="variabilita" label="grado di variabilità" opts={['bassa', 'media', 'alta', 'n.d.']} />
             <div>
               <Meta>approfondimento</Meta>
-              <button onClick={() => set('caseStudy', !filters.caseStudy)} className={`mt-3 rounded-[6px] px-3.5 py-2 text-[14px] transition-colors ${filters.caseStudy ? 'bg-archive text-[#231f20]' : 'bg-g50 hover:bg-g100'}`}>
+              <button onClick={() => set('caseStudy', !filters.caseStudy)} className={`mt-3 rounded-[6px] px-3.5 py-2 text-[14px] transition-colors ${filters.caseStudy ? 'bg-velatura text-nero' : 'bg-g50 hover:bg-g100'}`}>
                 solo con caso studio
               </button>
             </div>
           </div>
           <div className="flex gap-2 pt-6">
             <button onClick={() => setFilters(EMPTY)} className="flex-1 rounded-[6px] bg-g50 py-[14px] text-[14px] hover:bg-g100">azzera</button>
-            <button onClick={() => setPanel(false)} className="flex-1 rounded-[6px] bg-ink py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-archive hover:text-[#231f20]">
+            <button onClick={() => setPanel(false)} className="flex-1 rounded-[6px] bg-ink py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-velatura hover:text-nero">
               Mostra {list.length} formati
             </button>
           </div>
@@ -339,7 +344,7 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
 function IndiceRows({ list, go }: { list: Format[]; go: (r: Route) => void }) {
   return (
     <div className="pb-[calc(7rem+env(safe-area-inset-bottom))]">
-      <div className="hidden grid-cols-[88px_1fr_1fr_1fr_1fr_100px] gap-6 border-b border-g100 pb-3 text-[13px] text-g200 md:grid">
+      <div className="hidden grid-cols-[88px_1fr_1fr_1fr_1fr_100px] gap-6 border-b border-g100 pb-3 text-[13px] text-ink md:grid">
         <span />
         <span>formato</span>
         <span>ambito</span>
@@ -353,20 +358,20 @@ function IndiceRows({ list, go }: { list: Format[]; go: (r: Route) => void }) {
           onClick={() => go({ page: 'formato', id: f.id })}
           className="group grid w-full grid-cols-[72px_minmax(0,1fr)_auto] items-center gap-4 border-b md:gap-6 border-g50 py-3 text-left md:grid-cols-[88px_1fr_1fr_1fr_1fr_100px]"
         >
-          <div className="logo-box reveal flex aspect-[4/3] items-center justify-center border border-g50 transition-colors group-hover:border-archive" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
+          <div className="logo-box reveal flex aspect-[4/3] items-center justify-center border border-g50 transition-colors group-hover:border-medio" style={{ animationDelay: `${Math.min(i, 20) * 0.025}s` }}>
             <Logo id={f.id} name={f.name} className="h-[60%] w-[74%]" />
           </div>
           <div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">
             <span className="text-[clamp(18px,1.6vw,24px)] transition-transform duration-300 ease-out-soft group-hover:translate-x-1.5">{f.name.toLowerCase()}</span>
-            {f.caseStudy && <span className="font-serif text-[12px] italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">Caso studio</span>}
+            {f.caseStudy && <span className="font-serif text-[12px] italic tracking-normal rounded-[3px] bg-velatura-archivio px-1.5 text-nero">Caso studio</span>}
           </div>
-          <span className="hidden text-g300 md:block">{f.ambito.toLowerCase()}</span>
-          <span className="hidden text-g300 md:block">{f.ricorrenza.toLowerCase()}</span>
-          <span className="hidden text-g300 md:block">{f.variabilita}</span>
-          <span className="text-right tabular-nums text-g300">{f.primaEdizione ?? '—'}</span>
+          <span className="hidden text-ink md:block">{f.ambito.toLowerCase()}</span>
+          <span className="hidden text-ink md:block">{f.ricorrenza.toLowerCase()}</span>
+          <span className="hidden text-ink md:block">{f.variabilita}</span>
+          <span className="text-right tabular-nums text-ink">{f.primaEdizione ?? '—'}</span>
         </button>
       ))}
-      {list.length === 0 && <p className="py-24 text-center text-[clamp(25px,3vw,40px)] text-g200">nessun formato corrisponde ai filtri</p>}
+      {list.length === 0 && <p className="py-24 text-center text-[clamp(25px,3vw,40px)] text-g300">nessun formato corrisponde ai filtri</p>}
     </div>
   )
 }
@@ -449,13 +454,13 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
                   className="group flex shrink-0 flex-col items-center gap-3"
                 >
                   <span
-                    className={`reveal flex h-[88px] w-[88px] items-center justify-center rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'bg-archive text-[#231f20]' : 'bg-g50 text-g200'}`}
+                    className={`reveal flex h-[88px] w-[88px] items-center justify-center rounded-full md:h-[120px] md:w-[120px] font-serif text-[12px] italic tracking-normal transition-transform duration-300 ease-out-soft group-hover:scale-105 ${e.caseStudy ? 'bg-velatura text-nero' : 'bg-g50 text-ink'}`}
                     style={{ animationDelay: `${i * 0.06}s` }}
                   >
                     Logo
                   </span>
                   <span className="tabular-nums">{e.year}</span>
-                  {e.city && <span className="-mt-2 max-w-[88px] text-center md:max-w-[120px] text-[12px] leading-tight text-g200">{e.city.toLowerCase()}</span>}
+                  {e.city && <span className="-mt-2 max-w-[88px] text-center md:max-w-[120px] text-[12px] leading-tight text-ink">{e.city.toLowerCase()}</span>}
                 </button>
               ))}
             </div>
@@ -471,7 +476,7 @@ function Formato({ f, go, open }: { f: Format; go: (r: Route) => void; open: (i:
                 <span className="text-[clamp(28px,3.4vw,56px)] leading-none tracking-normal transition-transform duration-300 ease-out-soft group-hover:translate-x-3">
                   {e.label.toLowerCase()}
                 </span>
-                <span className="flex items-center gap-2 font-serif text-[13px] italic tracking-normal text-g200 group-hover:text-ink">
+                <span className="flex items-center gap-2 font-serif text-[13px] italic tracking-normal text-ink">
                   Scheda dell'edizione <ArrowUpRight size={16} />
                 </span>
               </button>
@@ -491,7 +496,7 @@ function Serie({ t }: { t: TesiFormato }) {
     <section className="mt-32">
       <SectionHead title="la serie delle edizioni" sub="dalla tesi · continuità, discontinuità e cambi di fase del formato" />
       <div className="grid gap-10 md:grid-cols-4">
-        <div className="space-y-5 font-serif text-[15px] leading-[1.65] tracking-normal text-g300 md:col-span-2">
+        <div className="space-y-5 font-serif text-[15px] leading-[1.65] tracking-normal text-ink md:col-span-2">
           {t.edizioniTesto.map((p, i) => (
             <p key={i} className={i === 0 ? 'text-ink' : ''}>{p}</p>
           ))}
@@ -500,17 +505,17 @@ function Serie({ t }: { t: TesiFormato }) {
       {/* Righe su griglia a 4 colonne, allineate al resto della pagina; le colonne in più condividono l'ultima */}
       <div className="mt-16 overflow-x-auto">
         <div className="min-w-[560px]">
-          <TRow cells={t.tabella.header} className="border-b border-ink pb-3 text-[13px] text-g200" />
+          <TRow cells={t.tabella.header} className="border-b border-ink pb-3 text-[13px] text-ink" />
           {rows.map((r, i) => (
             <TRow
               key={i}
               cells={r.map((c, j) => (
                 <>
                   <span className="tabular-nums">{c.toLowerCase()}</span>
-                  {j === 0 && t.casi[c] && <span className="ml-2 font-serif text-[12px] italic tracking-normal rounded-[3px] bg-archive px-1.5 text-[#231f20]">Caso studio</span>}
+                  {j === 0 && t.casi[c] && <span className="ml-2 font-serif text-[12px] italic tracking-normal rounded-[3px] bg-velatura-archivio px-1.5 text-nero">Caso studio</span>}
                 </>
               ))}
-              className={`border-b border-g50 py-2.5 ${t.casi[r[0]] ? 'text-ink' : 'text-g300'}`}
+              className="border-b border-g50 py-2.5 text-ink"
             />
           ))}
         </div>
@@ -588,7 +593,7 @@ function Edizione({ f, e, go, open }: { f: Format; e: Edition; go: (r: Route) =>
         ].map((r) => (
           <button key={r.label} onClick={r.on} className="group flex w-full items-center justify-between border-b border-g100 py-5 text-left">
             <span className="text-[clamp(28px,3.4vw,56px)] leading-none tracking-normal transition-transform duration-300 ease-out-soft group-hover:translate-x-3">{r.label}</span>
-            <span className="font-serif text-[13px] italic tracking-normal text-g200 group-hover:text-ink">{r.hint}</span>
+            <span className="font-serif text-[13px] italic tracking-normal text-ink">{r.hint}</span>
           </button>
         ))}
       </section>
@@ -624,7 +629,7 @@ function Ciclo({ c }: { c: Caso }) {
         <div className="absolute inset-x-0 top-0 h-px bg-ink" />
         {phases.map((p, i) => (
           <div key={p.k} className="relative">
-            <span className="absolute -top-[45.5px] left-0 hidden h-[11px] w-[11px] rounded-full bg-archive ring-1 ring-ink md:block" />
+            <span className="absolute -top-[45.5px] left-0 hidden h-[11px] w-[11px] rounded-full bg-medio ring-1 ring-ink md:block" />
             <div className="text-[clamp(25px,3vw,40px)] leading-none">{p.k}</div>
             <Meta className="mt-2">{p.v}</Meta>
             {p.date.length > 0 && (
@@ -632,12 +637,12 @@ function Ciclo({ c }: { c: Caso }) {
                 {p.date.map(([k, v], j) => (
                   <li key={j} className="grid grid-cols-[1fr_auto] gap-4 border-b border-g50 py-2.5 text-[14px] leading-snug">
                     <span>{k || v}</span>
-                    {k && <span className="text-right tabular-nums text-g200">{v.replace(/\.$/, '')}</span>}
+                    {k && <span className="text-right tabular-nums text-ink">{v.replace(/\.$/, '')}</span>}
                   </li>
                 ))}
               </ol>
             )}
-            <div className="mt-6 space-y-4 font-serif text-[15px] leading-[1.65] tracking-normal text-g300">
+            <div className="mt-6 space-y-4 font-serif text-[15px] leading-[1.65] tracking-normal text-ink">
               {p.testo.map((t, j) => <p key={j}>{t}</p>)}
             </div>
           </div>
@@ -681,7 +686,7 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
           <div key={i} className="space-y-5 text-ink">
             <p>{q[1]}</p>
             <p className="font-sans text-[clamp(17px,1.4vw,20px)] italic leading-[1.7] tracking-normal">
-              <mark className="bg-archive px-1.5 py-0.5 text-[#231f20] [-webkit-box-decoration-break:clone] [box-decoration-break:clone]">{cap(q[2])}</mark>
+              <mark className="bg-velatura px-1.5 py-0.5 text-nero [-webkit-box-decoration-break:clone] [box-decoration-break:clone]">{cap(q[2])}</mark>
             </p>
             {q[3] && <p>{q[3]}</p>}
           </div>
@@ -744,8 +749,8 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
       <div className="mt-24 grid gap-10 md:grid-cols-4">
         <nav className="space-y-1.5 md:sticky md:top-28 md:self-start">
           {sections.map(({ t }, i) => (
-            <a key={t} href={`#${t}`} className="flex gap-3 text-g300 transition-colors hover:text-ink">
-              <span className="w-5 tabular-nums text-g100">{String(i + 1).padStart(2, '0')}</span>
+            <a key={t} href={`#${t}`} className="flex gap-3 text-ink">
+              <span className="w-5 tabular-nums text-ink">{String(i + 1).padStart(2, '0')}</span>
               {t}
             </a>
           ))}
@@ -754,10 +759,10 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
           {sections.map(({ t, body }) => (
             <section key={t} id={t} className="grid scroll-mt-28 gap-6 border-t border-g100 py-10 md:grid-cols-3">
               <h2 className="text-[clamp(25px,3vw,40px)] leading-none">{t}</h2>
-              <div className="min-w-0 space-y-5 font-serif text-[15px] leading-[1.65] tracking-normal text-g300 [overflow-wrap:anywhere] md:col-span-2">{body}</div>
+              <div className="min-w-0 space-y-5 font-serif text-[15px] leading-[1.65] tracking-normal text-ink [overflow-wrap:anywhere] md:col-span-2">{body}</div>
             </section>
           ))}
-          <button onClick={() => go({ page: 'archivio' })} className="mt-6 rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-archive hover:text-[#231f20]">
+          <button onClick={() => go({ page: 'archivio' })} className="mt-6 rounded-[6px] bg-ink px-[22px] py-[14px] font-serif text-[14px] tracking-normal text-paper hover:bg-velatura hover:text-nero">
             Vai all'archivio
           </button>
         </div>
@@ -781,7 +786,7 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
         </div>
       ) : (
         <div className="reveal flex items-center justify-center bg-g50">
-          <span className="font-serif text-[14px] italic tracking-normal text-g200">Immagine ingrandita</span>
+          <span className="font-serif text-[14px] italic tracking-normal text-ink">Immagine ingrandita</span>
         </div>
       )}
       <aside className="flex max-h-[45svh] flex-col md:max-h-none">
@@ -825,7 +830,7 @@ function SectionHead({ title, sub }: { title: string; sub?: string }) {
 
 function BackBtn({ onClick, label }: { onClick: () => void; label: string }) {
   return (
-    <button onClick={onClick} className="group flex items-center gap-2 text-g300 transition-colors hover:text-ink">
+    <button onClick={onClick} className="group flex items-center gap-2 text-ink">
       <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" /> {label}
     </button>
   )

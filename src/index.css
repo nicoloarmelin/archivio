@@ -13,31 +13,51 @@
 @font-face { font-family: 'Office Times Mono'; src: url('./fonts/BLOfficeTimesTRIAL-BoldMono.woff2') format('woff2'); font-weight: 700; font-display: swap; }
 
 /* Modalità giorno / notte: i colori sono variabili, .dark su <html> li inverte.
-   Carta bianca e inchiostro #231F20 della tesi; i grigi partono dall'evidenziatura #DEDDDE.
-   Lilla, arancio e verde sono i colori dei capitoli (06 L'archivio, 01–02, 03–05). */
+   Palette della tesi (3 novembre 2026), sRGB da CMYK Coated FOGRA39: nero C60 M40 Y40 K100,
+   grigi neutri di solo K. Ogni parte ha una sfumatura verticale a quattro passaggi, una velatura
+   chiara (sotto le scritte), un tono medio (solo segni grafici) e uno scuro (linee e testi colorati).
+   La parte aperta è in data-parte su <html>: archivio (Notte), ricerca (Tramonto), home (nessun colore). */
 :root {
   --paper: #ffffff;
-  --ink: #231f20;
+  --ink: #1e2121;
   --surface: #ffffff;
-  --g50: #deddde;
-  --g100: #bcbabb;
-  --g200: #8a8788;
-  --g300: #5e5a5b;
-  --archive: #cbb8e1;
-  --identity: #f14e22;
-  --ephemeral: #bde8d1;
+  --g50: #dbdada;   /* K20 */
+  --g100: #b3b3b3;  /* K40 */
+  --g200: #8a8989;  /* K60, solo segni e filetti */
+  --g300: #5c5c5b;  /* K80 */
+  --nero: #1e2121;  /* il nero non cambia col tema: testo sopra le velature */
+  --velatura-archivio: #dcdcf0;
+  --velatura: #dcdcf0;
+  --medio: #7d7ab8;
+  --scuro: #3a3d71;
+  --sfumatura: linear-gradient(to bottom, #3a3d71 0%, #4e4b97 33%, #7d7ab8 67%, #a7a7d3 100%);
   color-scheme: light;
 }
+[data-parte='ricerca'] {
+  --velatura: #fee6c3;
+  --medio: #ea543e;
+  --scuro: #b2362c;
+  --sfumatura: linear-gradient(to bottom, #f6d98b 0%, #f5a36f 33%, #ea543e 67%, #b2362c 100%);
+}
+[data-parte='home'] {
+  --velatura: #dbdada;
+  --medio: var(--ink);
+  --scuro: var(--ink);
+  --sfumatura: none;
+}
 .dark {
-  --paper: #231f20;
+  --paper: #1e2121;
   --ink: #ffffff;
-  --surface: #231f20;
-  --g50: #3a3536;
-  --g100: #575253;
-  --g200: #8f8a8b;
-  --g300: #bdb8b9;
+  --surface: #1e2121;
+  --g50: #444443;   /* K90 */
+  --g100: #5c5c5b;  /* K80 */
+  --g200: #8a8989;  /* K60 */
+  --g300: #c8c7c7;  /* K30 */
+  --medio: #a7a7d3; /* sul nero il passaggio più chiaro: Notte 4 */
   color-scheme: dark;
 }
+.dark[data-parte='ricerca'] { --medio: #f5a36f; } /* Tramonto 2 */
+.dark[data-parte='home'] { --medio: var(--ink); }
 
 @theme inline {
   --color-paper: var(--paper);
@@ -47,9 +67,11 @@
   --color-g100: var(--g100);
   --color-g200: var(--g200);
   --color-g300: var(--g300);
-  --color-archive: var(--archive);
-  --color-identity: var(--identity);
-  --color-ephemeral: var(--ephemeral);
+  --color-nero: var(--nero);
+  --color-velatura: var(--velatura);
+  --color-velatura-archivio: var(--velatura-archivio);
+  --color-medio: var(--medio);
+  --color-scuro: var(--scuro);
 }
 
 /* font-sans è la voce Mono (interfaccia e titoli), font-serif quella dei testi */
@@ -76,7 +98,7 @@ body {
 button, select { text-transform: inherit; }
 .font-serif, input, textarea { text-transform: none; }
 input::placeholder { text-transform: uppercase; }
-::selection { background: var(--archive); color: #231f20; }
+::selection { background: var(--velatura); color: var(--nero); }
 
 @keyframes reveal {
   from { clip-path: inset(50% 50% 50% 50%); transform: scale(0.7); opacity: 0; }
@@ -118,3 +140,7 @@ input::placeholder { text-transform: uppercase; }
 .dark .logo-giorno, :root:not(.dark) .logo-notte { display: none; }
 .dark .logo-box { transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s; }
 .dark .group:hover .logo-box, .dark .logo-box.group:hover, .dark .logo-fisso { background-color: #fff; }
+
+/* Sfumatura della parte sul bordo destro della finestra, come la fascia sul taglio del libro */
+.fascia { position: fixed; top: 0; right: 0; bottom: 0; width: 4px; background: var(--sfumatura); pointer-events: none; z-index: 55; }
+@media (min-width: 768px) { .fascia { width: 6px; } }

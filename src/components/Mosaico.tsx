@@ -225,12 +225,12 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
                   }}
                 >
                   <Logo id={f.id} name={f.name} className="h-[56%] w-[70%]" />
-                  {f.caseStudy && <span className="absolute left-2 top-2 rounded-[3px] bg-archive px-2 py-0.5 text-[10px] text-[#231f20]">caso studio</span>}
-                  <span className="pointer-events-none absolute inset-0 ring-2 ring-archive opacity-0 transition-opacity group-hover:opacity-100" />
+                  {f.caseStudy && <span className="absolute left-2 top-2 rounded-[3px] bg-velatura-archivio px-2 py-0.5 text-[10px] text-nero">caso studio</span>}
+                  <span className="pointer-events-none absolute inset-0 ring-2 ring-medio opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
                 <div className={`mt-2 flex justify-between text-[12px] transition-opacity ${on ? 'opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100' : 'opacity-0'}`}>
                   <span className="truncate pr-2">{f.name.toLowerCase()}</span>
-                  <span className="shrink-0 text-g200">{f.primaEdizione ?? '—'}</span>
+                  <span className="shrink-0 text-ink">{f.primaEdizione ?? '—'}</span>
                 </div>
                 {!on && <div className="absolute left-1/2 top-[82px] h-1 w-1 -translate-x-1/2 rounded-full bg-g100" />}
               </button>
@@ -240,10 +240,10 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
       </div>
 
       <div className="absolute bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-3 z-10 flex items-center gap-1 md:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] md:right-6 rounded-[8px] border border-g100 bg-surface/90 backdrop-blur-[10px] p-1.5">
-        <button onClick={() => zoomBtn(1 / 1.25)} className="rounded-[6px] p-2 text-g300 hover:bg-g50 hover:text-ink" aria-label="Riduci"><Minus size={14} /></button>
-        <span className="w-10 text-center text-[12px] tabular-nums text-g300">{Math.round(k.z * 100)}%</span>
-        <button onClick={() => zoomBtn(1.25)} className="rounded-[6px] p-2 text-g300 hover:bg-g50 hover:text-ink" aria-label="Ingrandisci"><Plus size={14} /></button>
-        <button onClick={() => center()} className="rounded-[6px] p-2 text-g300 hover:bg-g50 hover:text-ink" aria-label="Centra"><Maximize size={14} /></button>
+        <button onClick={() => zoomBtn(1 / 1.25)} className="rounded-[6px] p-2 text-ink hover:bg-g50" aria-label="Riduci"><Minus size={14} /></button>
+        <span className="w-10 text-center text-[12px] tabular-nums text-ink">{Math.round(k.z * 100)}%</span>
+        <button onClick={() => zoomBtn(1.25)} className="rounded-[6px] p-2 text-ink hover:bg-g50" aria-label="Ingrandisci"><Plus size={14} /></button>
+        <button onClick={() => center()} className="rounded-[6px] p-2 text-ink hover:bg-g50" aria-label="Centra"><Maximize size={14} /></button>
       </div>
     </div>
   )
