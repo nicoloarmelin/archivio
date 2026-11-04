@@ -733,11 +733,11 @@ function Ricerca({ go }: { go: (r: Route) => void }) {
   const r = ricerca
   const glossario: [string, string][] = [
     ['formato', 'Il contenitore ricorrente: nome, regole, titolare e, spesso, alcuni segni che attraversano le occorrenze.'],
-    ['edizione', "L'occorrenza a termine del formato, con una data di inizio e una di fine e un apparato visivo proprio."],
+    ['edizione', "L’occorrenza a termine del formato, con una data di inizio e una di fine e un apparato visivo proprio."],
     ['titolare', "Il soggetto permanente che conserva il formato: concede il nome, stabilisce i vincoli e continua a operare dopo le singole edizioni."],
-    ['produttore', "Chi realizza l'edizione, spesso un comitato o una struttura che si scioglie a manifestazione conclusa. Lo studio grafico non lo sostituisce."],
-    ['segni permanenti', "Gli elementi grafici che il formato trattiene da un'edizione all'altra; nome, sede o trofeo non bastano da soli."],
-    ['grado di variabilità', "Il margine entro cui l'apparato di un'edizione può differire da quello della precedente. Il grado esercitato si osserva confrontando gli artefatti; il grado concesso solo quando un documento del titolare lo attesta."],
+    ['produttore', "Chi realizza l’edizione, spesso un comitato o una struttura che si scioglie a manifestazione conclusa. Lo studio grafico non lo sostituisce."],
+    ['segni permanenti', "Gli elementi grafici che il formato trattiene da un’edizione all’altra; nome, sede o trofeo non bastano da soli."],
+    ['grado di variabilità', "Il margine entro cui l’apparato di un’edizione può differire da quello della precedente. Il grado esercitato si osserva confrontando gli artefatti; il grado concesso solo quando un documento del titolare lo attesta."],
     ['ciclo di vita', 'Le tre fasi di un\'identità di evento: presentazione e promozione, evento, fase post fino alla dismissione dei segni e alla loro eventuale persistenza.'],
   ]
   const sections: { t: string; body: ReactNode }[] = [
