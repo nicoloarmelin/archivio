@@ -323,7 +323,7 @@ function Archivio({ view, setView, q, setQ, filters, setFilters, go, cam, setCam
       {view === 'indice' && <IndiceRows list={list} go={go} />}
 
       {view === 'mosaico' && (
-        <div className="pointer-events-none fixed bottom-[calc(1.75rem+env(safe-area-inset-bottom))] left-6 z-30 hidden text-[13px] text-ink lg:block">
+        <div className="pointer-events-none fixed bottom-[calc(1.75rem+env(safe-area-inset-bottom))] left-6 z-30 hidden text-[13px] text-ink min-[1320px]:block">
           trascina · scroll · ⌘ + scroll per zoom
         </div>
       )}

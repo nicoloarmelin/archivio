@@ -239,7 +239,7 @@ export default function Mosaico({ formats, matches, onOpen, cam, setCam }: {
         </div>
       </div>
 
-      <div className="absolute bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-3 z-10 flex items-center gap-1 md:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] md:right-6 rounded-[8px] border border-g100 bg-surface/90 backdrop-blur-[10px] p-1.5">
+      <div className="absolute bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-3 z-10 flex items-center gap-1 lg:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] lg:right-6 rounded-[8px] border border-g100 bg-surface/90 backdrop-blur-[10px] p-1.5">
         <button onClick={() => zoomBtn(1 / 1.25)} className="rounded-[6px] p-2 text-ink hover:bg-g50" aria-label="Riduci"><Minus size={14} /></button>
         <span className="w-10 text-center text-[12px] tabular-nums text-ink">{Math.round(k.z * 100)}%</span>
         <button onClick={() => zoomBtn(1.25)} className="rounded-[6px] p-2 text-ink hover:bg-g50" aria-label="Ingrandisci"><Plus size={14} /></button>
