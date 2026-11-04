@@ -520,7 +520,7 @@ function Serie({ t }: { t: TesiFormato }) {
   const rows = all ? t.tabella.rows : t.tabella.rows.slice(0, 12)
   return (
     <section className="mt-32">
-      <SectionHead title="la serie delle edizioni" sub="dalla tesi · continuità, discontinuità e cambi di fase del formato" />
+      <SectionHead title="la serie delle edizioni" sub="continuità, discontinuità e cambi di fase del formato" />
       <div className="grid gap-10 md:grid-cols-4">
         <div className="space-y-5 font-serif text-[15px] leading-[1.65] tracking-normal text-ink md:col-span-2">
           {t.edizioniTesto.map((p, i) => (
@@ -630,7 +630,7 @@ function Edizione({ f, e, go, open }: { f: Format; e: Edition; go: (r: Route) =>
 
       {c && (
         <section className="mt-32">
-          <SectionHead title="spiegazione e analisi" sub="dalla tesi · contesto, progetto grafico e rapporto con il formato" />
+          <SectionHead title="spiegazione e analisi" sub="contesto, progetto grafico e rapporto con il formato" />
           <div className="grid gap-10 md:grid-cols-4">
             <div className="space-y-5 md:col-span-2">
               {c.descrizione.map((p, i) => (
@@ -861,7 +861,6 @@ function Lightbox({ img, close }: { img: Image; close: () => void }) {
         ['edizione', annoFoto(x)],
         ['tipo', x.t],
         ...(x.d ? [[/^https?:\/\//.test(x.d) ? 'fonte' : 'didascalia o fonte', /^https?:\/\//.test(x.d) ? <a href={x.d} target="_blank" rel="noreferrer" className="break-all font-serif text-[14px] tracking-normal underline decoration-g100 underline-offset-2 hover:decoration-ink">{x.d.replace(/^https?:\/\/(www\.)?/, '')}</a> : <span className="font-serif text-[15px] leading-snug tracking-normal">{x.d}</span>] as [string, ReactNode]] : []),
-        ...(x.l ? [['nella tesi', `p. ${x.l}`] as [string, ReactNode]] : []),
       ]
     : [['formato', img.formato.toLowerCase()], [img.logo ? 'prima edizione' : 'edizione', img.edizione.toLowerCase()], ['tipo di applicazione', img.tipo.toLowerCase()], ['didascalia', img.didascalia.toLowerCase()]]
   return (

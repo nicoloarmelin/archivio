@@ -2,6 +2,8 @@ import dims from '../data/loghi.json'
 
 const BASE = `${import.meta.env.BASE_URL}loghi/`
 const size = dims as Record<string, { w: number; h: number }>
+// Da cambiare quando si rifanno i file dei loghi, perché il browser non usi le copie vecchie
+const VERSIONE = 2
 
 // Logo del formato in tre versioni: nero di giorno, bianco di notte, a colori al passaggio del mouse.
 // Il contenitore deve avere la classe `group` perché il colore compaia sull'hover; `colore` lo mostra sempre.
@@ -11,7 +13,7 @@ export default function Logo({ id, name, colore = false, className = '' }: { id:
   if (!d) return null
   const img = (v: string, cls: string, alt = '') => (
     <img
-      src={`${BASE}${id}-${v}.webp`}
+      src={`${BASE}${id}-${v}.webp?${VERSIONE}`}
       width={d.w}
       height={d.h}
       alt={alt}
