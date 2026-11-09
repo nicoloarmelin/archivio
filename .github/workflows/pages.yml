@@ -46,3 +46,6 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        # Con migliaia di foto GitHub impiega più dei 10 minuti predefiniti a copiare i file
+        with:
+          timeout: 1800000
